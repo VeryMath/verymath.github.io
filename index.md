@@ -88,6 +88,7 @@ title: VeryMath
   .vm-brand {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     margin-bottom: 8px;
   }
@@ -128,15 +129,20 @@ title: VeryMath
     color: var(--vm-muted);
     font-size: 18px;
     line-height: 1.65;
+    text-align: justify;
+    text-align-last: left;
   }
 
   .vm-hero-copy {
+    width: 100%;
     max-width: 880px;
+    margin: 0 auto;
   }
 
   .vm-actions {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
     margin-top: 20px;
   }
