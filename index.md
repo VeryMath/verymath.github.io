@@ -23,14 +23,14 @@ title: VeryMath
   }
 
   #header_wrap {
-    min-height: 430px;
+    min-height: 260px;
     border-bottom: 4px solid var(--vm-gold);
-    background: #07183d url("/assets/img/VeryMath.jpg") center / cover no-repeat;
+    background: linear-gradient(135deg, #07183d 0%, #123d7a 58%, #b0182f 100%);
   }
 
   #header_wrap .inner {
     max-width: 1120px;
-    padding: 86px 10px 64px;
+    padding: 56px 10px 48px;
   }
 
   #project_title,
@@ -75,7 +75,7 @@ title: VeryMath
 
   .vm-hero {
     display: grid;
-    grid-template-columns: minmax(180px, 0.34fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 0.86fr) minmax(380px, 1.14fr);
     gap: 24px;
     align-items: center;
     margin-bottom: 30px;
@@ -100,6 +100,14 @@ title: VeryMath
     border-radius: 14px;
     object-fit: cover;
     box-shadow: 0 10px 24px rgba(176, 24, 47, 0.16);
+  }
+
+  .vm-hero-visual {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--vm-line);
+    box-shadow: 0 18px 46px rgba(22, 33, 61, 0.14);
   }
 
   .vm-kicker {
@@ -218,6 +226,10 @@ title: VeryMath
     border-left: 4px solid var(--vm-gold);
   }
 
+  .vm-project-wide {
+    grid-column: 1 / -1;
+  }
+
   .vm-repo-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -301,8 +313,7 @@ title: VeryMath
     }
 
     #header_wrap {
-      min-height: 320px;
-      background-position: center top;
+      min-height: 230px;
     }
 
     #header_wrap .inner {
@@ -336,27 +347,30 @@ title: VeryMath
 
 <div class="vm-page">
   <section class="vm-hero">
-    <div class="vm-brand">
-      <img class="vm-logo" src="/assets/img/VeryMathlogo.jpeg" alt="VeryMath logo">
-      <div>
-        <p class="vm-kicker">ECNU &gt;&gt; VeryMath</p>
-        <h1 class="vm-title">VeryMath</h1>
-      </div>
-    </div>
     <div>
-      <p class="vm-subtitle">
-        VeryMath is an open-source organization for AI-assisted mathematical research.
-        We build reusable, verifiable, and collaborative workflows for paper reading,
-        computation, formalization, and research automation.
-      </p>
-      <p class="vm-subtitle">
-        让数学科研流程可复用、可验证、可协作。
-      </p>
-      <div class="vm-actions">
-        <a class="vm-button vm-button-primary" href="https://github.com/orgs/VeryMath/repositories">Browse Repositories</a>
-        <a class="vm-button" href="https://github.com/VeryMath/co-mathematician">Start with co-mathematician</a>
+      <div class="vm-brand">
+        <img class="vm-logo" src="/assets/img/VeryMathlogo.jpeg" alt="VeryMath logo">
+        <div>
+          <p class="vm-kicker">ECNU &gt;&gt; VeryMath</p>
+          <h1 class="vm-title">VeryMath</h1>
+        </div>
+      </div>
+      <div>
+        <p class="vm-subtitle">
+          VeryMath is an open-source organization for AI-assisted mathematical research.
+          We build reusable, verifiable, and collaborative workflows for paper reading,
+          computation, formalization, and research automation.
+        </p>
+        <p class="vm-subtitle">
+          让数学科研流程可复用、可验证、可协作。
+        </p>
+        <div class="vm-actions">
+          <a class="vm-button vm-button-primary" href="https://github.com/orgs/VeryMath/repositories">Browse Repositories</a>
+          <a class="vm-button" href="https://github.com/VeryMath/co-mathematician">Start with co-mathematician</a>
+        </div>
       </div>
     </div>
+    <img class="vm-hero-visual" src="/assets/img/VeryMath.jpg" alt="VeryMath AI for Mathematical Research overview">
   </section>
 
   <section class="vm-section">
@@ -555,7 +569,7 @@ title: VeryMath
         </p>
       </div>
 
-      <div class="vm-card vm-project">
+      <div class="vm-card vm-project vm-project-wide">
         <div class="vm-repo-head">
           <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/co-mathematician">co-mathematician</a></h3>
           <a class="vm-button" href="https://github.com/VeryMath/co-mathematician">Open Repo</a>
@@ -616,11 +630,6 @@ title: VeryMath
         <span>Use reviewer loops and completion gates before rendering a final working paper.</span>
       </div>
     </div>
-  </section>
-
-  <section class="vm-section">
-    <h2>Project Map</h2>
-    <img class="vm-feature-image" src="/assets/img/VeryMath.jpg" alt="VeryMath project capabilities map">
   </section>
 
   <section class="vm-section">
