@@ -17,35 +17,47 @@
     max-width: 100%;
   }
 
+  .page-header {
+    position: relative;
+    padding: 5.4rem 1.5rem 4.7rem;
+    background:
+      linear-gradient(90deg, rgba(7, 24, 61, 0.78), rgba(7, 42, 96, 0.48)),
+      url("/assets/img/VeryMath.jpg") center / cover no-repeat;
+  }
+
+  .page-header .project-name,
+  .page-header .project-tagline {
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.38);
+  }
+
+  .page-header .project-name {
+    letter-spacing: 0;
+  }
+
+  .main-content {
+    max-width: 1120px;
+    padding: 2.2rem 1.5rem;
+  }
+
   .vm-hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(190px, 0.75fr);
-    gap: 28px;
-    align-items: center;
-    padding: 18px 0 22px;
+    padding: 8px 0 24px;
     border-bottom: 1px solid var(--vm-line);
   }
 
   .vm-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     margin-bottom: 10px;
   }
 
   .vm-logo {
-    width: min(250px, 82%);
-    aspect-ratio: 1;
-    border-radius: 24px;
+    width: 58px;
+    height: 58px;
+    flex: 0 0 58px;
+    border-radius: 14px;
     object-fit: cover;
-    box-shadow: 0 18px 48px rgba(176, 24, 47, 0.2);
-  }
-
-  .vm-logo-panel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 260px;
-    border-radius: 8px;
-    border: 1px solid var(--vm-line);
-    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    box-shadow: 0 10px 24px rgba(176, 24, 47, 0.16);
   }
 
   .vm-kicker {
@@ -234,7 +246,6 @@
   }
 
   @media (max-width: 760px) {
-    .vm-hero,
     .vm-grid,
     .vm-repo-list,
     .vm-route-grid,
@@ -242,16 +253,19 @@
       grid-template-columns: 1fr;
     }
 
+    .page-header {
+      padding: 4.1rem 1rem 3.4rem;
+      background-position: center top;
+    }
+
     .vm-title {
       font-size: 34px;
     }
 
     .vm-logo {
-      width: min(190px, 70%);
-    }
-
-    .vm-logo-panel {
-      min-height: 210px;
+      width: 52px;
+      height: 52px;
+      flex-basis: 52px;
     }
 
     .vm-repo-head {
@@ -263,11 +277,14 @@
 
 <div class="vm-page">
   <section class="vm-hero">
-    <div>
-      <div class="vm-brand">
+    <div class="vm-brand">
+      <img class="vm-logo" src="/assets/img/VeryMathlogo.jpeg" alt="VeryMath logo">
+      <div>
         <p class="vm-kicker">ECNU &gt;&gt; VeryMath</p>
         <h1 class="vm-title">VeryMath</h1>
       </div>
+    </div>
+    <div>
       <p class="vm-subtitle">
         VeryMath is an open-source organization for AI-assisted mathematical research.
         We build reusable, verifiable, and collaborative workflows for paper reading,
@@ -280,9 +297,6 @@
         <a class="vm-button vm-button-primary" href="https://github.com/orgs/VeryMath/repositories">Browse Repositories</a>
         <a class="vm-button" href="https://github.com/VeryMath/co-mathematician">Start with co-mathematician</a>
       </div>
-    </div>
-    <div class="vm-logo-panel" aria-label="VeryMath logo">
-      <img class="vm-logo" src="/assets/img/VeryMathlogo.jpeg" alt="VeryMath logo">
     </div>
   </section>
 
