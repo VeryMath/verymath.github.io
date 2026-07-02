@@ -22,6 +22,34 @@ title: VeryMath
     max-width: 100%;
   }
 
+  .vm-institution-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 0 0 18px;
+    padding: 12px 18px;
+    border: 1px solid var(--vm-line);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(22, 33, 61, 0.07);
+  }
+
+  .vm-institution-link {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vm-institution-logo {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 48px;
+    object-fit: contain;
+  }
+
   #header_wrap {
     min-height: 260px;
     border-bottom: 4px solid var(--vm-gold);
@@ -374,6 +402,17 @@ title: VeryMath
       flex-basis: 52px;
     }
 
+    .vm-institution-strip {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+      padding: 12px;
+    }
+
+    .vm-institution-logo {
+      max-height: 44px;
+    }
+
     .vm-repo-head {
       flex-direction: column;
       gap: 10px;
@@ -386,6 +425,15 @@ title: VeryMath
 </style>
 
 <div class="vm-page">
+  <div class="vm-institution-strip" aria-label="Institution logos">
+    <a class="vm-institution-link" href="https://math.ecnu.edu.cn/">
+      <img class="vm-institution-logo" src="/assets/img/ecnu-math-school-logo.gif" alt="East China Normal University School of Mathematical Sciences logo">
+    </a>
+    <a class="vm-institution-link" href="https://klmea.ecnu.edu.cn/">
+      <img class="vm-institution-logo" src="/assets/img/klmea-logo.png" alt="Key Laboratory of Mathematics and Engineering Applications, Ministry of Education logo">
+    </a>
+  </div>
+
   <div class="vm-language-toggle" aria-label="Language switcher">
     <button class="vm-lang-button" type="button" data-set-lang="en" aria-pressed="true">English</button>
     <button class="vm-lang-button" type="button" data-set-lang="zh" aria-pressed="false">中文</button>
