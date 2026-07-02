@@ -19,26 +19,33 @@
 
   .vm-hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(220px, 0.9fr);
+    grid-template-columns: minmax(0, 1.25fr) minmax(190px, 0.75fr);
     gap: 28px;
     align-items: center;
-    padding: 26px 0 18px;
+    padding: 18px 0 22px;
     border-bottom: 1px solid var(--vm-line);
   }
 
   .vm-brand {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 18px;
+    margin-bottom: 10px;
   }
 
   .vm-logo {
-    width: 74px;
-    height: 74px;
-    border-radius: 16px;
+    width: min(250px, 82%);
+    aspect-ratio: 1;
+    border-radius: 24px;
     object-fit: cover;
-    box-shadow: 0 12px 30px rgba(176, 24, 47, 0.18);
+    box-shadow: 0 18px 48px rgba(176, 24, 47, 0.2);
+  }
+
+  .vm-logo-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+    border-radius: 8px;
+    border: 1px solid var(--vm-line);
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   }
 
   .vm-kicker {
@@ -86,12 +93,6 @@
     background: var(--vm-red);
     border-color: var(--vm-red);
     color: #fff;
-  }
-
-  .vm-visual {
-    border-radius: 8px;
-    border: 1px solid var(--vm-line);
-    box-shadow: 0 16px 40px rgba(22, 33, 61, 0.12);
   }
 
   .vm-section {
@@ -205,6 +206,7 @@
     margin-top: 8px;
     border-radius: 8px;
     border: 1px solid var(--vm-line);
+    box-shadow: 0 16px 40px rgba(22, 33, 61, 0.1);
   }
 
   .vm-timeline {
@@ -245,8 +247,11 @@
     }
 
     .vm-logo {
-      width: 62px;
-      height: 62px;
+      width: min(190px, 70%);
+    }
+
+    .vm-logo-panel {
+      min-height: 210px;
     }
 
     .vm-repo-head {
@@ -260,11 +265,8 @@
   <section class="vm-hero">
     <div>
       <div class="vm-brand">
-        <img class="vm-logo" src="/assets/img/VeryMathlogo.jpeg" alt="VeryMath logo">
-        <div>
-          <p class="vm-kicker">ECNU &gt;&gt; VeryMath</p>
-          <h1 class="vm-title">VeryMath</h1>
-        </div>
+        <p class="vm-kicker">ECNU &gt;&gt; VeryMath</p>
+        <h1 class="vm-title">VeryMath</h1>
       </div>
       <p class="vm-subtitle">
         VeryMath is an open-source organization for AI-assisted mathematical research.
@@ -279,7 +281,9 @@
         <a class="vm-button" href="https://github.com/VeryMath/co-mathematician">Start with co-mathematician</a>
       </div>
     </div>
-    <img class="vm-visual" src="/assets/img/VeryMath.jpg" alt="VeryMath AI for Mathematical Research overview">
+    <div class="vm-logo-panel" aria-label="VeryMath logo">
+      <img class="vm-logo" src="/assets/img/VeryMathlogo.jpeg" alt="VeryMath logo">
+    </div>
   </section>
 
   <section class="vm-section">
