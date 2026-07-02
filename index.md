@@ -31,9 +31,7 @@ title: VeryMath
     margin: -4px -4px 0;
     padding: 2px 8px 18px;
     border-bottom: 1px solid rgba(176, 24, 47, 0.12);
-    background:
-      linear-gradient(90deg, rgba(248, 251, 255, 0.92), rgba(255, 255, 255, 0.45)),
-      linear-gradient(180deg, rgba(201, 154, 46, 0.12), rgba(201, 154, 46, 0));
+    background: #fff;
   }
 
   .vm-institution-link {
