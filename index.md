@@ -22,6 +22,41 @@ title: VeryMath
     max-width: 100%;
   }
 
+  .vm-institution-strip {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    margin: -4px -4px 0;
+    padding: 2px 8px 18px;
+    border-bottom: 1px solid rgba(176, 24, 47, 0.12);
+    background:
+      linear-gradient(90deg, rgba(248, 251, 255, 0.92), rgba(255, 255, 255, 0.45)),
+      linear-gradient(180deg, rgba(201, 154, 46, 0.12), rgba(201, 154, 46, 0));
+  }
+
+  .vm-institution-link {
+    display: flex;
+    min-width: 0;
+    min-height: 58px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+  }
+
+  .vm-institution-link + .vm-institution-link {
+    border-left: 1px solid rgba(11, 79, 156, 0.14);
+  }
+
+  .vm-institution-logo {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 50px;
+    object-fit: contain;
+  }
+
   #header_wrap {
     min-height: 260px;
     border-bottom: 4px solid var(--vm-gold);
@@ -373,6 +408,29 @@ title: VeryMath
       text-align: left;
     }
 
+    .vm-institution-strip {
+      grid-template-columns: 1fr;
+      align-items: stretch;
+      gap: 8px;
+      margin: -2px -2px 0;
+      padding: 4px 6px 14px;
+    }
+
+    .vm-institution-logo {
+      max-height: 44px;
+    }
+
+    .vm-institution-link {
+      min-height: 44px;
+      padding: 0;
+    }
+
+    .vm-institution-link + .vm-institution-link {
+      border-top: 1px solid rgba(11, 79, 156, 0.12);
+      border-left: 0;
+      padding-top: 9px;
+    }
+
     .vm-repo-head {
       flex-direction: column;
       gap: 10px;
@@ -391,6 +449,15 @@ title: VeryMath
   </div>
 
   <section class="vm-hero">
+    <div class="vm-institution-strip" aria-label="Institution logos">
+      <a class="vm-institution-link" href="https://math.ecnu.edu.cn/">
+        <img class="vm-institution-logo" src="/assets/img/ecnu-math-school-logo.gif" alt="East China Normal University School of Mathematical Sciences logo">
+      </a>
+      <a class="vm-institution-link" href="https://klmea.ecnu.edu.cn/">
+        <img class="vm-institution-logo" src="/assets/img/klmea-lab-title.png" alt="Key Laboratory of Mathematics and Engineering Applications, Ministry of Education">
+      </a>
+    </div>
+
     <div class="vm-hero-copy">
       <div class="vm-brand">
         <img class="vm-logo" src="/assets/img/VeryMathlogo.jpeg" alt="VeryMath logo">
