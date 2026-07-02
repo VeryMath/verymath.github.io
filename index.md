@@ -443,8 +443,8 @@ title: VeryMath
   <section class="vm-section">
     <h2><span class="lang-en">Repository Directory</span><span class="lang-zh">仓库导览</span></h2>
     <p class="vm-lead">
-      <span class="lang-en">This page points visitors to VeryMath's public project repositories. The homepage repository, <code>verymath.github.io</code>, is intentionally omitted from the project directory so the list stays focused on reusable research tools and skill packages.</span>
-      <span class="lang-zh">本页用于引导访问者了解 VeryMath 的公开项目仓库。主页仓库 <code>verymath.github.io</code> 不列入项目目录，以便列表聚焦于可复用的研究工具和技能包。</span>
+      <span class="lang-en">Explore VeryMath's public repositories by research task, from paper reading and computation to formalization, automated research, writing, and long-running project workspaces.</span>
+      <span class="lang-zh">按研究任务浏览 VeryMath 的公开仓库：从论文阅读、数学计算到形式化验证、自动化研究、论文写作和长期项目工作区。</span>
     </p>
     <div class="vm-repo-list">
       <div class="vm-card vm-project">
@@ -642,7 +642,7 @@ title: VeryMath
       </div>
       <div class="vm-card vm-route">
         <h3><span class="lang-en">Browse Everything</span><span class="lang-zh">浏览全部仓库</span></h3>
-        <p><span class="lang-en">Use the <a href="https://github.com/orgs/VeryMath/repositories">VeryMath repository list</a> to see all public repositories, including this homepage repository and future additions.</span><span class="lang-zh">访问 <a href="https://github.com/orgs/VeryMath/repositories">VeryMath 仓库列表</a> 查看全部公开仓库，包括主页仓库和未来新增项目。</span></p>
+        <p><span class="lang-en">Use the <a href="https://github.com/orgs/VeryMath/repositories">VeryMath repository list</a> to see the full set of public repositories and future additions.</span><span class="lang-zh">访问 <a href="https://github.com/orgs/VeryMath/repositories">VeryMath 仓库列表</a> 查看全部公开仓库和未来新增项目。</span></p>
       </div>
     </div>
   </section>
