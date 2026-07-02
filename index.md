@@ -23,30 +23,37 @@ title: VeryMath
   }
 
   .vm-institution-strip {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     align-items: center;
     justify-content: center;
-    gap: 18px;
-    margin: 0 0 18px;
-    padding: 12px 18px;
-    border: 1px solid var(--vm-line);
-    border-radius: 8px;
-    background: #fff;
-    box-shadow: 0 12px 30px rgba(22, 33, 61, 0.07);
+    gap: 22px;
+    margin: -4px -4px 0;
+    padding: 2px 8px 18px;
+    border-bottom: 1px solid rgba(176, 24, 47, 0.12);
+    background:
+      linear-gradient(90deg, rgba(248, 251, 255, 0.92), rgba(255, 255, 255, 0.45)),
+      linear-gradient(180deg, rgba(201, 154, 46, 0.12), rgba(201, 154, 46, 0));
   }
 
   .vm-institution-link {
     display: flex;
     min-width: 0;
+    min-height: 58px;
     align-items: center;
     justify-content: center;
+    padding: 0 12px;
+  }
+
+  .vm-institution-link + .vm-institution-link {
+    border-left: 1px solid rgba(11, 79, 156, 0.14);
   }
 
   .vm-institution-logo {
     display: block;
     width: auto;
     max-width: 100%;
-    max-height: 48px;
+    max-height: 50px;
     object-fit: contain;
   }
 
@@ -104,12 +111,14 @@ title: VeryMath
   .vm-hero {
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 24px;
     margin-bottom: 30px;
-    padding: 24px;
+    padding: 22px 24px 24px;
     border: 1px solid var(--vm-line);
     border-radius: 8px;
-    background: #fff;
+    background:
+      linear-gradient(180deg, rgba(248, 251, 255, 0.92), #fff 24%),
+      #fff;
     box-shadow: 0 16px 42px rgba(22, 33, 61, 0.08);
   }
 
@@ -164,7 +173,7 @@ title: VeryMath
   .vm-hero-copy {
     width: 100%;
     max-width: 880px;
-    margin: 0 auto;
+    margin: 2px auto 0;
   }
 
   .vm-actions {
@@ -402,15 +411,31 @@ title: VeryMath
       flex-basis: 52px;
     }
 
+    .vm-subtitle {
+      text-align: left;
+    }
+
     .vm-institution-strip {
-      flex-direction: column;
+      grid-template-columns: 1fr;
       align-items: stretch;
-      gap: 12px;
-      padding: 12px;
+      gap: 8px;
+      margin: -2px -2px 0;
+      padding: 4px 6px 14px;
     }
 
     .vm-institution-logo {
       max-height: 44px;
+    }
+
+    .vm-institution-link {
+      min-height: 44px;
+      padding: 0;
+    }
+
+    .vm-institution-link + .vm-institution-link {
+      border-top: 1px solid rgba(11, 79, 156, 0.12);
+      border-left: 0;
+      padding-top: 9px;
     }
 
     .vm-repo-head {
@@ -425,21 +450,21 @@ title: VeryMath
 </style>
 
 <div class="vm-page">
-  <div class="vm-institution-strip" aria-label="Institution logos">
-    <a class="vm-institution-link" href="https://math.ecnu.edu.cn/">
-      <img class="vm-institution-logo" src="/assets/img/ecnu-math-school-logo.gif" alt="East China Normal University School of Mathematical Sciences logo">
-    </a>
-    <a class="vm-institution-link" href="https://klmea.ecnu.edu.cn/">
-      <img class="vm-institution-logo" src="/assets/img/klmea-logo.png" alt="Key Laboratory of Mathematics and Engineering Applications, Ministry of Education logo">
-    </a>
-  </div>
-
   <div class="vm-language-toggle" aria-label="Language switcher">
     <button class="vm-lang-button" type="button" data-set-lang="en" aria-pressed="true">English</button>
     <button class="vm-lang-button" type="button" data-set-lang="zh" aria-pressed="false">中文</button>
   </div>
 
   <section class="vm-hero">
+    <div class="vm-institution-strip" aria-label="Institution logos">
+      <a class="vm-institution-link" href="https://math.ecnu.edu.cn/">
+        <img class="vm-institution-logo" src="/assets/img/ecnu-math-school-logo.gif" alt="East China Normal University School of Mathematical Sciences logo">
+      </a>
+      <a class="vm-institution-link" href="https://klmea.ecnu.edu.cn/">
+        <img class="vm-institution-logo" src="/assets/img/klmea-logo.png" alt="Key Laboratory of Mathematics and Engineering Applications, Ministry of Education logo">
+      </a>
+    </div>
+
     <div class="vm-hero-copy">
       <div class="vm-brand">
         <img class="vm-logo" src="/assets/img/VeryMathlogo.jpeg" alt="VeryMath logo">
