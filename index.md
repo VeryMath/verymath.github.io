@@ -1,3 +1,8 @@
+---
+layout: default
+title: VeryMath
+---
+
 <style>
   :root {
     --vm-ink: #16213d;
@@ -17,31 +22,68 @@
     max-width: 100%;
   }
 
-  .page-header {
-    position: relative;
-    padding: 5.4rem 1.5rem 4.7rem;
-    background:
-      linear-gradient(90deg, rgba(7, 24, 61, 0.78), rgba(7, 42, 96, 0.48)),
-      url("/assets/img/VeryMath.jpg") center / cover no-repeat;
+  #header_wrap {
+    min-height: 430px;
+    border-bottom: 4px solid var(--vm-gold);
+    background: #07183d url("/assets/img/VeryMath.jpg") center / cover no-repeat;
   }
 
-  .page-header .project-name,
-  .page-header .project-tagline {
-    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.38);
+  #header_wrap .inner {
+    max-width: 1120px;
+    padding: 86px 10px 64px;
   }
 
-  .page-header .project-name {
+  #project_title,
+  #project_tagline {
+    width: fit-content;
+    max-width: 860px;
+    color: #fff;
+    text-shadow: none;
+    background: rgba(7, 24, 61, 0.88);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+  }
+
+  #project_title {
+    margin: 0;
+    padding: 12px 18px 14px;
+    border-radius: 8px 8px 0 0;
     letter-spacing: 0;
   }
 
-  .main-content {
+  #project_tagline {
+    margin-top: 0;
+    padding: 10px 18px 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 0 8px 8px 8px;
+    font-size: 20px;
+    line-height: 1.45;
+  }
+
+  #main_content_wrap {
+    border: 0;
+    background: #f7f9fd;
+  }
+
+  #main_content {
     max-width: 1120px;
-    padding: 2.2rem 1.5rem;
+    padding: 38px 10px 58px;
+  }
+
+  #forkme_banner {
+    display: none;
   }
 
   .vm-hero {
-    padding: 8px 0 24px;
-    border-bottom: 1px solid var(--vm-line);
+    display: grid;
+    grid-template-columns: minmax(180px, 0.34fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 24px;
+    border: 1px solid var(--vm-line);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 16px 42px rgba(22, 33, 61, 0.08);
   }
 
   .vm-brand {
@@ -247,19 +289,32 @@
 
   @media (max-width: 760px) {
     .vm-grid,
+    .vm-hero,
     .vm-repo-list,
     .vm-route-grid,
     .vm-timeline {
       grid-template-columns: 1fr;
     }
 
-    .page-header {
-      padding: 4.1rem 1rem 3.4rem;
+    .vm-title {
+      font-size: 34px;
+    }
+
+    #header_wrap {
+      min-height: 320px;
       background-position: center top;
     }
 
-    .vm-title {
-      font-size: 34px;
+    #header_wrap .inner {
+      padding: 56px 10px 42px;
+    }
+
+    #project_title {
+      font-size: 36px;
+    }
+
+    #project_tagline {
+      font-size: 17px;
     }
 
     .vm-logo {
@@ -271,6 +326,10 @@
     .vm-repo-head {
       flex-direction: column;
       gap: 10px;
+    }
+
+    .vm-hero {
+      padding: 18px;
     }
   }
 </style>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ site.description | escape }}">
+    <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #16213d;
+        background: #f4f7fb;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      }
+
+      a {
+        color: #0b4f9c;
+      }
+
+      .site-frame {
+        min-height: 100vh;
+      }
+
+      .main-content {
+        width: min(1160px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 28px 0 56px;
+      }
+
+      .site-footer {
+        width: min(1160px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 22px 0 34px;
+        color: #6a7388;
+        border-top: 1px solid #dfe6f2;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-frame">
+      <main class="main-content">
+        {{ content }}
+      </main>
+      <footer class="site-footer">
+        VeryMath · AI for Mathematical Research · <a href="https://github.com/VeryMath">GitHub Organization</a>
+      </footer>
+    </div>
+  </body>
+</html>
