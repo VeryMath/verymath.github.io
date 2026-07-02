@@ -463,8 +463,8 @@ title: VeryMath
       </div>
       <div>
         <p class="vm-subtitle">
-          <span class="lang-en">VeryMath is an open-source organization for AI-assisted mathematical research. We build reusable, verifiable, and collaborative workflows for paper reading, computation, formalization, and research automation.</span>
-          <span class="lang-zh">VeryMath 是面向 AI 辅助数学研究的开源组织，致力于构建可复用、可验证、可协作的科研流程，覆盖论文阅读、数学计算、形式化验证与自动化研究。</span>
+          <span class="lang-en">VeryMath is an open-source platform for AI-assisted mathematical research. We build reusable, verifiable, and collaborative workflows for paper reading, computation, formalization, and research automation.</span>
+          <span class="lang-zh">VeryMath 是面向 AI 辅助数学研究的开源平台，致力于构建可复用、可验证、可协作的科研流程，覆盖论文阅读、数学计算、形式化验证与自动化研究。</span>
         </p>
         <div class="vm-actions">
           <a class="vm-button vm-button-primary" href="https://github.com/orgs/VeryMath/repositories"><span class="lang-en">Browse Repositories</span><span class="lang-zh">浏览仓库</span></a>
