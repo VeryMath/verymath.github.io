@@ -327,6 +327,94 @@ title: VeryMath
     line-height: 1.62;
   }
 
+  .vm-announcement {
+    overflow: hidden;
+    border: 1px solid var(--vm-line);
+    border-top: 4px solid var(--vm-blue);
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .vm-announcement-main {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 20px;
+    padding: 20px 22px 18px;
+  }
+
+  .vm-announcement-date {
+    padding-right: 18px;
+    border-right: 1px solid var(--vm-line);
+    color: var(--vm-muted);
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .vm-announcement-date strong {
+    display: block;
+    margin-top: 6px;
+    color: var(--vm-red);
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  .vm-announcement-kicker {
+    margin: 0 0 8px;
+    color: var(--vm-blue);
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .vm-announcement-title {
+    max-width: 980px;
+    margin: 0 0 8px;
+    font-size: 22px;
+    line-height: 1.28;
+    letter-spacing: 0;
+  }
+
+  .vm-announcement-text {
+    max-width: 960px;
+    margin: 0;
+    color: var(--vm-muted);
+    font-size: 16px;
+    line-height: 1.58;
+  }
+
+  .vm-announcement-scope {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--vm-line);
+  }
+
+  .vm-announcement-scope strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--vm-ink);
+    font-size: 15px;
+  }
+
+  .vm-announcement-scope span {
+    color: var(--vm-muted);
+    font-size: 16px;
+    line-height: 1.58;
+  }
+
+  .vm-announcement-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 12px 22px 14px;
+    border-top: 1px solid var(--vm-line);
+  }
+
+  .vm-announcement-links a {
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+
   .vm-route-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -371,6 +459,7 @@ title: VeryMath
   @media (max-width: 760px) {
     .vm-grid,
     .vm-repo-list,
+    .vm-announcement-main,
     .vm-route-grid,
     .vm-timeline {
       grid-template-columns: 1fr;
@@ -437,6 +526,27 @@ title: VeryMath
     .vm-hero {
       padding: 18px;
     }
+
+    .vm-announcement-main {
+      gap: 14px;
+      padding: 18px;
+    }
+
+    .vm-announcement-date {
+      padding-right: 0;
+      padding-bottom: 12px;
+      border-right: 0;
+      border-bottom: 1px solid var(--vm-line);
+    }
+
+    .vm-announcement-links {
+      gap: 12px;
+      padding: 14px 18px 16px;
+    }
+
+    .vm-announcement-title {
+      font-size: 22px;
+    }
   }
 </style>
 
@@ -473,6 +583,41 @@ title: VeryMath
       </div>
     </div>
     <img class="vm-hero-visual" src="/assets/img/VeryMath.jpg" alt="VeryMath AI for Mathematical Research overview">
+  </section>
+
+  <section class="vm-section" aria-labelledby="vm-news-title">
+    <h2 id="vm-news-title"><span class="lang-en">Ecosystem Updates</span><span class="lang-zh">生态动态</span></h2>
+    <div class="vm-announcement">
+      <article class="vm-announcement-main">
+        <div class="vm-announcement-date">
+          <span>2026.07</span>
+          <strong><span class="lang-en">Integration</span><span class="lang-zh">生态接入</span></strong>
+        </div>
+        <div>
+          <p class="vm-announcement-kicker">Inno Agent × VeryMath</p>
+          <h3 class="vm-announcement-title">
+            <span class="lang-en">VeryMath lightweight agents are now available through Inno Agent.</span>
+            <span class="lang-zh">VeryMath 轻量智能体已接入 Inno Agent。</span>
+          </h3>
+          <p class="vm-announcement-text">
+            <span class="lang-en">Seven VeryMath AI4Math agents have completed first-stage integration with Inno Agent, covering online service access, local installation packages, and the default project resource hub.</span>
+            <span class="lang-zh">VeryMath 的 7 个 AI4Math 轻量智能体已完成与 Inno Agent 的首阶段接入，覆盖线上服务、本地安装包与默认项目资源库。</span>
+          </p>
+          <div class="vm-announcement-scope">
+            <strong><span class="lang-en">Integration scope</span><span class="lang-zh">接入范围</span></strong>
+            <span>
+              <span class="lang-en">Lean formalization, mathematical optimization, paper writing, paper reading, automated research, computational mathematics, and evolving-agent workflows.</span>
+              <span class="lang-zh">Lean 形式化、数学优化、论文写作、论文阅读、自动科研、计算数学与进化 Agent 工作流。</span>
+            </span>
+          </div>
+        </div>
+      </article>
+      <div class="vm-announcement-links">
+        <a href="https://www.innoagent.tech"><span class="lang-en">Online Service</span><span class="lang-zh">线上服务</span></a>
+        <a href="https://github.com/hhyqhh/inno-agent"><span class="lang-en">Project Repository</span><span class="lang-zh">项目地址</span></a>
+        <a href="https://github.com/Chloris-Blaxk/inno-agent-hub"><span class="lang-en">Resource Hub</span><span class="lang-zh">资源地址</span></a>
+      </div>
+    </div>
   </section>
 
   <section class="vm-section">
