@@ -380,59 +380,8 @@ title: VeryMath
     margin-bottom: 8px;
   }
 
-  .vm-repo-title-group {
-    display: flex;
-    min-width: 0;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-  }
-
   .vm-repo-title {
     margin: 0;
-  }
-
-  .vm-repo-star {
-    display: inline-flex;
-    min-height: 26px;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    padding: 0 8px;
-    border: 1px solid #d7e0ec;
-    border-radius: 6px;
-    color: #42526b;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1;
-    text-decoration: none;
-    white-space: nowrap;
-    background: #fff;
-    transition: border-color 120ms ease, color 120ms ease, background-color 120ms ease;
-  }
-
-  .vm-repo-star:hover {
-    border-color: #b9c7d9;
-    color: var(--vm-blue);
-    background: var(--vm-bg);
-  }
-
-  .vm-repo-star:focus-visible {
-    outline: 3px solid rgba(11, 79, 156, 0.22);
-    outline-offset: 2px;
-  }
-
-  .vm-repo-star-icon {
-    display: block;
-    width: 14px;
-    height: 14px;
-    opacity: 0.78;
-  }
-
-  .vm-repo-star-count {
-    min-width: 1ch;
-    font-variant-numeric: tabular-nums;
-    text-align: center;
   }
 
   .vm-repo-note {
@@ -830,10 +779,7 @@ title: VeryMath
     <div class="vm-repo-list">
       <div class="vm-card vm-project">
         <div class="vm-repo-head">
-          <div class="vm-repo-title-group">
-            <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Paper-Reading">AI4Math-Paper-Reading</a></h3>
-            <a class="vm-repo-star" href="https://github.com/VeryMath/AI4Math-Paper-Reading" target="_blank" rel="noopener noreferrer" data-repo="AI4Math-Paper-Reading" data-count="1" aria-label="Star AI4Math-Paper-Reading on GitHub, 1 star" title="Star AI4Math-Paper-Reading on GitHub"><img class="vm-repo-star-icon" src="https://cdn.jsdelivr.net/npm/@primer/octicons@19.29.2/build/svg/star-16.svg" alt="" aria-hidden="true"><span class="vm-repo-star-count">1</span></a>
-          </div>
+          <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Paper-Reading">AI4Math-Paper-Reading</a></h3>
           <a class="vm-button" href="https://github.com/VeryMath/AI4Math-Paper-Reading"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
         </div>
         <p>
@@ -853,10 +799,7 @@ title: VeryMath
 
       <div class="vm-card vm-project">
         <div class="vm-repo-head">
-          <div class="vm-repo-title-group">
-            <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Optimization">AI4Math-Optimization</a></h3>
-            <a class="vm-repo-star" href="https://github.com/VeryMath/AI4Math-Optimization" target="_blank" rel="noopener noreferrer" data-repo="AI4Math-Optimization" data-count="0" aria-label="Star AI4Math-Optimization on GitHub, 0 stars" title="Star AI4Math-Optimization on GitHub"><img class="vm-repo-star-icon" src="https://cdn.jsdelivr.net/npm/@primer/octicons@19.29.2/build/svg/star-16.svg" alt="" aria-hidden="true"><span class="vm-repo-star-count">0</span></a>
-          </div>
+          <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Optimization">AI4Math-Optimization</a></h3>
           <a class="vm-button" href="https://github.com/VeryMath/AI4Math-Optimization"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
         </div>
         <p>
@@ -876,10 +819,7 @@ title: VeryMath
 
       <div class="vm-card vm-project">
         <div class="vm-repo-head">
-          <div class="vm-repo-title-group">
-            <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Computational-Mathematics">AI4Math-Computational-Mathematics</a></h3>
-            <a class="vm-repo-star" href="https://github.com/VeryMath/AI4Math-Computational-Mathematics" target="_blank" rel="noopener noreferrer" data-repo="AI4Math-Computational-Mathematics" data-count="0" aria-label="Star AI4Math-Computational-Mathematics on GitHub, 0 stars" title="Star AI4Math-Computational-Mathematics on GitHub"><img class="vm-repo-star-icon" src="https://cdn.jsdelivr.net/npm/@primer/octicons@19.29.2/build/svg/star-16.svg" alt="" aria-hidden="true"><span class="vm-repo-star-count">0</span></a>
-          </div>
+          <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Computational-Mathematics">AI4Math-Computational-Mathematics</a></h3>
           <a class="vm-button" href="https://github.com/VeryMath/AI4Math-Computational-Mathematics"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
         </div>
         <p>
@@ -899,10 +839,7 @@ title: VeryMath
 
       <div class="vm-card vm-project">
         <div class="vm-repo-head">
-          <div class="vm-repo-title-group">
-            <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Lean-Agents">AI4Math-Lean-Agents</a></h3>
-            <a class="vm-repo-star" href="https://github.com/VeryMath/AI4Math-Lean-Agents" target="_blank" rel="noopener noreferrer" data-repo="AI4Math-Lean-Agents" data-count="2" aria-label="Star AI4Math-Lean-Agents on GitHub, 2 stars" title="Star AI4Math-Lean-Agents on GitHub"><img class="vm-repo-star-icon" src="https://cdn.jsdelivr.net/npm/@primer/octicons@19.29.2/build/svg/star-16.svg" alt="" aria-hidden="true"><span class="vm-repo-star-count">2</span></a>
-          </div>
+          <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Lean-Agents">AI4Math-Lean-Agents</a></h3>
           <a class="vm-button" href="https://github.com/VeryMath/AI4Math-Lean-Agents"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
         </div>
         <p>
@@ -922,10 +859,7 @@ title: VeryMath
 
       <div class="vm-card vm-project">
         <div class="vm-repo-head">
-          <div class="vm-repo-title-group">
-            <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Evolving">AI4Math-Evolving</a></h3>
-            <a class="vm-repo-star" href="https://github.com/VeryMath/AI4Math-Evolving" target="_blank" rel="noopener noreferrer" data-repo="AI4Math-Evolving" data-count="0" aria-label="Star AI4Math-Evolving on GitHub, 0 stars" title="Star AI4Math-Evolving on GitHub"><img class="vm-repo-star-icon" src="https://cdn.jsdelivr.net/npm/@primer/octicons@19.29.2/build/svg/star-16.svg" alt="" aria-hidden="true"><span class="vm-repo-star-count">0</span></a>
-          </div>
+          <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Evolving">AI4Math-Evolving</a></h3>
           <a class="vm-button" href="https://github.com/VeryMath/AI4Math-Evolving"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
         </div>
         <p>
@@ -945,10 +879,7 @@ title: VeryMath
 
       <div class="vm-card vm-project">
         <div class="vm-repo-head">
-          <div class="vm-repo-title-group">
-            <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Auto-Research">AI4Math-Auto-Research</a></h3>
-            <a class="vm-repo-star" href="https://github.com/VeryMath/AI4Math-Auto-Research" target="_blank" rel="noopener noreferrer" data-repo="AI4Math-Auto-Research" data-count="2" aria-label="Star AI4Math-Auto-Research on GitHub, 2 stars" title="Star AI4Math-Auto-Research on GitHub"><img class="vm-repo-star-icon" src="https://cdn.jsdelivr.net/npm/@primer/octicons@19.29.2/build/svg/star-16.svg" alt="" aria-hidden="true"><span class="vm-repo-star-count">2</span></a>
-          </div>
+          <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Auto-Research">AI4Math-Auto-Research</a></h3>
           <a class="vm-button" href="https://github.com/VeryMath/AI4Math-Auto-Research"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
         </div>
         <p>
@@ -968,10 +899,7 @@ title: VeryMath
 
       <div class="vm-card vm-project">
         <div class="vm-repo-head">
-          <div class="vm-repo-title-group">
-            <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Paper-Writing">AI4Math-Paper-Writing</a></h3>
-            <a class="vm-repo-star" href="https://github.com/VeryMath/AI4Math-Paper-Writing" target="_blank" rel="noopener noreferrer" data-repo="AI4Math-Paper-Writing" data-count="1" aria-label="Star AI4Math-Paper-Writing on GitHub, 1 star" title="Star AI4Math-Paper-Writing on GitHub"><img class="vm-repo-star-icon" src="https://cdn.jsdelivr.net/npm/@primer/octicons@19.29.2/build/svg/star-16.svg" alt="" aria-hidden="true"><span class="vm-repo-star-count">1</span></a>
-          </div>
+          <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Paper-Writing">AI4Math-Paper-Writing</a></h3>
           <a class="vm-button" href="https://github.com/VeryMath/AI4Math-Paper-Writing"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
         </div>
         <p>
@@ -991,10 +919,7 @@ title: VeryMath
 
       <div class="vm-card vm-project">
         <div class="vm-repo-head">
-          <div class="vm-repo-title-group">
-            <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Sagemath-skill">AI4Math-Sagemath-skill</a></h3>
-            <a class="vm-repo-star" href="https://github.com/VeryMath/AI4Math-Sagemath-skill" target="_blank" rel="noopener noreferrer" data-repo="AI4Math-Sagemath-skill" data-count="6" aria-label="Star AI4Math-Sagemath-skill on GitHub, 6 stars" title="Star AI4Math-Sagemath-skill on GitHub"><img class="vm-repo-star-icon" src="https://cdn.jsdelivr.net/npm/@primer/octicons@19.29.2/build/svg/star-16.svg" alt="" aria-hidden="true"><span class="vm-repo-star-count">6</span></a>
-          </div>
+          <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Sagemath-skill">AI4Math-Sagemath-skill</a></h3>
           <a class="vm-button" href="https://github.com/VeryMath/AI4Math-Sagemath-skill"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
         </div>
         <p>
@@ -1014,10 +939,7 @@ title: VeryMath
 
       <div class="vm-card vm-project vm-project-wide">
         <div class="vm-repo-head">
-          <div class="vm-repo-title-group">
-            <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/co-mathematician">co-mathematician</a></h3>
-            <a class="vm-repo-star" href="https://github.com/VeryMath/co-mathematician" target="_blank" rel="noopener noreferrer" data-repo="co-mathematician" data-count="2" aria-label="Star co-mathematician on GitHub, 2 stars" title="Star co-mathematician on GitHub"><img class="vm-repo-star-icon" src="https://cdn.jsdelivr.net/npm/@primer/octicons@19.29.2/build/svg/star-16.svg" alt="" aria-hidden="true"><span class="vm-repo-star-count">2</span></a>
-          </div>
+          <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/co-mathematician">co-mathematician</a></h3>
           <a class="vm-button" href="https://github.com/VeryMath/co-mathematician"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
         </div>
         <p>
@@ -1098,21 +1020,8 @@ title: VeryMath
     var tagline = document.getElementById("project_tagline");
     var starControl = document.querySelector(".vm-star-control");
     var starCount = document.getElementById("vm-star-count");
-    var repositoryStarControls = document.querySelectorAll(".vm-repo-star[data-repo]");
     var saved = localStorage.getItem("vm-lang");
     var initial = saved || ((navigator.language || "").toLowerCase().indexOf("zh") === 0 ? "zh" : "en");
-
-    function setRepositoryStarLabel(control, isZh) {
-      var repositoryName = control.getAttribute("data-repo");
-      var count = Number(control.getAttribute("data-count"));
-      var countLabel = Number.isFinite(count) ? count.toLocaleString("en-US") : "";
-      var accessibleLabel = isZh
-        ? "在 GitHub 上 Star " + repositoryName + "，当前 " + countLabel + " 个 Star"
-        : "Star " + repositoryName + " on GitHub, " + countLabel + (count === 1 ? " star" : " stars");
-
-      control.setAttribute("aria-label", accessibleLabel);
-      control.setAttribute("title", accessibleLabel);
-    }
 
     function setLanguage(lang) {
       var isZh = lang === "zh";
@@ -1133,10 +1042,6 @@ title: VeryMath
         starControl.setAttribute("aria-label", isZh ? "在 GitHub 上 Star VeryMath" : "Star VeryMath on GitHub");
       }
 
-      repositoryStarControls.forEach(function (control) {
-        setRepositoryStarLabel(control, isZh);
-      });
-
       buttons.forEach(function (button) {
         var active = button.getAttribute("data-set-lang") === (isZh ? "zh" : "en");
         button.setAttribute("aria-pressed", active ? "true" : "false");
@@ -1149,8 +1054,8 @@ title: VeryMath
       });
     });
 
-    if (window.fetch && (starCount || repositoryStarControls.length)) {
-      fetch("https://api.github.com/orgs/VeryMath/repos?per_page=100&type=public", {
+    if (window.fetch && starCount) {
+      fetch("https://api.github.com/repos/VeryMath/verymath.github.io", {
         headers: { "Accept": "application/vnd.github+json" }
       })
         .then(function (response) {
@@ -1159,38 +1064,15 @@ title: VeryMath
           }
           return response.json();
         })
-        .then(function (repositories) {
-          var counts = {};
-
-          repositories.forEach(function (repository) {
-            if (repository && typeof repository.name === "string" && typeof repository.stargazers_count === "number") {
-              counts[repository.name] = repository.stargazers_count;
-            }
-          });
-
-          if (starCount && typeof counts["verymath.github.io"] === "number") {
-            var veryMathCount = counts["verymath.github.io"];
-            starCount.textContent = veryMathCount.toLocaleString("en-US");
-            starCount.setAttribute("aria-label", veryMathCount + (veryMathCount === 1 ? " star" : " stars"));
+        .then(function (repository) {
+          if (typeof repository.stargazers_count === "number") {
+            var count = repository.stargazers_count;
+            starCount.textContent = count.toLocaleString("en-US");
+            starCount.setAttribute("aria-label", count + (count === 1 ? " star" : " stars"));
           }
-
-          repositoryStarControls.forEach(function (control) {
-            var repositoryName = control.getAttribute("data-repo");
-            var countElement = control.querySelector(".vm-repo-star-count");
-            var count = counts[repositoryName];
-
-            if (typeof count === "number") {
-              control.setAttribute("data-count", String(count));
-              if (countElement) {
-                countElement.textContent = count.toLocaleString("en-US");
-              }
-            }
-
-            setRepositoryStarLabel(control, root.getAttribute("data-vm-lang") === "zh");
-          });
         })
         .catch(function () {
-          // Keep all server-rendered fallback counts and Star links usable.
+          // Keep the server-rendered fallback count and repository link usable.
         });
     }
 
