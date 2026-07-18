@@ -710,12 +710,12 @@ title: VeryMath
   </section>
 
   <section class="vm-section" aria-labelledby="vm-news-title">
-    <h2 id="vm-news-title"><span class="lang-en">Ecosystem Updates</span><span class="lang-zh">生态动态</span></h2>
+    <h2 id="vm-news-title"><span class="lang-en">Updates</span><span class="lang-zh">动态</span></h2>
     <div class="vm-announcement">
       <article class="vm-announcement-main">
         <div class="vm-announcement-date">
           <span>2026.07</span>
-          <strong><span class="lang-en">Integration</span><span class="lang-zh">生态接入</span></strong>
+          <strong><span class="lang-en">Integration</span><span class="lang-zh">接入</span></strong>
         </div>
         <div>
           <p class="vm-announcement-kicker">Inno Agent × VeryMath</p>
