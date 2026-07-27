@@ -402,6 +402,10 @@ title: VeryMath
     background: #fff;
   }
 
+  .vm-announcement + .vm-announcement {
+    margin-top: 14px;
+  }
+
   .vm-announcement-main {
     display: grid;
     grid-template-columns: 112px minmax(0, 1fr);
@@ -467,6 +471,58 @@ title: VeryMath
     line-height: 1.58;
   }
 
+  .vm-update-repositories {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 20px;
+    margin-top: 10px;
+  }
+
+  .vm-update-repository {
+    min-width: 0;
+    padding: 2px 0 2px 12px;
+    border-left: 3px solid var(--vm-gold);
+  }
+
+  .vm-update-repository h4 {
+    margin: 0 0 5px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .vm-update-repository h4 a,
+  .vm-update-repository li a {
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .vm-update-repository ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .vm-update-repository li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 10px;
+    padding: 3px 0;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .vm-update-repository li a {
+    font-weight: 750;
+  }
+
+  .vm-announcement-scope .vm-update-contributor {
+    color: var(--vm-muted);
+    font-size: 13px;
+    line-height: 1.45;
+    white-space: nowrap;
+  }
+
   .vm-announcement-links {
     display: flex;
     flex-wrap: wrap;
@@ -527,6 +583,7 @@ title: VeryMath
     .vm-grid,
     .vm-repo-list,
     .vm-announcement-main,
+    .vm-update-repositories,
     .vm-route-grid,
     .vm-timeline {
       grid-template-columns: 1fr;
@@ -715,6 +772,78 @@ title: VeryMath
       <article class="vm-announcement-main">
         <div class="vm-announcement-date">
           <span>2026.07</span>
+          <strong><span class="lang-en">Course Release</span><span class="lang-zh">课程成果</span></strong>
+        </div>
+        <div>
+          <p class="vm-announcement-kicker">AI-Enabled Research Practice (Mathematics) · Summer 2026</p>
+          <h3 class="vm-announcement-title">
+            <span class="lang-en">Seven student-built research tools are now available in VeryMath.</span>
+            <span class="lang-zh">暑期课程设计的 7 个科研工具已纳入 VeryMath。</span>
+          </h3>
+          <p class="vm-announcement-text">
+            <span class="lang-en">Students designed reusable tools for mathematical terminology, paper reading, research communication, and open-problem workflows. Each tool is maintained in the existing repository that best matches its function.</span>
+            <span class="lang-zh">同学们围绕数学术语、论文阅读、科研表达与开放问题研究设计了可复用工具，现已按功能归入最合适的 VeryMath 现有仓库。</span>
+          </p>
+          <div class="vm-announcement-scope">
+            <strong><span class="lang-en">Course contributions</span><span class="lang-zh">课程成果</span></strong>
+            <div class="vm-update-repositories">
+              <div class="vm-update-repository">
+                <h4><a href="https://github.com/VeryMath/AI4Math-MathTool">AI4Math-MathTool</a></h4>
+                <ul>
+                  <li>
+                    <a href="https://github.com/VeryMath/AI4Math-MathTool/tree/main/skills/math-glossary">math-glossary</a>
+                    <span class="vm-update-contributor">Yunfeng Lu</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="vm-update-repository">
+                <h4><a href="https://github.com/VeryMath/AI4Math-Paper-Reading">AI4Math-Paper-Reading</a></h4>
+                <ul>
+                  <li>
+                    <a href="https://github.com/VeryMath/AI4Math-Paper-Reading/tree/main/skills/after-ocr">after-ocr</a>
+                    <span class="vm-update-contributor">Dong Yuan</span>
+                  </li>
+                  <li>
+                    <a href="https://github.com/VeryMath/AI4Math-Paper-Reading/tree/main/skills/graph-theory-paper-reading">graph-theory-paper-reading</a>
+                    <span class="vm-update-contributor">Zhuojie Tu</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="vm-update-repository">
+                <h4><a href="https://github.com/VeryMath/AI4Math-Writing">AI4Math-Writing</a></h4>
+                <ul>
+                  <li>
+                    <a href="https://github.com/VeryMath/AI4Math-Writing/tree/main/skills/math-beamer">math-beamer</a>
+                    <span class="vm-update-contributor">Conan Xu</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="vm-update-repository">
+                <h4><a href="https://github.com/VeryMath/AI4Math-Auto-Research">AI4Math-Auto-Research</a></h4>
+                <ul>
+                  <li>
+                    <a href="https://github.com/VeryMath/AI4Math-Auto-Research/tree/main/skills/graph-theory-researcher">graph-theory-researcher</a>
+                    <span class="vm-update-contributor">Xiaowen Zhang</span>
+                  </li>
+                  <li>
+                    <a href="https://github.com/VeryMath/AI4Math-Auto-Research/tree/main/skills/extremal-graph-problem-suggester">extremal-graph-problem-suggester</a>
+                    <span class="vm-update-contributor">Miao Dong</span>
+                  </li>
+                  <li>
+                    <a href="https://github.com/VeryMath/AI4Math-Auto-Research/tree/main/skills/open-problem-research-pipeline">open-problem-research-pipeline</a>
+                    <span class="vm-update-contributor">Quan Sun</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="vm-announcement">
+      <article class="vm-announcement-main">
+        <div class="vm-announcement-date">
+          <span>2026.07</span>
           <strong><span class="lang-en">Integration</span><span class="lang-zh">接入</span></strong>
         </div>
         <div>
@@ -777,6 +906,26 @@ title: VeryMath
       <span class="lang-zh">按研究任务浏览 VeryMath 的公开仓库：从论文阅读、数学计算到形式化验证、自动化研究、论文写作和长期项目工作区。</span>
     </p>
     <div class="vm-repo-list">
+      <div class="vm-card vm-project vm-project-wide">
+        <div class="vm-repo-head">
+          <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-MathTool">AI4Math-MathTool</a></h3>
+          <a class="vm-button" href="https://github.com/VeryMath/AI4Math-MathTool"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
+        </div>
+        <p>
+          <span class="lang-en">Standalone mathematical tools with stable data contracts, executable helpers, and independently testable runtime behavior.</span>
+          <span class="lang-zh">面向独立数学工具的仓库，强调稳定的数据契约、可执行辅助程序和可单独测试的运行行为。</span>
+        </p>
+        <div class="vm-meta">
+          <span class="vm-pill"><span class="lang-en">Math Tools</span><span class="lang-zh">数学工具</span></span>
+          <span class="vm-pill"><span class="lang-en">1 skill</span><span class="lang-zh">1 个技能</span></span>
+          <span class="vm-pill">MIT License</span>
+        </div>
+        <p>
+          <span class="lang-en">Best for: building and maintaining bilingual mathematical glossaries with review, backup, import, and export workflows.</span>
+          <span class="lang-zh">适合：通过审校、备份、导入和导出流程构建并维护双语数学术语表。</span>
+        </p>
+      </div>
+
       <div class="vm-card vm-project">
         <div class="vm-repo-head">
           <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Paper-Reading">AI4Math-Paper-Reading</a></h3>
@@ -788,7 +937,7 @@ title: VeryMath
         </p>
         <div class="vm-meta">
           <span class="vm-pill"><span class="lang-en">Paper Reading</span><span class="lang-zh">论文阅读</span></span>
-          <span class="vm-pill"><span class="lang-en">2 skills</span><span class="lang-zh">2 个技能</span></span>
+          <span class="vm-pill"><span class="lang-en">4 skills</span><span class="lang-zh">4 个技能</span></span>
           <span class="vm-pill">MIT License</span>
         </div>
         <p>
@@ -888,7 +1037,7 @@ title: VeryMath
         </p>
         <div class="vm-meta">
           <span class="vm-pill"><span class="lang-en">Auto Research</span><span class="lang-zh">自动研究</span></span>
-          <span class="vm-pill"><span class="lang-en">3 skills</span><span class="lang-zh">3 个技能</span></span>
+          <span class="vm-pill"><span class="lang-en">7 skills</span><span class="lang-zh">7 个技能</span></span>
           <span class="vm-pill">MIT License</span>
         </div>
         <p>
@@ -899,16 +1048,16 @@ title: VeryMath
 
       <div class="vm-card vm-project">
         <div class="vm-repo-head">
-          <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Paper-Writing">AI4Math-Paper-Writing</a></h3>
-          <a class="vm-button" href="https://github.com/VeryMath/AI4Math-Paper-Writing"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
+          <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Writing">AI4Math-Writing</a></h3>
+          <a class="vm-button" href="https://github.com/VeryMath/AI4Math-Writing"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
         </div>
         <p>
           <span class="lang-en">Source-grounded workflows for mathematical paper drafting, proof-obligation review, and submission-ready LaTeX checks.</span>
           <span class="lang-zh">基于来源证据的数学论文写作、证明义务审查和投稿级 LaTeX 检查流程。</span>
         </p>
         <div class="vm-meta">
-          <span class="vm-pill"><span class="lang-en">Paper Writing</span><span class="lang-zh">论文写作</span></span>
-          <span class="vm-pill"><span class="lang-en">1 skill</span><span class="lang-zh">1 个技能</span></span>
+          <span class="vm-pill"><span class="lang-en">Writing</span><span class="lang-zh">写作</span></span>
+          <span class="vm-pill"><span class="lang-en">2 skills</span><span class="lang-zh">2 个技能</span></span>
           <span class="vm-pill">MIT License</span>
         </div>
         <p>
