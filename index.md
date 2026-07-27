@@ -810,10 +810,10 @@ title: VeryMath
                 </ul>
               </div>
               <div class="vm-update-repository">
-                <h4><a href="https://github.com/VeryMath/AI4Math-Paper-Writing">AI4Math-Paper-Writing</a></h4>
+                <h4><a href="https://github.com/VeryMath/AI4Math-Writing">AI4Math-Writing</a></h4>
                 <ul>
                   <li>
-                    <a href="https://github.com/VeryMath/AI4Math-Paper-Writing/tree/main/skills/math-beamer">math-beamer</a>
+                    <a href="https://github.com/VeryMath/AI4Math-Writing/tree/main/skills/math-beamer">math-beamer</a>
                     <span class="vm-update-contributor">Conan Xu</span>
                   </li>
                 </ul>
@@ -1048,15 +1048,15 @@ title: VeryMath
 
       <div class="vm-card vm-project">
         <div class="vm-repo-head">
-          <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Paper-Writing">AI4Math-Paper-Writing</a></h3>
-          <a class="vm-button" href="https://github.com/VeryMath/AI4Math-Paper-Writing"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
+          <h3 class="vm-repo-title"><a href="https://github.com/VeryMath/AI4Math-Writing">AI4Math-Writing</a></h3>
+          <a class="vm-button" href="https://github.com/VeryMath/AI4Math-Writing"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
         </div>
         <p>
           <span class="lang-en">Source-grounded workflows for mathematical paper drafting, proof-obligation review, and submission-ready LaTeX checks.</span>
           <span class="lang-zh">基于来源证据的数学论文写作、证明义务审查和投稿级 LaTeX 检查流程。</span>
         </p>
         <div class="vm-meta">
-          <span class="vm-pill"><span class="lang-en">Paper Writing</span><span class="lang-zh">论文写作</span></span>
+          <span class="vm-pill"><span class="lang-en">Writing</span><span class="lang-zh">写作</span></span>
           <span class="vm-pill"><span class="lang-en">2 skills</span><span class="lang-zh">2 个技能</span></span>
           <span class="vm-pill">MIT License</span>
         </div>
