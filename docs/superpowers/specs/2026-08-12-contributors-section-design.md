@@ -46,7 +46,7 @@
 
 ## 初始名单
 
-根据 2026-08-12 的公开仓库归属文件、课程贡献记录、公开分支和保留的源仓库历史，登记表包含以下 16 个去重后的公开身份：
+根据 2026-08-12 的公开仓库归属文件、课程贡献记录、公开分支、保留的源仓库历史和贡献者身份确认，登记表包含以下 15 个去重后的公开身份：
 
 | 展示名 | GitHub | 主要核查证据 |
 | --- | --- | --- |
@@ -58,13 +58,12 @@
 | njustar2002 | 无公开账号确认 | MathTool 贡献者登记表中的公开标识 |
 | Quan Sun | 无公开映射 | Auto Research 课程贡献记录 |
 | rain37233 | `rain37233-del` | Lean Agents 公开分支提交历史 |
-| ricercar77 | `ricercar77` | Optimization 与 Computational Mathematics 记录 |
 | tanghaoru | `tang0805-em` | Computational Mathematics 公开分支提交历史 |
 | Xiaowen Zhang | 无公开映射 | Auto Research 课程贡献记录 |
 | Yihong Wei | `Imccark` | SageMath 提交记录 |
 | Yunfeng Lu | 无公开映射 | MathTool 课程贡献记录 |
 | Zhuojie Tu | 无公开映射 | Paper Reading 课程贡献记录 |
-| 李爽夕 | 无公开映射 | Optimization 与 Computational Mathematics 归属记录 |
+| 李爽夕 | `ricercar77` | Optimization 与 Computational Mathematics 归属记录；用户确认账号映射 |
 | 蒋博先 | `Joseph20060208` | Computational Mathematics 归属记录与保留的有限元源仓库历史 |
 
 `FEA-Skills` 被视为项目或团队标识，不作为个人重复展示。已失效或无法验证的账号链接不会写入 `github` 字段。
@@ -98,7 +97,7 @@
 实施时先添加失败测试，再编写页面代码。验证范围包括：
 
 - 数据文件是有效 JSON，字段完整，展示名和 GitHub 登录名均不重复；
-- 初始名单恰好包含上述 16 个公开身份；
+- 当前名单恰好包含上述 15 个去重后的公开身份；
 - 每条记录至少有一条公开贡献证据；
 - 首页在 `Join the Ecosystem` 后包含双语贡献者标题和 Jekyll 数据循环；
 - 有账号与无账号两种卡片都具有可用的静态回退；

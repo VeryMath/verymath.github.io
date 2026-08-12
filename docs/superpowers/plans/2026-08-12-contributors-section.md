@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-> **Post-implementation identity audit (2026-08-12):** Preserved branch/source history confirmed `rain37233 → rain37233-del`, `tanghaoru → tang0805-em`, and `蒋博先 → Joseph20060208`. The final registry therefore renders nine linked and seven static cards. Fault-injection avatar checks and clean visual screenshots are now separate; the step-by-step snippets below retain the original pre-audit plan values.
+> **Post-implementation identity audit (2026-08-12):** Preserved branch/source history confirmed `rain37233 → rain37233-del`, `tanghaoru → tang0805-em`, and `蒋博先 → Joseph20060208`; the user subsequently confirmed that `ricercar77` is 李爽夕. The current registry therefore merges that duplicate identity and renders 15 people as nine linked and six static cards. Fault-injection avatar checks and clean visual screenshots are now separate; the step-by-step snippets below retain the original pre-audit plan values.
 
-**Goal:** Add a bilingual, responsive homepage section that credits all 16 verified actual VeryMath contributors, including people whom GitHub's contributor API misses.
+**Goal:** Add a bilingual, responsive homepage section that credits all 15 verified, deduplicated actual VeryMath contributors, including people whom GitHub's contributor API misses.
 
 **Architecture:** Store reviewed public attribution in `_data/contributors.json` and render it at Jekyll build time with a Liquid loop in `index.md`. Keep the browser independent of contributor APIs; GitHub-linked people receive public profile avatars, while everyone retains a text-initial fallback. Validate the registry with Python, render the real Liquid template with Liquid 4.0.4, and exercise the rendered page in Chrome at desktop and mobile widths.
 
@@ -13,7 +13,7 @@
 ## Global Constraints
 
 - The scope is actual contributors across all public repositories in the `VeryMath` GitHub organization, not only `verymath.github.io` contributors or organization members.
-- The initial registry contains exactly the 16 public identities approved in `docs/superpowers/specs/2026-08-12-contributors-section-design.md`.
+- The current registry contains exactly the 15 deduplicated public identities approved in `docs/superpowers/specs/2026-08-12-contributors-section-design.md`.
 - Never infer a GitHub account from a similar name, organization membership, or private email.
 - Do not publish private roster fields, grades, majors, email addresses, contribution counts, or rankings.
 - Do not add a contributor API request; the existing site-repository Star API request remains unchanged.

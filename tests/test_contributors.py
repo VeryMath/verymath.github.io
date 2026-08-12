@@ -17,7 +17,6 @@ EXPECTED_NAMES = [
     "njustar2002",
     "Quan Sun",
     "rain37233",
-    "ricercar77",
     "tanghaoru",
     "Xiaowen Zhang",
     "Yihong Wei",
@@ -32,9 +31,9 @@ EXPECTED_GITHUB = {
     "hyyh28": "hyyh28",
     "IsRivulet": "IsRivulet",
     "rain37233": "rain37233-del",
-    "ricercar77": "ricercar77",
     "tanghaoru": "tang0805-em",
     "Yihong Wei": "Imccark",
+    "李爽夕": "ricercar77",
     "蒋博先": "Joseph20060208",
 }
 VOID_ELEMENTS = {
@@ -127,7 +126,7 @@ class ContributorRegistryTests(unittest.TestCase):
         self.assertEqual(len(names), len(set(names)))
 
     def test_records_are_renderable_and_have_public_evidence(self):
-        self.assertEqual(len(self.records), 16)
+        self.assertEqual(len(self.records), 15)
         for record in self.records:
             with self.subTest(name=record.get("name")):
                 self.assertEqual(set(record), {"name", "github", "initial", "evidence"})
@@ -181,7 +180,7 @@ class ContributorHomepageTests(unittest.TestCase):
         self.assertEqual(chinese.text(), "贡献者")
 
     def test_every_registry_entry_renders_once_without_ranking(self):
-        self.assertEqual(len(self.cards), 16)
+        self.assertEqual(len(self.cards), 15)
         rendered_names = [
             find_one(card, lambda node: "vm-contributor-name" in node.classes).text()
             for card in self.cards

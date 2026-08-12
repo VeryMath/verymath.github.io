@@ -54,15 +54,6 @@
     ]
   },
   {
-    "name": "ricercar77",
-    "github": "ricercar77",
-    "initial": "R",
-    "evidence": [
-      "https://github.com/VeryMath/AI4Math-Optimization/blob/main/CONTRIBUTORS.md",
-      "https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md"
-    ]
-  },
-  {
     "name": "tanghaoru",
     "github": "tang0805-em",
     "initial": "T",
@@ -97,7 +88,7 @@
   },
   {
     "name": "李爽夕",
-    "github": null,
+    "github": "ricercar77",
     "initial": "李",
     "evidence": [
       "https://github.com/VeryMath/AI4Math-Optimization/blob/main/CONTRIBUTORS.md",
