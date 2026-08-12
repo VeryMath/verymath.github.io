@@ -27,11 +27,14 @@
   {
     "name_en": "Yaling Chen",
     "name_zh": "陈亚玲",
-    "github": null,
+    "github": "Chenyaling1234",
     "initial_en": "YC",
     "initial_zh": "陈",
     "role": "member",
-    "evidence": ["team-introduction-2026-06-30"]
+    "evidence": [
+      "https://github.com/Chenyaling1234",
+      "team-introduction-2026-06-30"
+    ]
   },
   {
     "name_en": "Miao Dong",

@@ -15,7 +15,7 @@
 - Keep Xiangfeng Wang / 王祥丰 as the only `advisor` and the last record.
 - Keep the middle 17 member records in the approved Chinese-surname-pinyin order; use given-name pinyin for equal surnames.
 - English names use given-name-first order; Chinese names use the approved Chinese spelling.
-- Preserve exactly 10 confirmed GitHub mappings; never infer a GitHub account from email, avatar similarity, or a similar username.
+- Preserve exactly 11 confirmed GitHub mappings; never infer a GitHub account from email, avatar similarity, or a similar username.
 - Records without confirmed GitHub accounts use language-specific fallback initials, have no image, show no handle, and are not links.
 - Do not publish presentation photos, email addresses, grades, majors, rankings, or contribution counts.
 - Do not add GitHub API requests; avatar URLs remain `https://github.com/<login>.png?size=160`.
@@ -51,7 +51,7 @@ Replace the old single-language constants with the approved ordered data:
 EXPECTED_CONTRIBUTORS = [
     ("Conan Xu", "徐柯楠", "member", "ConanXu-math"),
     ("Dong Yuan", "袁东", "member", "dyuan311"),
-    ("Yaling Chen", "陈亚玲", "member", None),
+    ("Yaling Chen", "陈亚玲", "member", "Chenyaling1234"),
     ("Miao Dong", "董淼", "member", None),
     ("Boxian Jiang", "蒋博先", "member", "Joseph20060208"),
     ("Rujing Li", "黎汝婧", "member", None),
@@ -121,7 +121,7 @@ def test_team_introduction_members_are_all_present(self):
 def test_only_confirmed_github_accounts_are_linked(self):
     linked = {record["name_en"]: record["github"] for record in self.records if record["github"]}
     self.assertEqual(linked, EXPECTED_GITHUB)
-    self.assertEqual(len(linked), 10)
+    self.assertEqual(len(linked), 11)
     self.assertEqual(len(linked.values()), len({value.lower() for value in linked.values()}))
     for github in linked.values():
         self.assertRegex(github, re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$"))
@@ -195,7 +195,7 @@ Write the 20 records in the exact `EXPECTED_CONTRIBUTORS` order. Use these initi
 ```text
 Conan Xu | 徐柯楠 | CX | 徐 | https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md ; team-introduction-2026-06-30
 Dong Yuan | 袁东 | DY | 袁 | https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md ; https://github.com/VeryMath/AI4Math-Auto-Research/pull/7 ; team-introduction-2026-06-30
-Yaling Chen | 陈亚玲 | YC | 陈 | team-introduction-2026-06-30
+Yaling Chen | 陈亚玲 | YC | 陈 | https://github.com/Chenyaling1234 ; team-introduction-2026-06-30
 Miao Dong | 董淼 | MD | 董 | https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/CONTRIBUTORS.md
 Boxian Jiang | 蒋博先 | BJ | 蒋 | https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md ; https://github.com/VeryMath/skill-Finite-Element-Analysis/commit/94c1545b7efa262efe0dd4db09e4f0e43c0cd16d ; team-introduction-2026-06-30
 Rujing Li | 黎汝婧 | RL | 黎 | team-introduction-2026-06-30
@@ -215,7 +215,7 @@ Zhixin Zheng | 郑智心 | ZZ | 郑 | https://github.com/VeryMath/AI4Math-MathTo
 Xiangfeng Wang | 王祥丰 | XW | 王 | https://github.com/xfwang87
 ```
 
-For every row, set `role` to `member` except Xiangfeng Wang, whose role is `advisor`. Preserve the 10 GitHub values in `EXPECTED_GITHUB`; use JSON `null` for all other GitHub fields. Treat each semicolon-separated source above as a separate string in the record's `evidence` array.
+For every row, set `role` to `member` except Xiangfeng Wang, whose role is `advisor`. Preserve the 11 GitHub values in `EXPECTED_GITHUB`; use JSON `null` for all other GitHub fields. Treat each semicolon-separated source above as a separate string in the record's `evidence` array.
 
 - [ ] **Step 4: Render both language variants in the existing card template**
 
@@ -254,7 +254,7 @@ Run:
 python3 -m unittest discover -s tests -v
 ```
 
-Expected: all tests PASS with 20 cards, 10 linked cards, 10 static cards, Conan Xu and Dong Yuan first, and the advisor last in both languages.
+Expected: all tests PASS with 20 cards, 11 linked cards, 9 static cards, Conan Xu and Dong Yuan first, and the advisor last in both languages.
 
 - [ ] **Step 6: Commit the roster and template change**
 
@@ -295,8 +295,8 @@ Derive expected sequences directly from the registry:
 const expectedEnglishNames = contributors.map((contributor) => contributor.name_en);
 const expectedChineseNames = contributors.map((contributor) => contributor.name_zh);
 assert.equal(expectedCardCount, 20);
-assert.equal(expectedLinkedCount, 10);
-assert.equal(expectedStaticCount, 10);
+assert.equal(expectedLinkedCount, 11);
+assert.equal(expectedStaticCount, 9);
 ```
 
 Inside the existing pre-switch `page.evaluate`, add these fields to the returned report:
@@ -435,7 +435,7 @@ VM_SCREENSHOT_DIR="$(mktemp -d)"
 NODE_PATH="$VM_PLAYWRIGHT_DIR/node_modules" VERYMATH_SCREENSHOT_DIR="$VM_SCREENSHOT_DIR" node tests/verify_contributors_browser.cjs
 ```
 
-Expected: PASS; JSON reports 20 cards, 10 linked, 10 static, no horizontal overflow at 1366×900 or 390×844, correct name order in both languages, and four screenshot paths under `$VM_SCREENSHOT_DIR`.
+Expected: PASS; JSON reports 20 cards, 11 linked, 9 static, no horizontal overflow at 1366×900 or 390×844, correct name order in both languages, and four screenshot paths under `$VM_SCREENSHOT_DIR`.
 
 - [ ] **Step 6: Commit the browser QA change**
 

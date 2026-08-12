@@ -11,7 +11,7 @@ CONTRIBUTORS_PATH = ROOT / "_data" / "contributors.json"
 EXPECTED_CONTRIBUTORS = [
     ("Conan Xu", "徐柯楠", "member", "ConanXu-math"),
     ("Dong Yuan", "袁东", "member", "dyuan311"),
-    ("Yaling Chen", "陈亚玲", "member", None),
+    ("Yaling Chen", "陈亚玲", "member", "Chenyaling1234"),
     ("Miao Dong", "董淼", "member", None),
     ("Boxian Jiang", "蒋博先", "member", "Joseph20060208"),
     ("Rujing Li", "黎汝婧", "member", None),
@@ -210,7 +210,7 @@ class ContributorRegistryTests(unittest.TestCase):
             if record["github"]
         }
         self.assertEqual(linked, EXPECTED_GITHUB)
-        self.assertEqual(len(linked), 10)
+        self.assertEqual(len(linked), 11)
         self.assertEqual(len(linked.values()), len({value.lower() for value in linked.values()}))
         for github in linked.values():
             self.assertRegex(github, re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$"))
