@@ -11,7 +11,7 @@ CONTRIBUTORS_PATH = ROOT / "_data" / "contributors.json"
 EXPECTED_NAMES = [
     "Conan Xu",
     "Dong Yuan",
-    "hyyh28",
+    "华贇",
     "IsRivulet",
     "Miao Dong",
     "郑智心",
@@ -28,7 +28,7 @@ EXPECTED_NAMES = [
 EXPECTED_GITHUB = {
     "Conan Xu": "ConanXu-math",
     "Dong Yuan": "dyuan311",
-    "hyyh28": "hyyh28",
+    "华贇": "hyyh28",
     "IsRivulet": "IsRivulet",
     "张司雨": "rain37233-del",
     "tanghaoru": "tang0805-em",
@@ -205,6 +205,15 @@ class ContributorHomepageTests(unittest.TestCase):
         self.assertIn("张司雨", cards_by_name)
         self.assertNotIn("rain37233", cards_by_name)
         self.assertEqual(cards_by_name["张司雨"].attrs.get("href"), "https://github.com/rain37233-del")
+
+    def test_confirmed_hyyh_account_displays_real_name(self):
+        cards_by_name = {
+            find_one(card, lambda node: "vm-contributor-name" in node.classes).text(): card
+            for card in self.cards
+        }
+        self.assertIn("华贇", cards_by_name)
+        self.assertNotIn("hyyh28", cards_by_name)
+        self.assertEqual(cards_by_name["华贇"].attrs.get("href"), "https://github.com/hyyh28")
 
     def test_only_confirmed_accounts_render_links_and_lazy_avatars(self):
         records = json.loads(CONTRIBUTORS_PATH.read_text(encoding="utf-8"))

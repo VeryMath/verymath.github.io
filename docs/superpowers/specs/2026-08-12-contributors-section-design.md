@@ -52,7 +52,7 @@
 | --- | --- | --- |
 | Conan Xu | `ConanXu-math` | 多个仓库的维护与提交记录 |
 | Dong Yuan | `dyuan311` | SageMath、Auto Research 和课程贡献记录 |
-| hyyh28 | `hyyh28` | 网站仓库提交记录 |
+| 华贇 | `hyyh28` | 网站仓库提交记录；用户确认真实姓名 |
 | IsRivulet | `IsRivulet` | Paper Reading 贡献者登记表 |
 | Miao Dong | 无公开映射 | Auto Research 课程贡献记录 |
 | 郑智心 | 无可用公开账号链接 | MathTool 贡献者登记表中的 `njustar2002` 标识；用户确认真实姓名 |
