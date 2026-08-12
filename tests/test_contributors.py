@@ -14,7 +14,7 @@ EXPECTED_NAMES = [
     "hyyh28",
     "IsRivulet",
     "Miao Dong",
-    "njustar2002",
+    "郑智心",
     "Quan Sun",
     "rain37233",
     "tanghaoru",
@@ -188,6 +188,14 @@ class ContributorHomepageTests(unittest.TestCase):
         self.assertEqual(rendered_names, EXPECTED_NAMES)
         self.assertNotIn("contributions", self.section.text().lower())
         self.assertNotIn("ranking", self.section.text().lower())
+
+    def test_confirmed_real_name_replaces_opaque_identifier(self):
+        rendered_names = [
+            find_one(card, lambda node: "vm-contributor-name" in node.classes).text()
+            for card in self.cards
+        ]
+        self.assertIn("郑智心", rendered_names)
+        self.assertNotIn("njustar2002", rendered_names)
 
     def test_only_confirmed_accounts_render_links_and_lazy_avatars(self):
         records = json.loads(CONTRIBUTORS_PATH.read_text(encoding="utf-8"))

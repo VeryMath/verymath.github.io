@@ -55,7 +55,7 @@
 | hyyh28 | `hyyh28` | 网站仓库提交记录 |
 | IsRivulet | `IsRivulet` | Paper Reading 贡献者登记表 |
 | Miao Dong | 无公开映射 | Auto Research 课程贡献记录 |
-| njustar2002 | 无公开账号确认 | MathTool 贡献者登记表中的公开标识 |
+| 郑智心 | 无可用公开账号链接 | MathTool 贡献者登记表中的 `njustar2002` 标识；用户确认真实姓名 |
 | Quan Sun | 无公开映射 | Auto Research 课程贡献记录 |
 | rain37233 | `rain37233-del` | Lean Agents 公开分支提交历史 |
 | tanghaoru | `tang0805-em` | Computational Mathematics 公开分支提交历史 |
