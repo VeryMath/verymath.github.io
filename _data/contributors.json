@@ -1,12 +1,28 @@
 [
   {
-    "name_en": "Xiangfeng Wang",
-    "name_zh": "王祥丰",
-    "github": "xfwang87",
-    "initial_en": "XW",
-    "initial_zh": "王",
-    "role": "advisor",
-    "evidence": ["https://github.com/xfwang87"]
+    "name_en": "Conan Xu",
+    "name_zh": "徐柯楠",
+    "github": "ConanXu-math",
+    "initial_en": "CX",
+    "initial_zh": "徐",
+    "role": "member",
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md",
+      "team-introduction-2026-06-30"
+    ]
+  },
+  {
+    "name_en": "Dong Yuan",
+    "name_zh": "袁东",
+    "github": "dyuan311",
+    "initial_en": "DY",
+    "initial_zh": "袁",
+    "role": "member",
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md",
+      "https://github.com/VeryMath/AI4Math-Auto-Research/pull/7",
+      "team-introduction-2026-06-30"
+    ]
   },
   {
     "name_en": "Yaling Chen",
@@ -156,31 +172,6 @@
     ]
   },
   {
-    "name_en": "Conan Xu",
-    "name_zh": "徐柯楠",
-    "github": "ConanXu-math",
-    "initial_en": "CX",
-    "initial_zh": "徐",
-    "role": "member",
-    "evidence": [
-      "https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md",
-      "team-introduction-2026-06-30"
-    ]
-  },
-  {
-    "name_en": "Dong Yuan",
-    "name_zh": "袁东",
-    "github": "dyuan311",
-    "initial_en": "DY",
-    "initial_zh": "袁",
-    "role": "member",
-    "evidence": [
-      "https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md",
-      "https://github.com/VeryMath/AI4Math-Auto-Research/pull/7",
-      "team-introduction-2026-06-30"
-    ]
-  },
-  {
     "name_en": "Siyu Zhang",
     "name_zh": "张司雨",
     "github": "rain37233-del",
@@ -210,5 +201,14 @@
     "initial_zh": "郑",
     "role": "member",
     "evidence": ["https://github.com/VeryMath/AI4Math-MathTool/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name_en": "Xiangfeng Wang",
+    "name_zh": "王祥丰",
+    "github": "xfwang87",
+    "initial_en": "XW",
+    "initial_zh": "王",
+    "role": "advisor",
+    "evidence": ["https://github.com/xfwang87"]
   }
 ]

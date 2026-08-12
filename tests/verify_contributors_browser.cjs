@@ -13,7 +13,8 @@ const expectedCardCount = contributors.length;
 const expectedLinkedCount = contributors.filter((contributor) => contributor.github).length;
 const expectedStaticCount = expectedCardCount - expectedLinkedCount;
 const expectedEnglishNames = [
-  "Xiangfeng Wang",
+  "Conan Xu",
+  "Dong Yuan",
   "Yaling Chen",
   "Miao Dong",
   "Boxian Jiang",
@@ -28,14 +29,14 @@ const expectedEnglishNames = [
   "Nuoqian Wang",
   "Yihong Wei",
   "Mengyuan Xing",
-  "Conan Xu",
-  "Dong Yuan",
   "Siyu Zhang",
   "Xiaowen Zhang",
   "Zhixin Zheng",
+  "Xiangfeng Wang",
 ];
 const expectedChineseNames = [
-  "王祥丰",
+  "徐柯楠",
+  "袁东",
   "陈亚玲",
   "董淼",
   "蒋博先",
@@ -50,11 +51,10 @@ const expectedChineseNames = [
   "王诺千",
   "尉毅宏",
   "邢梦圆",
-  "徐柯楠",
-  "袁东",
   "张司雨",
   "张笑玟",
   "郑智心",
+  "王祥丰",
 ];
 assert.equal(expectedCardCount, 20);
 assert.equal(expectedLinkedCount, 10);
@@ -219,7 +219,8 @@ async function inspect(browser, url, viewport) {
   assert.deepEqual(report.englishNames, expectedEnglishNames);
   assert.equal(report.englishNamesVisible, true);
   assert.equal(report.chineseNamesHidden, true);
-  assert.equal(report.englishNames[0], "Xiangfeng Wang");
+  assert.deepEqual(report.englishNames.slice(0, 2), ["Conan Xu", "Dong Yuan"]);
+  assert.equal(report.englishNames.at(-1), "Xiangfeng Wang");
   assert.equal(report.failedImageHidden, true);
   assert.equal(report.blockedAvatarRequests, 1);
   assert.equal(report.delayedAvatarRequests, 1);
@@ -258,7 +259,8 @@ async function inspect(browser, url, viewport) {
   assert.deepEqual(chinese.names, expectedChineseNames);
   assert.equal(chinese.chineseNamesVisible, true);
   assert.equal(chinese.englishNamesHidden, true);
-  assert.equal(chinese.names[0], "王祥丰");
+  assert.deepEqual(chinese.names.slice(0, 2), ["徐柯楠", "袁东"]);
+  assert.equal(chinese.names.at(-1), "王祥丰");
   assert.equal(chinese.failedInitialText, "徐");
 
   await page.close();
