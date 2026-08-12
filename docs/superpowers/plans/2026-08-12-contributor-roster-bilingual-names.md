@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build one 21-person VeryMath contributor wall with the advisor first, every other member surname-sorted, language-specific names, and GitHub links only for confirmed accounts.
+**Goal:** Build one 20-person VeryMath contributor wall with the advisor first, every other member surname-sorted, language-specific names, and GitHub links only for confirmed accounts.
 
 **Architecture:** `_data/contributors.json` remains the single identity and display-order source. Jekyll/Liquid emits both language variants into each card and relies on the existing global language switch for visibility; Python unit tests lock the schema, roster, order, and link behavior, while Playwright validates runtime language switching, avatar fallbacks, responsive layout, and four visual snapshots.
 
@@ -10,11 +10,11 @@
 
 ## Global Constraints
 
-- Render exactly 21 unique people in one `Contributors / 贡献者` section.
+- Render exactly 20 unique people in one `Contributors / 贡献者` section.
 - Keep Xiangfeng Wang / 王祥丰 as the only `advisor` and the first record.
-- Keep the other 20 records in the approved Chinese-surname-pinyin order; use given-name pinyin for equal surnames.
+- Keep the other 19 records in the approved Chinese-surname-pinyin order; use given-name pinyin for equal surnames.
 - English names use given-name-first order; Chinese names use the approved Chinese spelling.
-- Preserve exactly 11 confirmed GitHub mappings; never infer a GitHub account from email, avatar similarity, or a similar username.
+- Preserve exactly 10 confirmed GitHub mappings; never infer a GitHub account from email, avatar similarity, or a similar username.
 - Records without confirmed GitHub accounts use language-specific fallback initials, have no image, show no handle, and are not links.
 - Do not publish presentation photos, email addresses, grades, majors, rankings, or contribution counts.
 - Do not add GitHub API requests; avatar URLs remain `https://github.com/<login>.png?size=160`.
@@ -51,7 +51,6 @@ EXPECTED_CONTRIBUTORS = [
     ("Xiangfeng Wang", "王祥丰", "advisor", "xfwang87"),
     ("Yaling Chen", "陈亚玲", "member", None),
     ("Miao Dong", "董淼", "member", None),
-    ("Yun Hua", "华贇", "member", "hyyh28"),
     ("Boxian Jiang", "蒋博先", "member", "Joseph20060208"),
     ("Rujing Li", "黎汝婧", "member", None),
     ("Shuangxi Li", "李爽夕", "member", "ricercar77"),
@@ -91,9 +90,9 @@ def test_registry_matches_the_approved_order(self):
     self.assertEqual(actual, EXPECTED_CONTRIBUTORS)
 
 def test_records_have_complete_bilingual_schema_and_sources(self):
-    self.assertEqual(len(self.records), 21)
-    self.assertEqual(len({record["name_en"] for record in self.records}), 21)
-    self.assertEqual(len({record["name_zh"] for record in self.records}), 21)
+    self.assertEqual(len(self.records), 20)
+    self.assertEqual(len({record["name_en"] for record in self.records}), 20)
+    self.assertEqual(len({record["name_zh"] for record in self.records}), 20)
     for record in self.records:
         self.assertEqual(
             set(record),
@@ -120,7 +119,7 @@ def test_team_introduction_members_are_all_present(self):
 def test_only_confirmed_github_accounts_are_linked(self):
     linked = {record["name_en"]: record["github"] for record in self.records if record["github"]}
     self.assertEqual(linked, EXPECTED_GITHUB)
-    self.assertEqual(len(linked), 11)
+    self.assertEqual(len(linked), 10)
     self.assertEqual(len(linked.values()), len({value.lower() for value in linked.values()}))
     for github in linked.values():
         self.assertRegex(github, re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$"))
@@ -134,7 +133,7 @@ def language_text(card, language):
     return find_one(name, lambda node: f"lang-{language}" in node.classes).text()
 
 def test_every_registry_entry_renders_once_without_ranking(self):
-    self.assertEqual(len(self.cards), 21)
+    self.assertEqual(len(self.cards), 20)
     self.assertEqual([language_text(card, "en") for card in self.cards], EXPECTED_NAMES_EN)
     self.assertEqual([language_text(card, "zh") for card in self.cards], EXPECTED_NAMES_ZH)
     self.assertEqual(language_text(self.cards[0], "zh"), "王祥丰")
@@ -188,13 +187,12 @@ Expected: FAIL because current records do not have `name_en`, `name_zh`, `initia
 
 - [ ] **Step 3: Replace the contributor registry with the approved schema and order**
 
-Write the 21 records in the exact `EXPECTED_CONTRIBUTORS` order. Use these initials and sources:
+Write the 20 records in the exact `EXPECTED_CONTRIBUTORS` order. Use these initials and sources:
 
 ```text
 Xiangfeng Wang | 王祥丰 | XW | 王 | https://github.com/xfwang87
 Yaling Chen | 陈亚玲 | YC | 陈 | team-introduction-2026-06-30
 Miao Dong | 董淼 | MD | 董 | https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/CONTRIBUTORS.md
-Yun Hua | 华贇 | YH | 华 | https://github.com/VeryMath/verymath.github.io/commits/main/?author=hyyh28
 Boxian Jiang | 蒋博先 | BJ | 蒋 | https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md ; https://github.com/VeryMath/skill-Finite-Element-Analysis/commit/94c1545b7efa262efe0dd4db09e4f0e43c0cd16d ; team-introduction-2026-06-30
 Rujing Li | 黎汝婧 | RL | 黎 | team-introduction-2026-06-30
 Shuangxi Li | 李爽夕 | SL | 李 | https://github.com/VeryMath/AI4Math-Optimization/blob/main/CONTRIBUTORS.md ; https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md ; team-introduction-2026-06-30
@@ -214,7 +212,7 @@ Xiaowen Zhang | 张笑玟 | XZ | 张 | https://github.com/VeryMath/AI4Math-Auto-
 Zhixin Zheng | 郑智心 | ZZ | 郑 | https://github.com/VeryMath/AI4Math-MathTool/blob/main/CONTRIBUTORS.md
 ```
 
-For every row, set `role` to `member` except Xiangfeng Wang, whose role is `advisor`. Preserve the 11 GitHub values in `EXPECTED_GITHUB`; use JSON `null` for all other GitHub fields. Treat each semicolon-separated source above as a separate string in the record's `evidence` array.
+For every row, set `role` to `member` except Xiangfeng Wang, whose role is `advisor`. Preserve the 10 GitHub values in `EXPECTED_GITHUB`; use JSON `null` for all other GitHub fields. Treat each semicolon-separated source above as a separate string in the record's `evidence` array.
 
 - [ ] **Step 4: Render both language variants in the existing card template**
 
@@ -253,7 +251,7 @@ Run:
 python3 -m unittest discover -s tests -v
 ```
 
-Expected: all tests PASS with 21 cards, 11 linked cards, 10 static cards, and the advisor first in both languages.
+Expected: all tests PASS with 20 cards, 10 linked cards, 10 static cards, and the advisor first in both languages.
 
 - [ ] **Step 6: Commit the roster and template change**
 
@@ -271,7 +269,7 @@ git commit -m "feat: add complete bilingual contributor roster"
 - Modify: `tests/README.md:1-19`
 
 **Interfaces:**
-- Consumes: the 21-record registry and rendered `.vm-contributor-card`, `.lang-en`, `.lang-zh`, `.vm-contributor-initial`, and `.vm-contributor-image` nodes from Task 1.
+- Consumes: the 20-record registry and rendered `.vm-contributor-card`, `.lang-en`, `.lang-zh`, `.vm-contributor-initial`, and `.vm-contributor-image` nodes from Task 1.
 - Produces: one JSON QA report plus `contributors-desktop-en.png`, `contributors-desktop-zh.png`, `contributors-mobile-en.png`, and `contributors-mobile-zh.png` when `VERYMATH_SCREENSHOT_DIR` is set.
 
 - [ ] **Step 1: Run the existing browser test as a baseline**
@@ -293,8 +291,8 @@ Derive expected sequences directly from the registry:
 ```javascript
 const expectedEnglishNames = contributors.map((contributor) => contributor.name_en);
 const expectedChineseNames = contributors.map((contributor) => contributor.name_zh);
-assert.equal(expectedCardCount, 21);
-assert.equal(expectedLinkedCount, 11);
+assert.equal(expectedCardCount, 20);
+assert.equal(expectedLinkedCount, 10);
 assert.equal(expectedStaticCount, 10);
 ```
 
@@ -418,7 +416,7 @@ Retain the real Dong Yuan avatar assertion on every clean screenshot page. Exten
 Keep the pinned commands in `tests/README.md` and replace the final explanation with:
 
 ```markdown
-The browser command verifies the 21-card bilingual order, confirmed/static card counts, language-specific fallback initials, avatar loading and fault handling, and responsive overflow. When `VERYMATH_SCREENSHOT_DIR` is set, it writes English and Chinese contributor-section screenshots for desktop and mobile viewports.
+The browser command verifies the 20-card bilingual order, confirmed/static card counts, language-specific fallback initials, avatar loading and fault handling, and responsive overflow. When `VERYMATH_SCREENSHOT_DIR` is set, it writes English and Chinese contributor-section screenshots for desktop and mobile viewports.
 ```
 
 - [ ] **Step 5: Run the enhanced browser verification**
@@ -432,7 +430,7 @@ VM_SCREENSHOT_DIR="$(mktemp -d)"
 NODE_PATH="$VM_PLAYWRIGHT_DIR/node_modules" VERYMATH_SCREENSHOT_DIR="$VM_SCREENSHOT_DIR" node tests/verify_contributors_browser.cjs
 ```
 
-Expected: PASS; JSON reports 21 cards, 11 linked, 10 static, no horizontal overflow at 1366×900 or 390×844, correct name order in both languages, and four screenshot paths under `$VM_SCREENSHOT_DIR`.
+Expected: PASS; JSON reports 20 cards, 10 linked, 10 static, no horizontal overflow at 1366×900 or 390×844, correct name order in both languages, and four screenshot paths under `$VM_SCREENSHOT_DIR`.
 
 - [ ] **Step 6: Commit the browser QA change**
 
@@ -480,7 +478,7 @@ Open each generated PNG with the local image viewer and confirm:
 - every card has a visible, untruncated name;
 - `Joseph20060208`, `Xiangfeng Wang`, and `Xiaowen Zhang` do not clip or collide;
 - English screenshots contain no visible Chinese names, and Chinese screenshots contain no visible English names;
-- the 21-card grid has no overlap or horizontal overflow at either viewport;
+- the 20-card grid has no overlap or horizontal overflow at either viewport;
 - unconfirmed accounts use clean initials and show no blank handle row.
 
 If any criterion fails, fix the responsible source/test file, rerun Steps 1-3, and do not change the design status.
