@@ -2,3 +2,5 @@ title: VeryMath
 description: AI for mathematical research. Reusable, verifiable, and collaborative workflows for open mathematics.
 theme: jekyll-theme-slate
 show_downloads: false
+exclude:
+  - docs
