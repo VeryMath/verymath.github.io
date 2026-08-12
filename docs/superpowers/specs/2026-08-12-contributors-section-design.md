@@ -57,7 +57,7 @@
 | Miao Dong | 无公开映射 | Auto Research 课程贡献记录 |
 | 郑智心 | 无可用公开账号链接 | MathTool 贡献者登记表中的 `njustar2002` 标识；用户确认真实姓名 |
 | Quan Sun | 无公开映射 | Auto Research 课程贡献记录 |
-| rain37233 | `rain37233-del` | Lean Agents 公开分支提交历史 |
+| 张司雨 | `rain37233-del` | Lean Agents 公开分支提交历史；用户确认真实姓名 |
 | tanghaoru | `tang0805-em` | Computational Mathematics 公开分支提交历史 |
 | Xiaowen Zhang | 无公开映射 | Auto Research 课程贡献记录 |
 | Yihong Wei | `Imccark` | SageMath 提交记录 |

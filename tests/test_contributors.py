@@ -16,7 +16,7 @@ EXPECTED_NAMES = [
     "Miao Dong",
     "郑智心",
     "Quan Sun",
-    "rain37233",
+    "张司雨",
     "tanghaoru",
     "Xiaowen Zhang",
     "Yihong Wei",
@@ -30,7 +30,7 @@ EXPECTED_GITHUB = {
     "Dong Yuan": "dyuan311",
     "hyyh28": "hyyh28",
     "IsRivulet": "IsRivulet",
-    "rain37233": "rain37233-del",
+    "张司雨": "rain37233-del",
     "tanghaoru": "tang0805-em",
     "Yihong Wei": "Imccark",
     "李爽夕": "ricercar77",
@@ -196,6 +196,15 @@ class ContributorHomepageTests(unittest.TestCase):
         ]
         self.assertIn("郑智心", rendered_names)
         self.assertNotIn("njustar2002", rendered_names)
+
+    def test_confirmed_rain_account_displays_real_name(self):
+        cards_by_name = {
+            find_one(card, lambda node: "vm-contributor-name" in node.classes).text(): card
+            for card in self.cards
+        }
+        self.assertIn("张司雨", cards_by_name)
+        self.assertNotIn("rain37233", cards_by_name)
+        self.assertEqual(cards_by_name["张司雨"].attrs.get("href"), "https://github.com/rain37233-del")
 
     def test_only_confirmed_accounts_render_links_and_lazy_avatars(self):
         records = json.loads(CONTRIBUTORS_PATH.read_text(encoding="utf-8"))
