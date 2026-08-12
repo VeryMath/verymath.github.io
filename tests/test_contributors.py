@@ -8,37 +8,49 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTRIBUTORS_PATH = ROOT / "_data" / "contributors.json"
-EXPECTED_NAMES = [
-    "Conan Xu",
-    "Dong Yuan",
-    "华贇",
-    "邢梦圆",
-    "Miao Dong",
-    "郑智心",
-    "Quan Sun",
-    "张司雨",
-    "tanghaoru",
-    "Xiangfeng Wang",
-    "Xiaowen Zhang",
-    "Yihong Wei",
-    "Yunfeng Lu",
-    "涂卓杰",
-    "李爽夕",
-    "蒋博先",
+EXPECTED_CONTRIBUTORS = [
+    ("Xiangfeng Wang", "王祥丰", "advisor", "xfwang87"),
+    ("Yaling Chen", "陈亚玲", "member", None),
+    ("Miao Dong", "董淼", "member", None),
+    ("Yun Hua", "华贇", "member", "hyyh28"),
+    ("Boxian Jiang", "蒋博先", "member", "Joseph20060208"),
+    ("Rujing Li", "黎汝婧", "member", None),
+    ("Shuangxi Li", "李爽夕", "member", "ricercar77"),
+    ("Yipeng Lin", "林依鹏", "member", None),
+    ("Chen Ling", "凌晨", "member", None),
+    ("Yunfeng Lu", "陆云峰", "member", None),
+    ("Quan Sun", "孙权", "member", None),
+    ("Haoru Tang", "汤皓如", "member", "tang0805-em"),
+    ("Zhuojie Tu", "涂卓杰", "member", "Tu-ZJ"),
+    ("Nuoqian Wang", "王诺千", "member", None),
+    ("Yihong Wei", "尉毅宏", "member", "Imccark"),
+    ("Mengyuan Xing", "邢梦圆", "member", "IsRivulet"),
+    ("Conan Xu", "徐柯楠", "member", "ConanXu-math"),
+    ("Dong Yuan", "袁东", "member", "dyuan311"),
+    ("Siyu Zhang", "张司雨", "member", "rain37233-del"),
+    ("Xiaowen Zhang", "张笑玟", "member", None),
+    ("Zhixin Zheng", "郑智心", "member", None),
 ]
-EXPECTED_GITHUB = {
-    "Conan Xu": "ConanXu-math",
-    "Dong Yuan": "dyuan311",
-    "华贇": "hyyh28",
-    "邢梦圆": "IsRivulet",
-    "张司雨": "rain37233-del",
-    "tanghaoru": "tang0805-em",
-    "Xiangfeng Wang": "xfwang87",
-    "Yihong Wei": "Imccark",
-    "涂卓杰": "Tu-ZJ",
-    "李爽夕": "ricercar77",
-    "蒋博先": "Joseph20060208",
+EXPECTED_NAMES = [item[0] for item in EXPECTED_CONTRIBUTORS]
+EXPECTED_NAMES_ZH = [item[1] for item in EXPECTED_CONTRIBUTORS]
+EXPECTED_GITHUB = {item[0]: item[3] for item in EXPECTED_CONTRIBUTORS if item[3]}
+TEAM_NAMES_ZH = {
+    "李爽夕",
+    "林依鹏",
+    "凌晨",
+    "汤皓如",
+    "涂卓杰",
+    "王诺千",
+    "邢梦圆",
+    "陈亚玲",
+    "蒋博先",
+    "黎汝婧",
+    "尉毅宏",
+    "徐柯楠",
+    "袁东",
+    "张司雨",
 }
+TEAM_SOURCE = "team-introduction-2026-06-30"
 VOID_ELEMENTS = {
     "area",
     "base",
@@ -118,33 +130,85 @@ def find_one(node, predicate):
     return matches[0]
 
 
+def localized_text(node, field_class, language):
+    field = find_one(node, lambda candidate: field_class in candidate.classes)
+    localized = find_one(field, lambda candidate: f"lang-{language}" in candidate.classes)
+    return localized.text()
+
+
 class ContributorRegistryTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.records = json.loads(CONTRIBUTORS_PATH.read_text(encoding="utf-8"))
 
-    def test_registry_contains_each_verified_public_identity_once(self):
-        names = [record["name"] for record in self.records]
-        self.assertEqual(names, EXPECTED_NAMES)
-        self.assertEqual(len(names), len(set(names)))
+    def test_registry_matches_the_approved_order(self):
+        actual = [
+            (
+                record.get("name_en"),
+                record.get("name_zh"),
+                record.get("role"),
+                record.get("github"),
+            )
+            for record in self.records
+        ]
+        self.assertEqual(actual, EXPECTED_CONTRIBUTORS)
 
-    def test_records_are_renderable_and_have_public_sources(self):
-        self.assertEqual(len(self.records), 16)
+    def test_records_have_complete_bilingual_schema_and_sources(self):
+        self.assertEqual(len(self.records), 21)
+        self.assertEqual(len({record.get("name_en") for record in self.records}), 21)
+        self.assertEqual(len({record.get("name_zh") for record in self.records}), 21)
         for record in self.records:
-            with self.subTest(name=record.get("name")):
-                self.assertEqual(set(record), {"name", "github", "initial", "evidence"})
-                self.assertIsInstance(record["name"], str)
-                self.assertTrue(record["name"].strip())
-                self.assertIsInstance(record["initial"], str)
-                self.assertRegex(record["initial"], r"^.{1,3}$")
+            with self.subTest(name=record.get("name_en") or record.get("name")):
+                self.assertEqual(
+                    set(record),
+                    {
+                        "name_en",
+                        "name_zh",
+                        "github",
+                        "initial_en",
+                        "initial_zh",
+                        "role",
+                        "evidence",
+                    },
+                )
+                self.assertIsInstance(record["name_en"], str)
+                self.assertTrue(record["name_en"].strip())
+                self.assertIsInstance(record["name_zh"], str)
+                self.assertTrue(record["name_zh"].strip())
+                self.assertRegex(record["initial_en"], r"^[A-Z]{1,3}$")
+                self.assertRegex(record["initial_zh"], r"^.$")
+                self.assertIn(record["role"], {"advisor", "member"})
                 self.assertIsInstance(record["evidence"], list)
                 self.assertTrue(record["evidence"])
-                self.assertTrue(all(item.startswith("https://github.com/") for item in record["evidence"]))
+                self.assertTrue(
+                    all(
+                        source == TEAM_SOURCE or source.startswith("https://github.com/")
+                        for source in record["evidence"]
+                    )
+                )
+
+    def test_advisor_is_unique_and_first(self):
+        advisors = [record for record in self.records if record.get("role") == "advisor"]
+        self.assertEqual([record.get("name_zh") for record in advisors], ["王祥丰"])
+        self.assertEqual(self.records[0].get("name_zh"), "王祥丰")
+        self.assertTrue(all(record.get("role") == "member" for record in self.records[1:]))
+
+    def test_team_introduction_members_are_all_present(self):
+        self.assertTrue(TEAM_NAMES_ZH.issubset({record.get("name_zh") for record in self.records}))
+        team_sourced = {
+            record.get("name_zh") for record in self.records if TEAM_SOURCE in record["evidence"]
+        }
+        self.assertEqual(team_sourced, TEAM_NAMES_ZH)
 
     def test_only_confirmed_github_accounts_are_linked(self):
-        linked = {record["name"]: record["github"] for record in self.records if record["github"]}
+        linked = {
+            record.get("name_en"): record["github"]
+            for record in self.records
+            if record["github"]
+        }
         self.assertEqual(linked, EXPECTED_GITHUB)
-        self.assertEqual(len(linked.values()), len(set(value.lower() for value in linked.values())))
+        self.assertEqual(len(linked), 11)
+        self.assertEqual(len(linked.values()), len({value.lower() for value in linked.values()}))
         for github in linked.values():
             self.assertRegex(github, re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$"))
 
@@ -152,14 +216,15 @@ class ContributorRegistryTests(unittest.TestCase):
 class ContributorHomepageTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        result = subprocess.run(
+        cls.render_result = subprocess.run(
             ["ruby", str(ROOT / "tests" / "render_homepage.rb")],
             cwd=ROOT,
-            check=True,
             capture_output=True,
             text=True,
         )
-        cls.html = result.stdout
+        if cls.render_result.returncode != 0:
+            return
+        cls.html = cls.render_result.stdout
         parser = DOMParser()
         parser.feed(cls.html)
         cls.document = parser.root
@@ -168,6 +233,9 @@ class ContributorHomepageTests(unittest.TestCase):
             lambda node: node.tag == "section" and node.attrs.get("aria-labelledby") == "vm-contributors-title",
         )
         cls.cards = [node for node in descendants(cls.section) if "vm-contributor-card" in node.classes]
+
+    def test_homepage_renders_with_strict_liquid(self):
+        self.assertEqual(self.render_result.returncode, 0, self.render_result.stderr)
 
     def test_contributors_are_the_final_homepage_section(self):
         homepage_sections = [
@@ -183,77 +251,57 @@ class ContributorHomepageTests(unittest.TestCase):
         self.assertEqual(chinese.text(), "贡献者")
 
     def test_every_registry_entry_renders_once_without_ranking(self):
-        self.assertEqual(len(self.cards), 16)
-        rendered_names = [
-            find_one(card, lambda node: "vm-contributor-name" in node.classes).text()
-            for card in self.cards
-        ]
-        self.assertEqual(rendered_names, EXPECTED_NAMES)
+        self.assertEqual(len(self.cards), 21)
+        self.assertEqual(
+            [localized_text(card, "vm-contributor-name", "en") for card in self.cards],
+            EXPECTED_NAMES,
+        )
+        self.assertEqual(
+            [localized_text(card, "vm-contributor-name", "zh") for card in self.cards],
+            EXPECTED_NAMES_ZH,
+        )
+        self.assertEqual(localized_text(self.cards[0], "vm-contributor-name", "zh"), "王祥丰")
         self.assertNotIn("contributions", self.section.text().lower())
         self.assertNotIn("ranking", self.section.text().lower())
 
-    def test_confirmed_real_name_replaces_opaque_identifier(self):
-        rendered_names = [
-            find_one(card, lambda node: "vm-contributor-name" in node.classes).text()
-            for card in self.cards
-        ]
-        self.assertIn("郑智心", rendered_names)
-        self.assertNotIn("njustar2002", rendered_names)
+    def test_contributor_copy_includes_teamwork_and_guidance(self):
+        lead = find_one(self.section, lambda node: "vm-lead" in node.classes)
+        english = find_one(lead, lambda node: "lang-en" in node.classes)
+        chinese = find_one(lead, lambda node: "lang-zh" in node.classes)
+        self.assertEqual(
+            english.text(),
+            "We thank everyone who contributes tools, workflows, research infrastructure, "
+            "teamwork, and guidance to VeryMath.",
+        )
+        self.assertEqual(
+            chinese.text(),
+            "感谢所有为 VeryMath 的工具、工作流、科研基础设施、团队协作与指导支持作出贡献的参与者。",
+        )
 
-    def test_confirmed_rain_account_displays_real_name(self):
-        cards_by_name = {
-            find_one(card, lambda node: "vm-contributor-name" in node.classes).text(): card
-            for card in self.cards
-        }
-        self.assertIn("张司雨", cards_by_name)
-        self.assertNotIn("rain37233", cards_by_name)
-        self.assertEqual(cards_by_name["张司雨"].attrs.get("href"), "https://github.com/rain37233-del")
-
-    def test_confirmed_hyyh_account_displays_real_name(self):
-        cards_by_name = {
-            find_one(card, lambda node: "vm-contributor-name" in node.classes).text(): card
-            for card in self.cards
-        }
-        self.assertIn("华贇", cards_by_name)
-        self.assertNotIn("hyyh28", cards_by_name)
-        self.assertEqual(cards_by_name["华贇"].attrs.get("href"), "https://github.com/hyyh28")
-
-    def test_confirmed_isrivulet_account_displays_real_name(self):
-        cards_by_name = {
-            find_one(card, lambda node: "vm-contributor-name" in node.classes).text(): card
-            for card in self.cards
-        }
-        self.assertIn("邢梦圆", cards_by_name)
-        self.assertNotIn("IsRivulet", cards_by_name)
-        self.assertEqual(cards_by_name["邢梦圆"].attrs.get("href"), "https://github.com/IsRivulet")
-
-    def test_confirmed_tu_account_links_real_name(self):
-        cards_by_name = {
-            find_one(card, lambda node: "vm-contributor-name" in node.classes).text(): card
-            for card in self.cards
-        }
-        self.assertIn("涂卓杰", cards_by_name)
-        self.assertNotIn("Zhuojie Tu", cards_by_name)
-        self.assertEqual(cards_by_name["涂卓杰"].attrs.get("href"), "https://github.com/Tu-ZJ")
-
-    def test_user_confirmed_advisor_is_included(self):
-        cards_by_name = {
-            find_one(card, lambda node: "vm-contributor-name" in node.classes).text(): card
-            for card in self.cards
-        }
-        self.assertIn("Xiangfeng Wang", cards_by_name)
-        self.assertEqual(cards_by_name["Xiangfeng Wang"].attrs.get("href"), "https://github.com/xfwang87")
+    def test_fallback_initials_follow_the_active_language(self):
+        records = json.loads(CONTRIBUTORS_PATH.read_text(encoding="utf-8"))
+        for card, record in zip(self.cards, records):
+            with self.subTest(name=record["name_en"]):
+                self.assertEqual(
+                    localized_text(card, "vm-contributor-initial", "en"), record["initial_en"]
+                )
+                self.assertEqual(
+                    localized_text(card, "vm-contributor-initial", "zh"), record["initial_zh"]
+                )
 
     def test_only_confirmed_accounts_render_links_and_lazy_avatars(self):
         records = json.loads(CONTRIBUTORS_PATH.read_text(encoding="utf-8"))
         cards_by_name = {
-            find_one(card, lambda node: "vm-contributor-name" in node.classes).text(): card
+            localized_text(card, "vm-contributor-name", "en"): card
             for card in self.cards
         }
         for record in records:
-            with self.subTest(name=record["name"]):
-                card = cards_by_name[record["name"]]
+            with self.subTest(name=record["name_en"]):
+                card = cards_by_name[record["name_en"]]
                 images = [node for node in descendants(card) if node.tag == "img"]
+                handles = [
+                    node for node in descendants(card) if "vm-contributor-handle" in node.classes
+                ]
                 if record["github"]:
                     self.assertEqual(card.tag, "a")
                     self.assertEqual(card.attrs.get("href"), f"https://github.com/{record['github']}")
@@ -263,12 +311,12 @@ class ContributorHomepageTests(unittest.TestCase):
                         f"https://github.com/{record['github']}.png?size=160",
                     )
                     self.assertEqual(images[0].attrs.get("loading"), "lazy")
-                    handle = find_one(card, lambda node: "vm-contributor-handle" in node.classes)
-                    self.assertEqual(handle.text(), f"@{record['github']}")
+                    self.assertEqual([handle.text() for handle in handles], [f"@{record['github']}"])
                 else:
                     self.assertEqual(card.tag, "div")
                     self.assertNotIn("href", card.attrs)
                     self.assertEqual(images, [])
+                    self.assertEqual(handles, [])
 
     def test_page_adds_no_contributor_api_dependency(self):
         self.assertNotIn("api.github.com/orgs/VeryMath", self.html)

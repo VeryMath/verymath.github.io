@@ -1265,26 +1265,38 @@ title: VeryMath
   <section class="vm-section" aria-labelledby="vm-contributors-title">
     <h2 id="vm-contributors-title"><span class="lang-en">Contributors</span><span class="lang-zh">贡献者</span></h2>
     <p class="vm-lead">
-      <span class="lang-en">We thank everyone who has contributed tools, workflows, and research infrastructure to VeryMath.</span>
-      <span class="lang-zh">感谢所有为 VeryMath 的工具、工作流与科研基础设施作出贡献的参与者。</span>
+      <span class="lang-en">We thank everyone who contributes tools, workflows, research infrastructure, teamwork, and guidance to VeryMath.</span>
+      <span class="lang-zh">感谢所有为 VeryMath 的工具、工作流、科研基础设施、团队协作与指导支持作出贡献的参与者。</span>
     </p>
     <div class="vm-contributor-grid">
       {% for contributor in site.data.contributors %}
         {% if contributor.github %}
           <a class="vm-contributor-card" href="https://github.com/{{ contributor.github | escape }}">
             <span class="vm-contributor-avatar" aria-hidden="true">
-              <span class="vm-contributor-initial">{{ contributor.initial | escape }}</span>
+              <span class="vm-contributor-initial">
+                <span class="lang-en">{{ contributor.initial_en | escape }}</span>
+                <span class="lang-zh">{{ contributor.initial_zh | escape }}</span>
+              </span>
               <img class="vm-contributor-image" src="https://github.com/{{ contributor.github | escape }}.png?size=160" alt="" width="64" height="64" loading="lazy" decoding="async" onload="this.classList.add('vm-contributor-image-loaded')" onerror="this.hidden = true">
             </span>
-            <span class="vm-contributor-name">{{ contributor.name | escape }}</span>
+            <span class="vm-contributor-name">
+              <span class="lang-en">{{ contributor.name_en | escape }}</span>
+              <span class="lang-zh">{{ contributor.name_zh | escape }}</span>
+            </span>
             <span class="vm-contributor-handle">@{{ contributor.github | escape }}</span>
           </a>
         {% else %}
           <div class="vm-contributor-card vm-contributor-card-static">
             <span class="vm-contributor-avatar" aria-hidden="true">
-              <span class="vm-contributor-initial">{{ contributor.initial | escape }}</span>
+              <span class="vm-contributor-initial">
+                <span class="lang-en">{{ contributor.initial_en | escape }}</span>
+                <span class="lang-zh">{{ contributor.initial_zh | escape }}</span>
+              </span>
             </span>
-            <span class="vm-contributor-name">{{ contributor.name | escape }}</span>
+            <span class="vm-contributor-name">
+              <span class="lang-en">{{ contributor.name_en | escape }}</span>
+              <span class="lang-zh">{{ contributor.name_zh | escape }}</span>
+            </span>
           </div>
         {% endif %}
       {% endfor %}
