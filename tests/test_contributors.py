@@ -18,6 +18,7 @@ EXPECTED_NAMES = [
     "Quan Sun",
     "张司雨",
     "tanghaoru",
+    "Xiangfeng Wang",
     "Xiaowen Zhang",
     "Yihong Wei",
     "Yunfeng Lu",
@@ -32,6 +33,7 @@ EXPECTED_GITHUB = {
     "邢梦圆": "IsRivulet",
     "张司雨": "rain37233-del",
     "tanghaoru": "tang0805-em",
+    "Xiangfeng Wang": "xfwang87",
     "Yihong Wei": "Imccark",
     "涂卓杰": "Tu-ZJ",
     "李爽夕": "ricercar77",
@@ -126,8 +128,8 @@ class ContributorRegistryTests(unittest.TestCase):
         self.assertEqual(names, EXPECTED_NAMES)
         self.assertEqual(len(names), len(set(names)))
 
-    def test_records_are_renderable_and_have_public_evidence(self):
-        self.assertEqual(len(self.records), 15)
+    def test_records_are_renderable_and_have_public_sources(self):
+        self.assertEqual(len(self.records), 16)
         for record in self.records:
             with self.subTest(name=record.get("name")):
                 self.assertEqual(set(record), {"name", "github", "initial", "evidence"})
@@ -137,7 +139,7 @@ class ContributorRegistryTests(unittest.TestCase):
                 self.assertRegex(record["initial"], r"^.{1,3}$")
                 self.assertIsInstance(record["evidence"], list)
                 self.assertTrue(record["evidence"])
-                self.assertTrue(all(item.startswith("https://github.com/VeryMath/") for item in record["evidence"]))
+                self.assertTrue(all(item.startswith("https://github.com/") for item in record["evidence"]))
 
     def test_only_confirmed_github_accounts_are_linked(self):
         linked = {record["name"]: record["github"] for record in self.records if record["github"]}
@@ -181,7 +183,7 @@ class ContributorHomepageTests(unittest.TestCase):
         self.assertEqual(chinese.text(), "贡献者")
 
     def test_every_registry_entry_renders_once_without_ranking(self):
-        self.assertEqual(len(self.cards), 15)
+        self.assertEqual(len(self.cards), 16)
         rendered_names = [
             find_one(card, lambda node: "vm-contributor-name" in node.classes).text()
             for card in self.cards
@@ -233,6 +235,14 @@ class ContributorHomepageTests(unittest.TestCase):
         self.assertIn("涂卓杰", cards_by_name)
         self.assertNotIn("Zhuojie Tu", cards_by_name)
         self.assertEqual(cards_by_name["涂卓杰"].attrs.get("href"), "https://github.com/Tu-ZJ")
+
+    def test_user_confirmed_advisor_is_included(self):
+        cards_by_name = {
+            find_one(card, lambda node: "vm-contributor-name" in node.classes).text(): card
+            for card in self.cards
+        }
+        self.assertIn("Xiangfeng Wang", cards_by_name)
+        self.assertEqual(cards_by_name["Xiangfeng Wang"].attrs.get("href"), "https://github.com/xfwang87")
 
     def test_only_confirmed_accounts_render_links_and_lazy_avatars(self):
         records = json.loads(CONTRIBUTORS_PATH.read_text(encoding="utf-8"))
