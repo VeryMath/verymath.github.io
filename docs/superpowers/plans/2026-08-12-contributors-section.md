@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-> **Post-implementation identity audit (2026-08-12):** Preserved branch/source history confirmed `rain37233 → rain37233-del`, `tanghaoru → tang0805-em`, and `蒋博先 → Joseph20060208`; the user subsequently confirmed that `hyyh28` is 华贇, `IsRivulet` is 邢梦圆, `rain37233` is 张司雨, `ricercar77` is 李爽夕, and the `njustar2002` attribution belongs to 郑智心. The current registry therefore renders 15 people as nine linked and six static cards; 郑智心 remains static because `njustar2002` is not a usable GitHub profile. Fault-injection avatar checks and clean visual screenshots are now separate; the step-by-step snippets below retain the original pre-audit plan values.
+> **Post-implementation identity audit (2026-08-12):** Preserved branch/source history confirmed `rain37233 → rain37233-del`, `tanghaoru → tang0805-em`, and `蒋博先 → Joseph20060208`; the user subsequently confirmed that `hyyh28` is 华贇, `IsRivulet` is 邢梦圆, `rain37233` is 张司雨, `Tu-ZJ` is 涂卓杰, `ricercar77` is 李爽夕, and the `njustar2002` attribution belongs to 郑智心. The current registry therefore renders 15 people as ten linked and five static cards; 郑智心 remains static because `njustar2002` is not a usable GitHub profile. Fault-injection avatar checks and clean visual screenshots are now separate; the step-by-step snippets below retain the original pre-audit plan values.
 
 **Goal:** Add a bilingual, responsive homepage section that credits all 15 verified, deduplicated actual VeryMath contributors, including people whom GitHub's contributor API misses.
 

@@ -62,7 +62,7 @@
 | Xiaowen Zhang | 无公开映射 | Auto Research 课程贡献记录 |
 | Yihong Wei | `Imccark` | SageMath 提交记录 |
 | Yunfeng Lu | 无公开映射 | MathTool 课程贡献记录 |
-| Zhuojie Tu | 无公开映射 | Paper Reading 课程贡献记录 |
+| 涂卓杰 | `Tu-ZJ` | Paper Reading 课程贡献记录；用户确认账号映射 |
 | 李爽夕 | `ricercar77` | Optimization 与 Computational Mathematics 归属记录；用户确认账号映射 |
 | 蒋博先 | `Joseph20060208` | Computational Mathematics 归属记录与保留的有限元源仓库历史 |
 
