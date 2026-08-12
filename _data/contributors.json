@@ -1,0 +1,214 @@
+[
+  {
+    "name_en": "Xiangfeng Wang",
+    "name_zh": "王祥丰",
+    "github": "xfwang87",
+    "initial_en": "XW",
+    "initial_zh": "王",
+    "role": "advisor",
+    "evidence": ["https://github.com/xfwang87"]
+  },
+  {
+    "name_en": "Yaling Chen",
+    "name_zh": "陈亚玲",
+    "github": null,
+    "initial_en": "YC",
+    "initial_zh": "陈",
+    "role": "member",
+    "evidence": ["team-introduction-2026-06-30"]
+  },
+  {
+    "name_en": "Miao Dong",
+    "name_zh": "董淼",
+    "github": null,
+    "initial_en": "MD",
+    "initial_zh": "董",
+    "role": "member",
+    "evidence": ["https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name_en": "Boxian Jiang",
+    "name_zh": "蒋博先",
+    "github": "Joseph20060208",
+    "initial_en": "BJ",
+    "initial_zh": "蒋",
+    "role": "member",
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md",
+      "https://github.com/VeryMath/skill-Finite-Element-Analysis/commit/94c1545b7efa262efe0dd4db09e4f0e43c0cd16d",
+      "team-introduction-2026-06-30"
+    ]
+  },
+  {
+    "name_en": "Rujing Li",
+    "name_zh": "黎汝婧",
+    "github": null,
+    "initial_en": "RL",
+    "initial_zh": "黎",
+    "role": "member",
+    "evidence": ["team-introduction-2026-06-30"]
+  },
+  {
+    "name_en": "Shuangxi Li",
+    "name_zh": "李爽夕",
+    "github": "ricercar77",
+    "initial_en": "SL",
+    "initial_zh": "李",
+    "role": "member",
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Optimization/blob/main/CONTRIBUTORS.md",
+      "https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md",
+      "team-introduction-2026-06-30"
+    ]
+  },
+  {
+    "name_en": "Yipeng Lin",
+    "name_zh": "林依鹏",
+    "github": null,
+    "initial_en": "YL",
+    "initial_zh": "林",
+    "role": "member",
+    "evidence": ["team-introduction-2026-06-30"]
+  },
+  {
+    "name_en": "Chen Ling",
+    "name_zh": "凌晨",
+    "github": null,
+    "initial_en": "CL",
+    "initial_zh": "凌",
+    "role": "member",
+    "evidence": ["team-introduction-2026-06-30"]
+  },
+  {
+    "name_en": "Yunfeng Lu",
+    "name_zh": "陆云峰",
+    "github": null,
+    "initial_en": "YL",
+    "initial_zh": "陆",
+    "role": "member",
+    "evidence": ["https://github.com/VeryMath/AI4Math-MathTool/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name_en": "Quan Sun",
+    "name_zh": "孙权",
+    "github": null,
+    "initial_en": "QS",
+    "initial_zh": "孙",
+    "role": "member",
+    "evidence": ["https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name_en": "Haoru Tang",
+    "name_zh": "汤皓如",
+    "github": "tang0805-em",
+    "initial_en": "HT",
+    "initial_zh": "汤",
+    "role": "member",
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md",
+      "https://github.com/VeryMath/AI4Math-Computational-Mathematics/commit/8978f0204fae7cfa1c865fd3382776ef7bbaf7ec",
+      "team-introduction-2026-06-30"
+    ]
+  },
+  {
+    "name_en": "Zhuojie Tu",
+    "name_zh": "涂卓杰",
+    "github": "Tu-ZJ",
+    "initial_en": "ZT",
+    "initial_zh": "涂",
+    "role": "member",
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md",
+      "team-introduction-2026-06-30"
+    ]
+  },
+  {
+    "name_en": "Nuoqian Wang",
+    "name_zh": "王诺千",
+    "github": null,
+    "initial_en": "NW",
+    "initial_zh": "王",
+    "role": "member",
+    "evidence": ["team-introduction-2026-06-30"]
+  },
+  {
+    "name_en": "Yihong Wei",
+    "name_zh": "尉毅宏",
+    "github": "Imccark",
+    "initial_en": "YW",
+    "initial_zh": "尉",
+    "role": "member",
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Sagemath-skill/commits/main/?author=Imccark",
+      "team-introduction-2026-06-30"
+    ]
+  },
+  {
+    "name_en": "Mengyuan Xing",
+    "name_zh": "邢梦圆",
+    "github": "IsRivulet",
+    "initial_en": "MX",
+    "initial_zh": "邢",
+    "role": "member",
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md",
+      "team-introduction-2026-06-30"
+    ]
+  },
+  {
+    "name_en": "Conan Xu",
+    "name_zh": "徐柯楠",
+    "github": "ConanXu-math",
+    "initial_en": "CX",
+    "initial_zh": "徐",
+    "role": "member",
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md",
+      "team-introduction-2026-06-30"
+    ]
+  },
+  {
+    "name_en": "Dong Yuan",
+    "name_zh": "袁东",
+    "github": "dyuan311",
+    "initial_en": "DY",
+    "initial_zh": "袁",
+    "role": "member",
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md",
+      "https://github.com/VeryMath/AI4Math-Auto-Research/pull/7",
+      "team-introduction-2026-06-30"
+    ]
+  },
+  {
+    "name_en": "Siyu Zhang",
+    "name_zh": "张司雨",
+    "github": "rain37233-del",
+    "initial_en": "SZ",
+    "initial_zh": "张",
+    "role": "member",
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Lean-Agents/blob/main/CONTRIBUTORS.md",
+      "https://github.com/VeryMath/AI4Math-Lean-Agents/commit/709869640f9f65403f646edc64433f5c0c9a99b7",
+      "team-introduction-2026-06-30"
+    ]
+  },
+  {
+    "name_en": "Xiaowen Zhang",
+    "name_zh": "张笑玟",
+    "github": null,
+    "initial_en": "XZ",
+    "initial_zh": "张",
+    "role": "member",
+    "evidence": ["https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name_en": "Zhixin Zheng",
+    "name_zh": "郑智心",
+    "github": null,
+    "initial_en": "ZZ",
+    "initial_zh": "郑",
+    "role": "member",
+    "evidence": ["https://github.com/VeryMath/AI4Math-MathTool/blob/main/CONTRIBUTORS.md"]
+  }
+]

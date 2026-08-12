@@ -309,6 +309,91 @@ title: VeryMath
     line-height: 1.7;
   }
 
+  .vm-contributor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+
+  .vm-contributor-card {
+    min-width: 0;
+    min-height: 154px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 18px 12px 16px;
+    border: 1px solid var(--vm-line);
+    border-radius: 8px;
+    color: var(--vm-ink);
+    text-align: center;
+    text-decoration: none;
+    background: #fff;
+  }
+
+  a.vm-contributor-card {
+    transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+  }
+
+  a.vm-contributor-card:hover {
+    border-color: rgba(11, 79, 156, 0.4);
+    color: var(--vm-ink);
+    box-shadow: 0 10px 24px rgba(22, 33, 61, 0.1);
+    transform: translateY(-2px);
+  }
+
+  a.vm-contributor-card:focus-visible {
+    outline: 3px solid rgba(9, 105, 218, 0.28);
+    outline-offset: 2px;
+  }
+
+  .vm-contributor-avatar {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    display: grid;
+    flex: 0 0 64px;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid rgba(11, 79, 156, 0.16);
+    border-radius: 50%;
+    color: var(--vm-blue);
+    font-size: 17px;
+    font-weight: 800;
+    background: var(--vm-bg);
+  }
+
+  .vm-contributor-avatar img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    object-fit: cover;
+    background: #fff;
+    transition: opacity 120ms ease;
+  }
+
+  .vm-contributor-avatar img.vm-contributor-image-loaded {
+    opacity: 1;
+  }
+
+  .vm-contributor-name {
+    max-width: 100%;
+    font-weight: 800;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .vm-contributor-handle {
+    max-width: 100%;
+    color: var(--vm-muted);
+    font-size: 13px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
   .vm-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -717,6 +802,23 @@ title: VeryMath
 
     .vm-star-segment {
       padding: 0 7px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .vm-contributor-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .vm-contributor-card {
+      min-height: 144px;
+      padding: 16px 10px 14px;
+    }
+  }
+
+  @media (max-width: 340px) {
+    .vm-contributor-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
@@ -1157,6 +1259,47 @@ title: VeryMath
     <div class="vm-actions">
       <a class="vm-button vm-button-primary" href="https://github.com/orgs/VeryMath/repositories"><span class="lang-en">View Repositories</span><span class="lang-zh">查看仓库</span></a>
       <a class="vm-button" href="https://github.com/VeryMath/co-mathematician/issues"><span class="lang-en">Open Issues</span><span class="lang-zh">查看议题</span></a>
+    </div>
+  </section>
+
+  <section class="vm-section" aria-labelledby="vm-contributors-title">
+    <h2 id="vm-contributors-title"><span class="lang-en">Contributors</span><span class="lang-zh">贡献者</span></h2>
+    <p class="vm-lead">
+      <span class="lang-en">We thank everyone who contributes tools, workflows, research infrastructure, teamwork, and guidance to VeryMath.</span>
+      <span class="lang-zh">感谢所有为 VeryMath 的工具、工作流、科研基础设施、团队协作与指导支持作出贡献的参与者。</span>
+    </p>
+    <div class="vm-contributor-grid">
+      {% for contributor in site.data.contributors %}
+        {% if contributor.github %}
+          <a class="vm-contributor-card" href="https://github.com/{{ contributor.github | escape }}">
+            <span class="vm-contributor-avatar" aria-hidden="true">
+              <span class="vm-contributor-initial">
+                <span class="lang-en">{{ contributor.initial_en | escape }}</span>
+                <span class="lang-zh">{{ contributor.initial_zh | escape }}</span>
+              </span>
+              <img class="vm-contributor-image" src="https://github.com/{{ contributor.github | escape }}.png?size=160" alt="" width="64" height="64" loading="lazy" decoding="async" onload="this.classList.add('vm-contributor-image-loaded')" onerror="this.hidden = true">
+            </span>
+            <span class="vm-contributor-name">
+              <span class="lang-en">{{ contributor.name_en | escape }}</span>
+              <span class="lang-zh">{{ contributor.name_zh | escape }}</span>
+            </span>
+            <span class="vm-contributor-handle">@{{ contributor.github | escape }}</span>
+          </a>
+        {% else %}
+          <div class="vm-contributor-card vm-contributor-card-static">
+            <span class="vm-contributor-avatar" aria-hidden="true">
+              <span class="vm-contributor-initial">
+                <span class="lang-en">{{ contributor.initial_en | escape }}</span>
+                <span class="lang-zh">{{ contributor.initial_zh | escape }}</span>
+              </span>
+            </span>
+            <span class="vm-contributor-name">
+              <span class="lang-en">{{ contributor.name_en | escape }}</span>
+              <span class="lang-zh">{{ contributor.name_zh | escape }}</span>
+            </span>
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
   </section>
 </div>
