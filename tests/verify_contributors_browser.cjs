@@ -6,6 +6,12 @@ const { execFileSync } = require("node:child_process");
 const { chromium } = require("playwright");
 
 const root = path.resolve(__dirname, "..");
+const contributors = JSON.parse(
+  fs.readFileSync(path.join(root, "_data", "contributors.json"), "utf8"),
+);
+const expectedCardCount = contributors.length;
+const expectedLinkedCount = contributors.filter((contributor) => contributor.github).length;
+const expectedStaticCount = expectedCardCount - expectedLinkedCount;
 const html = execFileSync("ruby", [path.join(root, "tests", "render_homepage.rb")], {
   cwd: root,
   encoding: "utf8",
@@ -42,7 +48,7 @@ async function listen() {
   return `http://127.0.0.1:${server.address().port}/`;
 }
 
-async function inspect(browser, url, viewport, screenshotName) {
+async function inspect(browser, url, viewport) {
   const page = await browser.newPage({ viewport, deviceScaleFactor: 1 });
   let blockedAvatarRequests = 0;
   let delayedAvatarRequests = 0;
@@ -85,17 +91,20 @@ async function inspect(browser, url, viewport, screenshotName) {
   releaseDelayedAvatar();
   assert.equal(pendingFallback.imageOpacity, "0");
   assert.equal(pendingFallback.initialVisible, true);
-  await page.waitForFunction(() => {
-    const images = [...document.querySelectorAll(".vm-contributor-avatar img")];
-    return (
-      images.length === 7 &&
-      images.every(
-        (image) =>
-          image.hidden ||
-          (image.complete && image.naturalWidth > 0 && getComputedStyle(image).opacity === "1"),
-      )
-    );
-  });
+  await page.waitForFunction(
+    (expected) => {
+      const images = [...document.querySelectorAll(".vm-contributor-avatar img")];
+      return (
+        images.length === expected &&
+        images.every(
+          (image) =>
+            image.hidden ||
+            (image.complete && image.naturalWidth > 0 && getComputedStyle(image).opacity === "1"),
+        )
+      );
+    },
+    expectedLinkedCount,
+  );
 
   const report = await page.evaluate(() => {
     const section = document.querySelector('[aria-labelledby="vm-contributors-title"]');
@@ -135,9 +144,9 @@ async function inspect(browser, url, viewport, screenshotName) {
   report.delayedAvatarRequests = delayedAvatarRequests;
   report.pendingFallbackVisible = pendingFallback.initialVisible;
 
-  assert.equal(report.cardCount, 16);
-  assert.equal(report.linkedCount, 7);
-  assert.equal(report.staticCount, 9);
+  assert.equal(report.cardCount, expectedCardCount);
+  assert.equal(report.linkedCount, expectedLinkedCount);
+  assert.equal(report.staticCount, expectedStaticCount);
   assert.equal(report.followsJoin, true);
   assert.equal(report.overflowX, false);
   assert.equal(report.englishVisible, true);
@@ -146,7 +155,7 @@ async function inspect(browser, url, viewport, screenshotName) {
   assert.equal(report.blockedAvatarRequests, 1);
   assert.equal(report.delayedAvatarRequests, 1);
   assert.equal(report.failedInitialVisible, true);
-  assert.equal(report.loadedAvatarCount, 6);
+  assert.equal(report.loadedAvatarCount, expectedLinkedCount - 1);
   assert.equal(report.loadedAvatarsOpaque, true);
   assert.equal(report.pendingFallbackVisible, true);
   assert.equal(report.cardsHaveSize, true);
@@ -162,34 +171,81 @@ async function inspect(browser, url, viewport, screenshotName) {
   assert.equal(chinese.lang, "zh-CN");
   assert.equal(chinese.overflowX, false);
 
-  const screenshotDir = process.env.VERYMATH_SCREENSHOT_DIR;
-  if (screenshotDir) {
-    fs.mkdirSync(screenshotDir, { recursive: true });
-    await page.locator('[aria-labelledby="vm-contributors-title"]').screenshot({
-      path: path.join(screenshotDir, screenshotName),
-    });
-  }
   await page.close();
   return { viewport, ...report, chinese };
+}
+
+async function captureCleanScreenshot(browser, url, viewport, screenshotName) {
+  const screenshotDir = process.env.VERYMATH_SCREENSHOT_DIR;
+  if (!screenshotDir) return null;
+
+  const page = await browser.newPage({ viewport, deviceScaleFactor: 1 });
+  await page.goto(url, { waitUntil: "domcontentloaded" });
+  await page.waitForSelector(".vm-contributor-card");
+  const avatarImages = page.locator(".vm-contributor-avatar img");
+  for (let index = 0; index < (await avatarImages.count()); index += 1) {
+    await avatarImages.nth(index).scrollIntoViewIfNeeded();
+  }
+  await page.waitForFunction(
+    (expected) => {
+      const images = [...document.querySelectorAll(".vm-contributor-avatar img")];
+      return (
+        images.length === expected &&
+        images.every(
+          (image) =>
+            image.hidden ||
+            (image.complete && image.naturalWidth > 0 && getComputedStyle(image).opacity === "1"),
+        )
+      );
+    },
+    expectedLinkedCount,
+  );
+  await page.click('[data-set-lang="zh"]');
+
+  const realDongYuanAvatarLoaded = await page.evaluate(() => {
+    const image = document.querySelector('img[src*="dyuan311.png"]');
+    return Boolean(
+      image &&
+        !image.hidden &&
+        image.complete &&
+        image.naturalWidth > 0 &&
+        getComputedStyle(image).opacity === "1",
+    );
+  });
+  assert.equal(realDongYuanAvatarLoaded, true);
+
+  fs.mkdirSync(screenshotDir, { recursive: true });
+  const screenshotPath = path.join(screenshotDir, screenshotName);
+  await page.locator('[aria-labelledby="vm-contributors-title"]').screenshot({
+    path: screenshotPath,
+  });
+  await page.close();
+  return { screenshotPath, realDongYuanAvatarLoaded };
 }
 
 (async () => {
   const url = await listen();
   const browser = await chromium.launch({ channel: "chrome", headless: true });
   try {
-    const desktop = await inspect(
+    const desktopViewport = { width: 1366, height: 900 };
+    const mobileViewport = { width: 390, height: 844 };
+    const desktop = await inspect(browser, url, desktopViewport);
+    const mobile = await inspect(browser, url, mobileViewport);
+    const desktopScreenshot = await captureCleanScreenshot(
       browser,
       url,
-      { width: 1366, height: 900 },
+      desktopViewport,
       "contributors-desktop.png",
     );
-    const mobile = await inspect(
+    const mobileScreenshot = await captureCleanScreenshot(
       browser,
       url,
-      { width: 390, height: 844 },
+      mobileViewport,
       "contributors-mobile.png",
     );
-    process.stdout.write(`${JSON.stringify({ desktop, mobile }, null, 2)}\n`);
+    process.stdout.write(
+      `${JSON.stringify({ desktop, mobile, desktopScreenshot, mobileScreenshot }, null, 2)}\n`,
+    );
   } finally {
     await browser.close();
     await new Promise((resolve) => server.close(resolve));

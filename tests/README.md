@@ -16,4 +16,4 @@ VM_SCREENSHOT_DIR="$(mktemp -d)"
 NODE_PATH="$VM_PLAYWRIGHT_DIR/node_modules" VERYMATH_SCREENSHOT_DIR="$VM_SCREENSHOT_DIR" node tests/verify_contributors_browser.cjs
 ```
 
-The browser command prints the desktop/mobile assertion report and writes two section screenshots to the temporary screenshot directory.
+The browser command verifies avatar fallback behavior on an isolated fault-injection page, then writes two section screenshots from clean pages with the real GitHub avatar responses.

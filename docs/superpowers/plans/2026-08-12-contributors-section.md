@@ -2,6 +2,8 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
+> **Post-implementation identity audit (2026-08-12):** Preserved branch/source history confirmed `rain37233 → rain37233-del`, `tanghaoru → tang0805-em`, and `蒋博先 → Joseph20060208`. The final registry therefore renders nine linked and seven static cards. Fault-injection avatar checks and clean visual screenshots are now separate; the step-by-step snippets below retain the original pre-audit plan values.
+
 **Goal:** Add a bilingual, responsive homepage section that credits all 16 verified actual VeryMath contributors, including people whom GitHub's contributor API misses.
 
 **Architecture:** Store reviewed public attribution in `_data/contributors.json` and render it at Jekyll build time with a Liquid loop in `index.md`. Keep the browser independent of contributor APIs; GitHub-linked people receive public profile avatars, while everyone retains a text-initial fallback. Validate the registry with Python, render the real Liquid template with Liquid 4.0.4, and exercise the rendered page in Chrome at desktop and mobile widths.

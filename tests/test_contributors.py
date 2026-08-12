@@ -31,9 +31,11 @@ EXPECTED_GITHUB = {
     "Dong Yuan": "dyuan311",
     "hyyh28": "hyyh28",
     "IsRivulet": "IsRivulet",
+    "rain37233": "rain37233-del",
     "ricercar77": "ricercar77",
-    "tanghaoru": "tanghaoru",
+    "tanghaoru": "tang0805-em",
     "Yihong Wei": "Imccark",
+    "蒋博先": "Joseph20060208",
 }
 VOID_ELEMENTS = {
     "area",

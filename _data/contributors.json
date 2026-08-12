@@ -9,7 +9,10 @@
     "name": "Dong Yuan",
     "github": "dyuan311",
     "initial": "DY",
-    "evidence": ["https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/CONTRIBUTORS.md"]
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md",
+      "https://github.com/VeryMath/AI4Math-Auto-Research/pull/7"
+    ]
   },
   {
     "name": "hyyh28",
@@ -43,9 +46,12 @@
   },
   {
     "name": "rain37233",
-    "github": null,
+    "github": "rain37233-del",
     "initial": "R",
-    "evidence": ["https://github.com/VeryMath/AI4Math-Lean-Agents/blob/main/CONTRIBUTORS.md"]
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Lean-Agents/blob/main/CONTRIBUTORS.md",
+      "https://github.com/VeryMath/AI4Math-Lean-Agents/commit/709869640f9f65403f646edc64433f5c0c9a99b7"
+    ]
   },
   {
     "name": "ricercar77",
@@ -58,9 +64,12 @@
   },
   {
     "name": "tanghaoru",
-    "github": "tanghaoru",
+    "github": "tang0805-em",
     "initial": "T",
-    "evidence": ["https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md"]
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md",
+      "https://github.com/VeryMath/AI4Math-Computational-Mathematics/commit/8978f0204fae7cfa1c865fd3382776ef7bbaf7ec"
+    ]
   },
   {
     "name": "Xiaowen Zhang",
@@ -97,8 +106,11 @@
   },
   {
     "name": "蒋博先",
-    "github": null,
+    "github": "Joseph20060208",
     "initial": "蒋",
-    "evidence": ["https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md"]
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md",
+      "https://github.com/VeryMath/skill-Finite-Element-Analysis/commit/94c1545b7efa262efe0dd4db09e4f0e43c0cd16d"
+    ]
   }
 ]
