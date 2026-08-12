@@ -16,7 +16,7 @@ EXPECTED_CONTRIBUTORS = [
     ("Boxian Jiang", "蒋博先", "member", "Joseph20060208"),
     ("Rujing Li", "黎汝婧", "member", None),
     ("Shuangxi Li", "李爽夕", "member", "ricercar77"),
-    ("Yipeng Lin", "林依鹏", "member", None),
+    ("Yipeng Lin", "林依鹏", "member", "doublemoon-bird"),
     ("Chen Ling", "凌晨", "member", None),
     ("Yunfeng Lu", "陆云峰", "member", None),
     ("Quan Sun", "孙权", "member", None),
@@ -210,7 +210,7 @@ class ContributorRegistryTests(unittest.TestCase):
             if record["github"]
         }
         self.assertEqual(linked, EXPECTED_GITHUB)
-        self.assertEqual(len(linked), 11)
+        self.assertEqual(len(linked), 12)
         self.assertEqual(len(linked.values()), len({value.lower() for value in linked.values()}))
         for github in linked.values():
             self.assertRegex(github, re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$"))

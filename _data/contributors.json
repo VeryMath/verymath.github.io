@@ -83,11 +83,14 @@
   {
     "name_en": "Yipeng Lin",
     "name_zh": "林依鹏",
-    "github": null,
+    "github": "doublemoon-bird",
     "initial_en": "YL",
     "initial_zh": "林",
     "role": "member",
-    "evidence": ["team-introduction-2026-06-30"]
+    "evidence": [
+      "https://github.com/doublemoon-bird",
+      "team-introduction-2026-06-30"
+    ]
   },
   {
     "name_en": "Chen Ling",
