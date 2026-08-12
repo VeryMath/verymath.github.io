@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Conan Xu",
+    "github": "ConanXu-math",
+    "initial": "CX",
+    "evidence": ["https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name": "Dong Yuan",
+    "github": "dyuan311",
+    "initial": "DY",
+    "evidence": ["https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name": "hyyh28",
+    "github": "hyyh28",
+    "initial": "H",
+    "evidence": ["https://github.com/VeryMath/verymath.github.io/commits/main/?author=hyyh28"]
+  },
+  {
+    "name": "IsRivulet",
+    "github": "IsRivulet",
+    "initial": "I",
+    "evidence": ["https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name": "Miao Dong",
+    "github": null,
+    "initial": "MD",
+    "evidence": ["https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name": "njustar2002",
+    "github": null,
+    "initial": "N",
+    "evidence": ["https://github.com/VeryMath/AI4Math-MathTool/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name": "Quan Sun",
+    "github": null,
+    "initial": "QS",
+    "evidence": ["https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name": "rain37233",
+    "github": null,
+    "initial": "R",
+    "evidence": ["https://github.com/VeryMath/AI4Math-Lean-Agents/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name": "ricercar77",
+    "github": "ricercar77",
+    "initial": "R",
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Optimization/blob/main/CONTRIBUTORS.md",
+      "https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md"
+    ]
+  },
+  {
+    "name": "tanghaoru",
+    "github": "tanghaoru",
+    "initial": "T",
+    "evidence": ["https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name": "Xiaowen Zhang",
+    "github": null,
+    "initial": "XZ",
+    "evidence": ["https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name": "Yihong Wei",
+    "github": "Imccark",
+    "initial": "YW",
+    "evidence": ["https://github.com/VeryMath/AI4Math-Sagemath-skill/commits/main/?author=Imccark"]
+  },
+  {
+    "name": "Yunfeng Lu",
+    "github": null,
+    "initial": "YL",
+    "evidence": ["https://github.com/VeryMath/AI4Math-MathTool/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name": "Zhuojie Tu",
+    "github": null,
+    "initial": "ZT",
+    "evidence": ["https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md"]
+  },
+  {
+    "name": "李爽夕",
+    "github": null,
+    "initial": "李",
+    "evidence": [
+      "https://github.com/VeryMath/AI4Math-Optimization/blob/main/CONTRIBUTORS.md",
+      "https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md"
+    ]
+  },
+  {
+    "name": "蒋博先",
+    "github": null,
+    "initial": "蒋",
+    "evidence": ["https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md"]
+  }
+]
