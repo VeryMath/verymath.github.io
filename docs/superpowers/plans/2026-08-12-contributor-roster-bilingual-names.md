@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build one 20-person VeryMath contributor wall with the advisor first, every other member surname-sorted, language-specific names, and GitHub links only for confirmed accounts.
+**Goal:** Build one 20-person VeryMath contributor wall with Conan Xu and Dong Yuan first, the advisor last, the middle members surname-sorted, language-specific names, and GitHub links only for confirmed accounts.
 
 **Architecture:** `_data/contributors.json` remains the single identity and display-order source. Jekyll/Liquid emits both language variants into each card and relies on the existing global language switch for visibility; Python unit tests lock the schema, roster, order, and link behavior, while Playwright validates runtime language switching, avatar fallbacks, responsive layout, and four visual snapshots.
 
@@ -11,8 +11,9 @@
 ## Global Constraints
 
 - Render exactly 20 unique people in one `Contributors / 贡献者` section.
-- Keep Xiangfeng Wang / 王祥丰 as the only `advisor` and the first record.
-- Keep the other 19 records in the approved Chinese-surname-pinyin order; use given-name pinyin for equal surnames.
+- Keep Conan Xu / 徐柯楠 first and Dong Yuan / 袁东 second.
+- Keep Xiangfeng Wang / 王祥丰 as the only `advisor` and the last record.
+- Keep the middle 17 member records in the approved Chinese-surname-pinyin order; use given-name pinyin for equal surnames.
 - English names use given-name-first order; Chinese names use the approved Chinese spelling.
 - Preserve exactly 10 confirmed GitHub mappings; never infer a GitHub account from email, avatar similarity, or a similar username.
 - Records without confirmed GitHub accounts use language-specific fallback initials, have no image, show no handle, and are not links.
@@ -48,7 +49,8 @@ Replace the old single-language constants with the approved ordered data:
 
 ```python
 EXPECTED_CONTRIBUTORS = [
-    ("Xiangfeng Wang", "王祥丰", "advisor", "xfwang87"),
+    ("Conan Xu", "徐柯楠", "member", "ConanXu-math"),
+    ("Dong Yuan", "袁东", "member", "dyuan311"),
     ("Yaling Chen", "陈亚玲", "member", None),
     ("Miao Dong", "董淼", "member", None),
     ("Boxian Jiang", "蒋博先", "member", "Joseph20060208"),
@@ -63,11 +65,10 @@ EXPECTED_CONTRIBUTORS = [
     ("Nuoqian Wang", "王诺千", "member", None),
     ("Yihong Wei", "尉毅宏", "member", "Imccark"),
     ("Mengyuan Xing", "邢梦圆", "member", "IsRivulet"),
-    ("Conan Xu", "徐柯楠", "member", "ConanXu-math"),
-    ("Dong Yuan", "袁东", "member", "dyuan311"),
     ("Siyu Zhang", "张司雨", "member", "rain37233-del"),
     ("Xiaowen Zhang", "张笑玟", "member", None),
     ("Zhixin Zheng", "郑智心", "member", None),
+    ("Xiangfeng Wang", "王祥丰", "advisor", "xfwang87"),
 ]
 EXPECTED_NAMES_EN = [item[0] for item in EXPECTED_CONTRIBUTORS]
 EXPECTED_NAMES_ZH = [item[1] for item in EXPECTED_CONTRIBUTORS]
@@ -105,11 +106,12 @@ def test_records_have_complete_bilingual_schema_and_sources(self):
             all(source == TEAM_SOURCE or source.startswith("https://github.com/") for source in record["evidence"])
         )
 
-def test_advisor_is_unique_and_first(self):
+def test_featured_members_are_first_and_advisor_is_unique_and_last(self):
     advisors = [record for record in self.records if record["role"] == "advisor"]
     self.assertEqual([record["name_zh"] for record in advisors], ["王祥丰"])
-    self.assertEqual(self.records[0]["name_zh"], "王祥丰")
-    self.assertTrue(all(record["role"] == "member" for record in self.records[1:]))
+    self.assertEqual([record["name_zh"] for record in self.records[:2]], ["徐柯楠", "袁东"])
+    self.assertTrue(all(record["role"] == "member" for record in self.records[:-1]))
+    self.assertEqual(self.records[-1]["name_zh"], "王祥丰")
 
 def test_team_introduction_members_are_all_present(self):
     self.assertTrue(TEAM_NAMES_ZH.issubset({record["name_zh"] for record in self.records}))
@@ -136,7 +138,8 @@ def test_every_registry_entry_renders_once_without_ranking(self):
     self.assertEqual(len(self.cards), 20)
     self.assertEqual([language_text(card, "en") for card in self.cards], EXPECTED_NAMES_EN)
     self.assertEqual([language_text(card, "zh") for card in self.cards], EXPECTED_NAMES_ZH)
-    self.assertEqual(language_text(self.cards[0], "zh"), "王祥丰")
+    self.assertEqual([language_text(card, "zh") for card in self.cards[:2]], ["徐柯楠", "袁东"])
+    self.assertEqual(language_text(self.cards[-1], "zh"), "王祥丰")
     self.assertNotIn("contributions", self.section.text().lower())
     self.assertNotIn("ranking", self.section.text().lower())
 
@@ -190,7 +193,8 @@ Expected: FAIL because current records do not have `name_en`, `name_zh`, `initia
 Write the 20 records in the exact `EXPECTED_CONTRIBUTORS` order. Use these initials and sources:
 
 ```text
-Xiangfeng Wang | 王祥丰 | XW | 王 | https://github.com/xfwang87
+Conan Xu | 徐柯楠 | CX | 徐 | https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md ; team-introduction-2026-06-30
+Dong Yuan | 袁东 | DY | 袁 | https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md ; https://github.com/VeryMath/AI4Math-Auto-Research/pull/7 ; team-introduction-2026-06-30
 Yaling Chen | 陈亚玲 | YC | 陈 | team-introduction-2026-06-30
 Miao Dong | 董淼 | MD | 董 | https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/CONTRIBUTORS.md
 Boxian Jiang | 蒋博先 | BJ | 蒋 | https://github.com/VeryMath/AI4Math-Computational-Mathematics/blob/main/CONTRIBUTORS.md ; https://github.com/VeryMath/skill-Finite-Element-Analysis/commit/94c1545b7efa262efe0dd4db09e4f0e43c0cd16d ; team-introduction-2026-06-30
@@ -205,11 +209,10 @@ Zhuojie Tu | 涂卓杰 | ZT | 涂 | https://github.com/VeryMath/AI4Math-Paper-Re
 Nuoqian Wang | 王诺千 | NW | 王 | team-introduction-2026-06-30
 Yihong Wei | 尉毅宏 | YW | 尉 | https://github.com/VeryMath/AI4Math-Sagemath-skill/commits/main/?author=Imccark ; team-introduction-2026-06-30
 Mengyuan Xing | 邢梦圆 | MX | 邢 | https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md ; team-introduction-2026-06-30
-Conan Xu | 徐柯楠 | CX | 徐 | https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md ; team-introduction-2026-06-30
-Dong Yuan | 袁东 | DY | 袁 | https://github.com/VeryMath/AI4Math-Paper-Reading/blob/main/CONTRIBUTORS.md ; https://github.com/VeryMath/AI4Math-Auto-Research/pull/7 ; team-introduction-2026-06-30
 Siyu Zhang | 张司雨 | SZ | 张 | https://github.com/VeryMath/AI4Math-Lean-Agents/blob/main/CONTRIBUTORS.md ; https://github.com/VeryMath/AI4Math-Lean-Agents/commit/709869640f9f65403f646edc64433f5c0c9a99b7 ; team-introduction-2026-06-30
 Xiaowen Zhang | 张笑玟 | XZ | 张 | https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/CONTRIBUTORS.md
 Zhixin Zheng | 郑智心 | ZZ | 郑 | https://github.com/VeryMath/AI4Math-MathTool/blob/main/CONTRIBUTORS.md
+Xiangfeng Wang | 王祥丰 | XW | 王 | https://github.com/xfwang87
 ```
 
 For every row, set `role` to `member` except Xiangfeng Wang, whose role is `advisor`. Preserve the 10 GitHub values in `EXPECTED_GITHUB`; use JSON `null` for all other GitHub fields. Treat each semicolon-separated source above as a separate string in the record's `evidence` array.
@@ -251,7 +254,7 @@ Run:
 python3 -m unittest discover -s tests -v
 ```
 
-Expected: all tests PASS with 20 cards, 10 linked cards, 10 static cards, and the advisor first in both languages.
+Expected: all tests PASS with 20 cards, 10 linked cards, 10 static cards, Conan Xu and Dong Yuan first, and the advisor last in both languages.
 
 - [ ] **Step 6: Commit the roster and template change**
 
@@ -329,8 +332,10 @@ Then assert:
 ```javascript
 assert.deepEqual(report.englishNames, expectedEnglishNames);
 assert.deepEqual(chinese.names, expectedChineseNames);
-assert.equal(report.englishNames[0], "Xiangfeng Wang");
-assert.equal(chinese.names[0], "王祥丰");
+assert.deepEqual(report.englishNames.slice(0, 2), ["Conan Xu", "Dong Yuan"]);
+assert.equal(report.englishNames.at(-1), "Xiangfeng Wang");
+assert.deepEqual(chinese.names.slice(0, 2), ["徐柯楠", "袁东"]);
+assert.equal(chinese.names.at(-1), "王祥丰");
 assert.equal(report.failedInitialText, "CX");
 assert.equal(chinese.failedInitialText, "徐");
 ```
@@ -474,7 +479,7 @@ Expected: PASS with four PNG files and no console assertion errors.
 
 Open each generated PNG with the local image viewer and confirm:
 
-- Xiangfeng Wang / 王祥丰 is the first card;
+- Conan Xu / 徐柯楠 and Dong Yuan / 袁东 are the first two cards, and Xiangfeng Wang / 王祥丰 is the last card;
 - every card has a visible, untruncated name;
 - `Joseph20060208`, `Xiangfeng Wang`, and `Xiaowen Zhang` do not clip or collide;
 - English screenshots contain no visible Chinese names, and Chinese screenshots contain no visible English names;

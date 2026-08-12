@@ -9,7 +9,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CONTRIBUTORS_PATH = ROOT / "_data" / "contributors.json"
 EXPECTED_CONTRIBUTORS = [
-    ("Xiangfeng Wang", "王祥丰", "advisor", "xfwang87"),
+    ("Conan Xu", "徐柯楠", "member", "ConanXu-math"),
+    ("Dong Yuan", "袁东", "member", "dyuan311"),
     ("Yaling Chen", "陈亚玲", "member", None),
     ("Miao Dong", "董淼", "member", None),
     ("Boxian Jiang", "蒋博先", "member", "Joseph20060208"),
@@ -24,11 +25,10 @@ EXPECTED_CONTRIBUTORS = [
     ("Nuoqian Wang", "王诺千", "member", None),
     ("Yihong Wei", "尉毅宏", "member", "Imccark"),
     ("Mengyuan Xing", "邢梦圆", "member", "IsRivulet"),
-    ("Conan Xu", "徐柯楠", "member", "ConanXu-math"),
-    ("Dong Yuan", "袁东", "member", "dyuan311"),
     ("Siyu Zhang", "张司雨", "member", "rain37233-del"),
     ("Xiaowen Zhang", "张笑玟", "member", None),
     ("Zhixin Zheng", "郑智心", "member", None),
+    ("Xiangfeng Wang", "王祥丰", "advisor", "xfwang87"),
 ]
 EXPECTED_NAMES = [item[0] for item in EXPECTED_CONTRIBUTORS]
 EXPECTED_NAMES_ZH = [item[1] for item in EXPECTED_CONTRIBUTORS]
@@ -186,11 +186,15 @@ class ContributorRegistryTests(unittest.TestCase):
                     )
                 )
 
-    def test_advisor_is_unique_and_first(self):
+    def test_featured_members_are_first_and_advisor_is_unique_and_last(self):
         advisors = [record for record in self.records if record.get("role") == "advisor"]
         self.assertEqual([record.get("name_zh") for record in advisors], ["王祥丰"])
-        self.assertEqual(self.records[0].get("name_zh"), "王祥丰")
-        self.assertTrue(all(record.get("role") == "member" for record in self.records[1:]))
+        self.assertEqual(
+            [record.get("name_zh") for record in self.records[:2]],
+            ["徐柯楠", "袁东"],
+        )
+        self.assertTrue(all(record.get("role") == "member" for record in self.records[:-1]))
+        self.assertEqual(self.records[-1].get("name_zh"), "王祥丰")
 
     def test_team_introduction_members_are_all_present(self):
         self.assertTrue(TEAM_NAMES_ZH.issubset({record.get("name_zh") for record in self.records}))
@@ -259,7 +263,11 @@ class ContributorHomepageTests(unittest.TestCase):
             [localized_text(card, "vm-contributor-name", "zh") for card in self.cards],
             EXPECTED_NAMES_ZH,
         )
-        self.assertEqual(localized_text(self.cards[0], "vm-contributor-name", "zh"), "王祥丰")
+        self.assertEqual(
+            [localized_text(card, "vm-contributor-name", "zh") for card in self.cards[:2]],
+            ["徐柯楠", "袁东"],
+        )
+        self.assertEqual(localized_text(self.cards[-1], "vm-contributor-name", "zh"), "王祥丰")
         self.assertNotIn("contributions", self.section.text().lower())
         self.assertNotIn("ranking", self.section.text().lower())
 
