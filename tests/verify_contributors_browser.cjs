@@ -12,6 +12,63 @@ const contributors = JSON.parse(
 const expectedCardCount = contributors.length;
 const expectedLinkedCount = contributors.filter((contributor) => contributor.github).length;
 const expectedStaticCount = expectedCardCount - expectedLinkedCount;
+const expectedEnglishNames = [
+  "Xiangfeng Wang",
+  "Yaling Chen",
+  "Miao Dong",
+  "Yun Hua",
+  "Boxian Jiang",
+  "Rujing Li",
+  "Shuangxi Li",
+  "Yipeng Lin",
+  "Chen Ling",
+  "Yunfeng Lu",
+  "Quan Sun",
+  "Haoru Tang",
+  "Zhuojie Tu",
+  "Nuoqian Wang",
+  "Yihong Wei",
+  "Mengyuan Xing",
+  "Conan Xu",
+  "Dong Yuan",
+  "Siyu Zhang",
+  "Xiaowen Zhang",
+  "Zhixin Zheng",
+];
+const expectedChineseNames = [
+  "王祥丰",
+  "陈亚玲",
+  "董淼",
+  "华贇",
+  "蒋博先",
+  "黎汝婧",
+  "李爽夕",
+  "林依鹏",
+  "凌晨",
+  "陆云峰",
+  "孙权",
+  "汤皓如",
+  "涂卓杰",
+  "王诺千",
+  "尉毅宏",
+  "邢梦圆",
+  "徐柯楠",
+  "袁东",
+  "张司雨",
+  "张笑玟",
+  "郑智心",
+];
+assert.equal(expectedCardCount, 21);
+assert.equal(expectedLinkedCount, 11);
+assert.equal(expectedStaticCount, 10);
+assert.deepEqual(
+  contributors.map((contributor) => contributor.name_en),
+  expectedEnglishNames,
+);
+assert.deepEqual(
+  contributors.map((contributor) => contributor.name_zh),
+  expectedChineseNames,
+);
 const html = execFileSync("ruby", [path.join(root, "tests", "render_homepage.rb")], {
   cwd: root,
   encoding: "utf8",
@@ -75,9 +132,9 @@ async function inspect(browser, url, viewport) {
   });
   await page.goto(url, { waitUntil: "domcontentloaded" });
   await page.waitForSelector(".vm-contributor-card");
-  const avatarImages = page.locator(".vm-contributor-avatar img");
-  for (let index = 0; index < (await avatarImages.count()); index += 1) {
-    await avatarImages.nth(index).scrollIntoViewIfNeeded();
+  const cards = page.locator(".vm-contributor-card");
+  for (let index = 0; index < (await cards.count()); index += 1) {
+    await cards.nth(index).scrollIntoViewIfNeeded();
   }
   await delayedAvatarRequested;
   const pendingFallback = await page.evaluate(() => {
@@ -126,8 +183,18 @@ async function inspect(browser, url, viewport) {
       overflowX: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
       englishVisible: getComputedStyle(section.querySelector(".lang-en")).display !== "none",
       chineseVisible: getComputedStyle(section.querySelector(".lang-zh")).display !== "none",
+      englishNames: [...section.querySelectorAll(".vm-contributor-name .lang-en")].map((node) =>
+        node.textContent.trim(),
+      ),
+      englishNamesVisible: [...section.querySelectorAll(".vm-contributor-name .lang-en")].every(
+        (node) => getComputedStyle(node).display !== "none",
+      ),
+      chineseNamesHidden: [...section.querySelectorAll(".vm-contributor-name .lang-zh")].every(
+        (node) => getComputedStyle(node).display === "none",
+      ),
       failedImageHidden: failedImage.hidden,
       failedInitialVisible: getComputedStyle(failedInitial).display !== "none",
+      failedInitialText: failedInitial.innerText.trim(),
       loadedAvatarCount: [...section.querySelectorAll(".vm-contributor-avatar img")].filter(
         (image) => !image.hidden && image.complete && image.naturalWidth > 0,
       ).length,
@@ -151,10 +218,15 @@ async function inspect(browser, url, viewport) {
   assert.equal(report.overflowX, false);
   assert.equal(report.englishVisible, true);
   assert.equal(report.chineseVisible, false);
+  assert.deepEqual(report.englishNames, expectedEnglishNames);
+  assert.equal(report.englishNamesVisible, true);
+  assert.equal(report.chineseNamesHidden, true);
+  assert.equal(report.englishNames[0], "Xiangfeng Wang");
   assert.equal(report.failedImageHidden, true);
   assert.equal(report.blockedAvatarRequests, 1);
   assert.equal(report.delayedAvatarRequests, 1);
   assert.equal(report.failedInitialVisible, true);
+  assert.equal(report.failedInitialText, "CX");
   assert.equal(report.loadedAvatarCount, expectedLinkedCount - 1);
   assert.equal(report.loadedAvatarsOpaque, true);
   assert.equal(report.pendingFallbackVisible, true);
@@ -162,29 +234,49 @@ async function inspect(browser, url, viewport) {
   assert.ok(report.columns >= (viewport.width >= 760 ? 4 : 2));
 
   await page.click('[data-set-lang="zh"]');
-  const chinese = await page.evaluate(() => ({
-    title: document.querySelector("#vm-contributors-title").innerText.trim(),
-    lang: document.documentElement.lang,
-    overflowX: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
-  }));
+  const chinese = await page.evaluate(() => {
+    const section = document.querySelector('[aria-labelledby="vm-contributors-title"]');
+    const failedImage = section.querySelector('img[src*="ConanXu-math.png"]');
+    const failedInitial = failedImage.parentElement.querySelector(".vm-contributor-initial");
+    return {
+      title: document.querySelector("#vm-contributors-title").innerText.trim(),
+      lang: document.documentElement.lang,
+      overflowX: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+      names: [...section.querySelectorAll(".vm-contributor-name .lang-zh")].map((node) =>
+        node.textContent.trim(),
+      ),
+      chineseNamesVisible: [...section.querySelectorAll(".vm-contributor-name .lang-zh")].every(
+        (node) => getComputedStyle(node).display !== "none",
+      ),
+      englishNamesHidden: [...section.querySelectorAll(".vm-contributor-name .lang-en")].every(
+        (node) => getComputedStyle(node).display === "none",
+      ),
+      failedInitialText: failedInitial.innerText.trim(),
+    };
+  });
   assert.equal(chinese.title, "贡献者");
   assert.equal(chinese.lang, "zh-CN");
   assert.equal(chinese.overflowX, false);
+  assert.deepEqual(chinese.names, expectedChineseNames);
+  assert.equal(chinese.chineseNamesVisible, true);
+  assert.equal(chinese.englishNamesHidden, true);
+  assert.equal(chinese.names[0], "王祥丰");
+  assert.equal(chinese.failedInitialText, "徐");
 
   await page.close();
   return { viewport, ...report, chinese };
 }
 
-async function captureCleanScreenshot(browser, url, viewport, screenshotName) {
+async function captureCleanScreenshot(browser, url, viewport, language, screenshotName) {
   const screenshotDir = process.env.VERYMATH_SCREENSHOT_DIR;
   if (!screenshotDir) return null;
 
   const page = await browser.newPage({ viewport, deviceScaleFactor: 1 });
   await page.goto(url, { waitUntil: "domcontentloaded" });
   await page.waitForSelector(".vm-contributor-card");
-  const avatarImages = page.locator(".vm-contributor-avatar img");
-  for (let index = 0; index < (await avatarImages.count()); index += 1) {
-    await avatarImages.nth(index).scrollIntoViewIfNeeded();
+  const cards = page.locator(".vm-contributor-card");
+  for (let index = 0; index < (await cards.count()); index += 1) {
+    await cards.nth(index).scrollIntoViewIfNeeded();
   }
   await page.waitForFunction(
     (expected) => {
@@ -200,7 +292,16 @@ async function captureCleanScreenshot(browser, url, viewport, screenshotName) {
     },
     expectedLinkedCount,
   );
-  await page.click('[data-set-lang="zh"]');
+  await page.click(`[data-set-lang="${language}"]`);
+  const expectedNames = language === "zh" ? expectedChineseNames : expectedEnglishNames;
+  const visibleNames = (
+    await page.locator(`.vm-contributor-name .lang-${language}`).allTextContents()
+  ).map((name) => name.trim());
+  assert.deepEqual(visibleNames, expectedNames);
+  assert.equal(
+    await page.locator("html").getAttribute("lang"),
+    language === "zh" ? "zh-CN" : "en",
+  );
 
   const realDongYuanAvatarLoaded = await page.evaluate(() => {
     const image = document.querySelector('img[src*="dyuan311.png"]');
@@ -220,7 +321,7 @@ async function captureCleanScreenshot(browser, url, viewport, screenshotName) {
     path: screenshotPath,
   });
   await page.close();
-  return { screenshotPath, realDongYuanAvatarLoaded };
+  return { screenshotPath, language, visibleNames, realDongYuanAvatarLoaded };
 }
 
 (async () => {
@@ -231,20 +332,38 @@ async function captureCleanScreenshot(browser, url, viewport, screenshotName) {
     const mobileViewport = { width: 390, height: 844 };
     const desktop = await inspect(browser, url, desktopViewport);
     const mobile = await inspect(browser, url, mobileViewport);
-    const desktopScreenshot = await captureCleanScreenshot(
-      browser,
-      url,
-      desktopViewport,
-      "contributors-desktop.png",
-    );
-    const mobileScreenshot = await captureCleanScreenshot(
-      browser,
-      url,
-      mobileViewport,
-      "contributors-mobile.png",
-    );
+    const screenshots = {
+      desktopEnglish: await captureCleanScreenshot(
+        browser,
+        url,
+        desktopViewport,
+        "en",
+        "contributors-desktop-en.png",
+      ),
+      desktopChinese: await captureCleanScreenshot(
+        browser,
+        url,
+        desktopViewport,
+        "zh",
+        "contributors-desktop-zh.png",
+      ),
+      mobileEnglish: await captureCleanScreenshot(
+        browser,
+        url,
+        mobileViewport,
+        "en",
+        "contributors-mobile-en.png",
+      ),
+      mobileChinese: await captureCleanScreenshot(
+        browser,
+        url,
+        mobileViewport,
+        "zh",
+        "contributors-mobile-zh.png",
+      ),
+    };
     process.stdout.write(
-      `${JSON.stringify({ desktop, mobile, desktopScreenshot, mobileScreenshot }, null, 2)}\n`,
+      `${JSON.stringify({ desktop, mobile, screenshots }, null, 2)}\n`,
     );
   } finally {
     await browser.close();
