@@ -27,11 +27,14 @@
   {
     "name_en": "Yaling Chen",
     "name_zh": "陈亚玲",
-    "github": null,
+    "github": "Chenyaling1234",
     "initial_en": "YC",
     "initial_zh": "陈",
     "role": "member",
-    "evidence": ["team-introduction-2026-06-30"]
+    "evidence": [
+      "https://github.com/Chenyaling1234",
+      "team-introduction-2026-06-30"
+    ]
   },
   {
     "name_en": "Miao Dong",
@@ -58,11 +61,14 @@
   {
     "name_en": "Rujing Li",
     "name_zh": "黎汝婧",
-    "github": null,
+    "github": "pear-eater",
     "initial_en": "RL",
     "initial_zh": "黎",
     "role": "member",
-    "evidence": ["team-introduction-2026-06-30"]
+    "evidence": [
+      "https://github.com/pear-eater",
+      "team-introduction-2026-06-30"
+    ]
   },
   {
     "name_en": "Shuangxi Li",
@@ -80,11 +86,14 @@
   {
     "name_en": "Yipeng Lin",
     "name_zh": "林依鹏",
-    "github": null,
+    "github": "doublemoon-bird",
     "initial_en": "YL",
     "initial_zh": "林",
     "role": "member",
-    "evidence": ["team-introduction-2026-06-30"]
+    "evidence": [
+      "https://github.com/doublemoon-bird",
+      "team-introduction-2026-06-30"
+    ]
   },
   {
     "name_en": "Chen Ling",
@@ -196,11 +205,14 @@
   {
     "name_en": "Zhixin Zheng",
     "name_zh": "郑智心",
-    "github": null,
+    "github": "tracylch25",
     "initial_en": "ZZ",
     "initial_zh": "郑",
     "role": "member",
-    "evidence": ["https://github.com/VeryMath/AI4Math-MathTool/blob/main/CONTRIBUTORS.md"]
+    "evidence": [
+      "https://github.com/tracylch25",
+      "https://github.com/VeryMath/AI4Math-MathTool/blob/main/CONTRIBUTORS.md"
+    ]
   },
   {
     "name_en": "Xiangfeng Wang",
