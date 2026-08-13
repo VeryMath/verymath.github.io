@@ -14,7 +14,7 @@ EXPECTED_CONTRIBUTORS = [
     ("Yaling Chen", "陈亚玲", "member", "Chenyaling1234"),
     ("Miao Dong", "董淼", "member", None),
     ("Boxian Jiang", "蒋博先", "member", "Joseph20060208"),
-    ("Rujing Li", "黎汝婧", "member", None),
+    ("Rujing Li", "黎汝婧", "member", "pear-eater"),
     ("Shuangxi Li", "李爽夕", "member", "ricercar77"),
     ("Yipeng Lin", "林依鹏", "member", "doublemoon-bird"),
     ("Chen Ling", "凌晨", "member", None),
@@ -27,7 +27,7 @@ EXPECTED_CONTRIBUTORS = [
     ("Mengyuan Xing", "邢梦圆", "member", "IsRivulet"),
     ("Siyu Zhang", "张司雨", "member", "rain37233-del"),
     ("Xiaowen Zhang", "张笑玟", "member", None),
-    ("Zhixin Zheng", "郑智心", "member", None),
+    ("Zhixin Zheng", "郑智心", "member", "tracylch25"),
     ("Xiangfeng Wang", "王祥丰", "advisor", "xfwang87"),
 ]
 EXPECTED_NAMES = [item[0] for item in EXPECTED_CONTRIBUTORS]
@@ -210,7 +210,7 @@ class ContributorRegistryTests(unittest.TestCase):
             if record["github"]
         }
         self.assertEqual(linked, EXPECTED_GITHUB)
-        self.assertEqual(len(linked), 12)
+        self.assertEqual(len(linked), 14)
         self.assertEqual(len(linked.values()), len({value.lower() for value in linked.values()}))
         for github in linked.values():
             self.assertRegex(github, re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$"))

@@ -61,11 +61,14 @@
   {
     "name_en": "Rujing Li",
     "name_zh": "黎汝婧",
-    "github": null,
+    "github": "pear-eater",
     "initial_en": "RL",
     "initial_zh": "黎",
     "role": "member",
-    "evidence": ["team-introduction-2026-06-30"]
+    "evidence": [
+      "https://github.com/pear-eater",
+      "team-introduction-2026-06-30"
+    ]
   },
   {
     "name_en": "Shuangxi Li",
@@ -202,11 +205,14 @@
   {
     "name_en": "Zhixin Zheng",
     "name_zh": "郑智心",
-    "github": null,
+    "github": "tracylch25",
     "initial_en": "ZZ",
     "initial_zh": "郑",
     "role": "member",
-    "evidence": ["https://github.com/VeryMath/AI4Math-MathTool/blob/main/CONTRIBUTORS.md"]
+    "evidence": [
+      "https://github.com/tracylch25",
+      "https://github.com/VeryMath/AI4Math-MathTool/blob/main/CONTRIBUTORS.md"
+    ]
   },
   {
     "name_en": "Xiangfeng Wang",

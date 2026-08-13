@@ -57,8 +57,8 @@ const expectedChineseNames = [
   "王祥丰",
 ];
 assert.equal(expectedCardCount, 20);
-assert.equal(expectedLinkedCount, 12);
-assert.equal(expectedStaticCount, 8);
+assert.equal(expectedLinkedCount, 14);
+assert.equal(expectedStaticCount, 6);
 assert.deepEqual(
   contributors.map((contributor) => contributor.name_en),
   expectedEnglishNames,
