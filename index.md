@@ -873,6 +873,101 @@ title: VeryMath
     <div class="vm-announcement">
       <article class="vm-announcement-main">
         <div class="vm-announcement-date">
+          <span>2026.08</span>
+          <strong><span class="lang-en">Skill Support</span><span class="lang-zh">技能支持</span></strong>
+        </div>
+        <div>
+          <p class="vm-announcement-kicker">DeepSeek Harness × VeryMath</p>
+          <h3 class="vm-announcement-title">
+            <span class="lang-en">VeryMath mathematical research Skills can now be used directly in DeepSeek Harness.</span>
+            <span class="lang-zh">VeryMath 数学科研 Skills 现已可在 DeepSeek Harness 中直接使用。</span>
+          </h3>
+          <p class="vm-announcement-text">
+            <span class="lang-en">Once installed, the Agent automatically discovers the Skills and reads their SKILL.md files, references, scripts, and templates, then selects the matching mathematical research workflow for the task.</span>
+            <span class="lang-zh">安装后，Agent 会自动发现这些 Skills，读取其中的 SKILL.md、参考资料、脚本和模板，并根据任务选择相应的数学科研流程。</span>
+          </p>
+          <div class="vm-announcement-scope">
+            <strong><span class="lang-en">What the Skills can support</span><span class="lang-zh">可支持的工作</span></strong>
+            <span>
+              <span class="lang-en">Literature and background research, problem discovery, proof-blueprint design and review, mathematical verification and repair, nonlinear optimization, Lean formalization, and research-report preparation.</span>
+              <span class="lang-zh">论文与背景检索、研究方向发现、证明蓝图设计与审查、数学验证与修复、非线性优化、Lean 形式化以及研究报告整理。</span>
+            </span>
+          </div>
+        </div>
+      </article>
+      <div class="vm-announcement-links">
+        <a href="https://github.com/VeryMath"><span class="lang-en">VeryMath on GitHub</span><span class="lang-zh">VeryMath GitHub</span></a>
+        <a href="https://github.com/VeryMath/AI4Math-Auto-Research"><span class="lang-en">Auto-Research Skills</span><span class="lang-zh">自动科研 Skills</span></a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness">DeepSeek Harness</a>
+      </div>
+    </div>
+    <div class="vm-announcement">
+      <article class="vm-announcement-main">
+        <div class="vm-announcement-date">
+          <span>2026.08</span>
+          <strong><span class="lang-en">Runtime Support</span><span class="lang-zh">运行支持</span></strong>
+        </div>
+        <div>
+          <p class="vm-announcement-kicker">Danus × OpenCode × DeepSeek Harness</p>
+          <h3 class="vm-announcement-title">
+            <span class="lang-en">Danus now runs through OpenCode and DeepSeek Harness.</span>
+            <span class="lang-zh">Danus 现已支持通过 OpenCode 和 DeepSeek Harness 运行。</span>
+          </h3>
+          <p class="vm-announcement-text">
+            <span class="lang-en">The two VeryMath Skills install the matching Danus adaptation, prepare its environment, and remember the installation path. New projects and conversations can then find the same Danus deployment and continue its research workflow.</span>
+            <span class="lang-zh">VeryMath 提供的两个 Skills 会安装对应的 Danus 适配、准备运行环境并记录安装路径。以后更换项目或新建对话时，Agent 仍能找到同一套 Danus 并继续研究流程。</span>
+          </p>
+          <div class="vm-announcement-scope">
+            <strong><span class="lang-en">Research workflow</span><span class="lang-zh">研究流程</span></strong>
+            <span>
+              <span class="lang-en">Research planning, parallel workers, mathematical verification, fact-graph memory, scheduled progress checks, recovery, summaries, and LaTeX paper generation.</span>
+              <span class="lang-zh">研究规划、并行 workers、数学验证、事实图记忆、定时进展检查、任务恢复、研究总结和 LaTeX 论文生成。</span>
+            </span>
+          </div>
+        </div>
+      </article>
+      <div class="vm-announcement-links">
+        <a href="https://github.com/VeryMath/AI4Math-Auto-Research/tree/main/skills/danus-helper"><span class="lang-en">Danus for OpenCode</span><span class="lang-zh">OpenCode 版 Danus</span></a>
+        <a href="https://github.com/VeryMath/AI4Math-Auto-Research/tree/main/skills/danus-helper-dsh"><span class="lang-en">Danus for DeepSeek Harness</span><span class="lang-zh">DeepSeek Harness 版 Danus</span></a>
+        <a href="https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/docs/danus-helper-setup.md"><span class="lang-en">Installation Guide</span><span class="lang-zh">安装说明</span></a>
+        <a href="https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/docs/danus-closed-graph-example.md"><span class="lang-en">Research Example</span><span class="lang-zh">研究示例</span></a>
+      </div>
+    </div>
+    <div class="vm-announcement">
+      <article class="vm-announcement-main">
+        <div class="vm-announcement-date">
+          <span>2026.08</span>
+          <strong><span class="lang-en">Platform Adaptation</span><span class="lang-zh">平台适配</span></strong>
+        </div>
+        <div>
+          <p class="vm-announcement-kicker">Rethlas &amp; Archon × OpenCode</p>
+          <h3 class="vm-announcement-title">
+            <span class="lang-en">Rethlas and Archon are now available through OpenCode.</span>
+            <span class="lang-zh">Rethlas 与 Archon 现已支持在 OpenCode 中使用。</span>
+          </h3>
+          <p class="vm-announcement-text">
+            <span class="lang-en">VeryMath provides OpenCode Skills for installing and configuring both projects. The Skills reuse the provider and model configured in OpenCode, remember each installation path, and make the same setup available to new projects and conversations.</span>
+            <span class="lang-zh">VeryMath 为两个项目提供了 OpenCode Skills，负责安装、适配和环境配置。Skills 会沿用 OpenCode 中已有的 provider 与 model，记录项目安装路径，并让新项目和新对话继续使用同一套配置。</span>
+          </p>
+          <div class="vm-announcement-scope">
+            <strong><span class="lang-en">Research scope</span><span class="lang-zh">适用任务</span></strong>
+            <span>
+              <span class="lang-en">Natural-language proof generation and review with Rethlas; Lean 4 project planning, formalization, and code review with Archon.</span>
+              <span class="lang-zh">使用 Rethlas 生成和审查自然语言数学证明；使用 Archon 规划 Lean 4 形式化项目、编写证明并审查代码。</span>
+            </span>
+          </div>
+        </div>
+      </article>
+      <div class="vm-announcement-links">
+        <a href="https://github.com/VeryMath/AI4Math-Auto-Research/tree/main/skills/rethlas-helper">rethlas-helper</a>
+        <a href="https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/docs/rethlas-helper-setup.md"><span class="lang-en">Rethlas Guide</span><span class="lang-zh">Rethlas 安装说明</span></a>
+        <a href="https://github.com/VeryMath/AI4Math-Auto-Research/tree/main/skills/archon-helper">archon-helper</a>
+        <a href="https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/docs/archon-helper-setup.md"><span class="lang-en">Archon Guide</span><span class="lang-zh">Archon 安装说明</span></a>
+      </div>
+    </div>
+    <div class="vm-announcement">
+      <article class="vm-announcement-main">
+        <div class="vm-announcement-date">
           <span>2026.07</span>
           <strong><span class="lang-en">Course Release</span><span class="lang-zh">课程成果</span></strong>
         </div>
