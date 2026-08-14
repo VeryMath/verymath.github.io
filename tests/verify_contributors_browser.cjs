@@ -107,6 +107,8 @@ async function inspect(browser, url, viewport) {
   const page = await browser.newPage({ viewport, deviceScaleFactor: 1 });
   let blockedAvatarRequests = 0;
   let delayedAvatarRequests = 0;
+  let shieldsStarRequests = 0;
+  let directGitHubStarRequests = 0;
   let releaseDelayedAvatar;
   let markDelayedAvatarRequested;
   const delayedAvatarGate = new Promise((resolve) => {
@@ -117,7 +119,21 @@ async function inspect(browser, url, viewport) {
   });
   page.on("request", (request) => {
     if (request.url().includes("ConanXu-math.png")) blockedAvatarRequests += 1;
+    if (request.url() === "https://api.github.com/repos/VeryMath/verymath.github.io") {
+      directGitHubStarRequests += 1;
+    }
   });
+  await page.route(
+    "https://img.shields.io/github/stars/VeryMath/verymath.github.io.json",
+    async (route) => {
+      shieldsStarRequests += 1;
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({ label: "stars", message: "42", value: "42" }),
+      });
+    },
+  );
   await page.route("https://github.com/ConanXu-math.png?size=160", (route) => route.abort());
   await page.route("https://github.com/dyuan311.png?size=160", async (route) => {
     delayedAvatarRequests += 1;
@@ -129,6 +145,11 @@ async function inspect(browser, url, viewport) {
     });
   });
   await page.goto(url, { waitUntil: "domcontentloaded" });
+  await page.waitForFunction(
+    () => document.querySelector("#vm-star-count")?.textContent.trim() === "42",
+    undefined,
+    { timeout: 1000 },
+  );
   await page.waitForSelector(".vm-contributor-card");
   const cards = page.locator(".vm-contributor-card");
   for (let index = 0; index < (await cards.count()); index += 1) {
@@ -203,11 +224,15 @@ async function inspect(browser, url, viewport) {
         const rect = card.getBoundingClientRect();
         return rect.width > 0 && rect.height > 0;
       }),
+      starCountText: document.querySelector("#vm-star-count").textContent.trim(),
+      starCountAriaLabel: document.querySelector("#vm-star-count").getAttribute("aria-label"),
     };
   });
   report.blockedAvatarRequests = blockedAvatarRequests;
   report.delayedAvatarRequests = delayedAvatarRequests;
   report.pendingFallbackVisible = pendingFallback.initialVisible;
+  report.shieldsStarRequests = shieldsStarRequests;
+  report.directGitHubStarRequests = directGitHubStarRequests;
 
   assert.equal(report.cardCount, expectedCardCount);
   assert.equal(report.linkedCount, expectedLinkedCount);
@@ -230,6 +255,10 @@ async function inspect(browser, url, viewport) {
   assert.equal(report.loadedAvatarsOpaque, true);
   assert.equal(report.pendingFallbackVisible, true);
   assert.equal(report.cardsHaveSize, true);
+  assert.equal(report.starCountText, "42");
+  assert.equal(report.starCountAriaLabel, "42 stars");
+  assert.equal(report.shieldsStarRequests, 1);
+  assert.equal(report.directGitHubStarRequests, 0);
   assert.ok(report.columns >= (viewport.width >= 760 ? 4 : 2));
 
   await page.click('[data-set-lang="zh"]');
