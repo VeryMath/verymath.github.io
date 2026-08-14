@@ -49,8 +49,9 @@ class HomepageUpdateTests(unittest.TestCase):
 
         parser = DOMParser()
         parser.feed(cls.render_result.stdout)
+        cls.document = parser.root
         cls.section = find_one(
-            parser.root,
+            cls.document,
             lambda node: node.tag == "section"
             and node.attrs.get("aria-labelledby") == "vm-news-title",
         )
@@ -59,6 +60,14 @@ class HomepageUpdateTests(unittest.TestCase):
             for node in descendants(cls.section)
             if "vm-announcement" in node.classes
         ]
+
+    def test_star_count_uses_a_non_stale_loading_fallback(self):
+        star_count = find_one(
+            self.document,
+            lambda node: node.attrs.get("id") == "vm-star-count",
+        )
+        self.assertEqual(star_count.text(), "—")
+        self.assertEqual(star_count.attrs.get("aria-label"), "Star count loading")
 
     def test_august_updates_are_separate_and_newest_first(self):
         self.assertEqual(self.render_result.returncode, 0, self.render_result.stderr)

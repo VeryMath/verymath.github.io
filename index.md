@@ -851,7 +851,7 @@ title: VeryMath
             <img class="vm-star-icon" src="https://cdn.jsdelivr.net/npm/@primer/octicons@19.29.2/build/svg/star-16.svg" alt="" aria-hidden="true">
             <span>Star</span>
           </span>
-          <span class="vm-star-segment vm-star-count" id="vm-star-count" aria-label="8 stars">8</span>
+          <span class="vm-star-segment vm-star-count" id="vm-star-count" aria-label="Star count loading">—</span>
         </a>
       </div>
       <div>
@@ -1442,24 +1442,25 @@ title: VeryMath
     });
 
     if (window.fetch && starCount) {
-      fetch("https://api.github.com/repos/VeryMath/verymath.github.io", {
-        headers: { "Accept": "application/vnd.github+json" }
+      fetch("https://img.shields.io/github/stars/VeryMath/verymath.github.io.json", {
+        headers: { "Accept": "application/json" }
       })
         .then(function (response) {
           if (!response.ok) {
-            throw new Error("GitHub star count unavailable");
+            throw new Error("Shields star count unavailable");
           }
           return response.json();
         })
-        .then(function (repository) {
-          if (typeof repository.stargazers_count === "number") {
-            var count = repository.stargazers_count;
+        .then(function (badge) {
+          var rawCount = badge.value || badge.message;
+          var count = Number(String(rawCount).replace(/,/g, ""));
+          if (Number.isFinite(count) && count >= 0) {
             starCount.textContent = count.toLocaleString("en-US");
             starCount.setAttribute("aria-label", count + (count === 1 ? " star" : " stars"));
           }
         })
         .catch(function () {
-          // Keep the server-rendered fallback count and repository link usable.
+          starCount.setAttribute("aria-label", "Star count unavailable");
         });
     }
 
