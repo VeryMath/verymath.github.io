@@ -148,22 +148,16 @@
     ]
   },
   {
-    "name_en": "Haoqian Wang",
-    "name_zh": "王浩千",
-    "github": "qqq3377",
-    "initial_en": "HW",
-    "initial_zh": "王",
-    "role": "member",
-    "evidence": ["https://github.com/qqq3377"]
-  },
-  {
     "name_en": "Nuoqian Wang",
     "name_zh": "王诺千",
-    "github": null,
+    "github": "qqq3377",
     "initial_en": "NW",
     "initial_zh": "王",
     "role": "member",
-    "evidence": ["team-introduction-2026-06-30"]
+    "evidence": [
+      "https://github.com/qqq3377",
+      "team-introduction-2026-06-30"
+    ]
   },
   {
     "name_en": "Yihong Wei",
