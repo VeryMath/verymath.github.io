@@ -17,6 +17,7 @@ const expectedEnglishNames = [
   "Dong Yuan",
   "Yaling Chen",
   "Miao Dong",
+  "Yun Hua",
   "Boxian Jiang",
   "Rujing Li",
   "Shuangxi Li",
@@ -39,6 +40,7 @@ const expectedChineseNames = [
   "袁东",
   "陈亚玲",
   "董淼",
+  "华贇",
   "蒋博先",
   "黎汝婧",
   "李爽夕",
@@ -56,8 +58,8 @@ const expectedChineseNames = [
   "郑智心",
   "王祥丰",
 ];
-assert.equal(expectedCardCount, 20);
-assert.equal(expectedLinkedCount, 15);
+assert.equal(expectedCardCount, 21);
+assert.equal(expectedLinkedCount, 16);
 assert.equal(expectedStaticCount, 5);
 assert.deepEqual(
   contributors.map((contributor) => contributor.name_en),

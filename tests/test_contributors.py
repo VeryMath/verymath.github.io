@@ -13,6 +13,7 @@ EXPECTED_CONTRIBUTORS = [
     ("Dong Yuan", "袁东", "member", "dyuan311"),
     ("Yaling Chen", "陈亚玲", "member", "Chenyaling1234"),
     ("Miao Dong", "董淼", "member", None),
+    ("Yun Hua", "华贇", "member", "hyyh28"),
     ("Boxian Jiang", "蒋博先", "member", "Joseph20060208"),
     ("Rujing Li", "黎汝婧", "member", "pear-eater"),
     ("Shuangxi Li", "李爽夕", "member", "ricercar77"),
@@ -153,9 +154,9 @@ class ContributorRegistryTests(unittest.TestCase):
         self.assertEqual(actual, EXPECTED_CONTRIBUTORS)
 
     def test_records_have_complete_bilingual_schema_and_sources(self):
-        self.assertEqual(len(self.records), 20)
-        self.assertEqual(len({record.get("name_en") for record in self.records}), 20)
-        self.assertEqual(len({record.get("name_zh") for record in self.records}), 20)
+        self.assertEqual(len(self.records), 21)
+        self.assertEqual(len({record.get("name_en") for record in self.records}), 21)
+        self.assertEqual(len({record.get("name_zh") for record in self.records}), 21)
         for record in self.records:
             with self.subTest(name=record.get("name_en") or record.get("name")):
                 self.assertEqual(
@@ -210,7 +211,7 @@ class ContributorRegistryTests(unittest.TestCase):
             if record["github"]
         }
         self.assertEqual(linked, EXPECTED_GITHUB)
-        self.assertEqual(len(linked), 15)
+        self.assertEqual(len(linked), 16)
         self.assertEqual(len(linked.values()), len({value.lower() for value in linked.values()}))
         for github in linked.values():
             self.assertRegex(github, re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$"))
@@ -254,7 +255,7 @@ class ContributorHomepageTests(unittest.TestCase):
         self.assertEqual(chinese.text(), "贡献者")
 
     def test_every_registry_entry_renders_once_without_ranking(self):
-        self.assertEqual(len(self.cards), 20)
+        self.assertEqual(len(self.cards), 21)
         self.assertEqual(
             [localized_text(card, "vm-contributor-name", "en") for card in self.cards],
             EXPECTED_NAMES,
