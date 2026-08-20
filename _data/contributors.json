@@ -46,6 +46,15 @@
     "evidence": ["https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/CONTRIBUTORS.md"]
   },
   {
+    "name_en": "Yun Hua",
+    "name_zh": "华贇",
+    "github": "hyyh28",
+    "initial_en": "YH",
+    "initial_zh": "华",
+    "role": "member",
+    "evidence": ["https://github.com/VeryMath/verymath.github.io/commits/main/?author=hyyh28"]
+  },
+  {
     "name_en": "Boxian Jiang",
     "name_zh": "蒋博先",
     "github": "Joseph20060208",
