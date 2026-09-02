@@ -873,6 +873,36 @@ title: VeryMath
     <div class="vm-announcement">
       <article class="vm-announcement-main">
         <div class="vm-announcement-date">
+          <span>2026.09</span>
+          <strong><span class="lang-en">Skill Integration</span><span class="lang-zh">Skill 接入</span></strong>
+        </div>
+        <div>
+          <p class="vm-announcement-kicker">EMNLP 2026 Findings · OptSkills × VeryMath</p>
+          <h3 class="vm-announcement-title">
+            <span class="lang-en">OptSkills is now part of AI4Math-Optimization, with 103 optimization problem archetypes.</span>
+            <span class="lang-zh">OptSkills 现已加入 AI4Math-Optimization，内含 103 个优化问题原型。</span>
+          </h3>
+          <p class="vm-announcement-text">
+            <span class="lang-en">Describe an optimization problem in natural language. The Agent matches relevant problem archetypes, extracts the decision variables, objective, and constraints, selects a solver available in the current environment, and checks the solve status, objective value, and key constraints after solving.</span>
+            <span class="lang-zh">用自然语言描述优化问题，Agent 会匹配相关问题原型，提取决策变量、目标函数和约束条件，选择当前环境中可用的求解器，并在求解后检查求解状态、目标值和关键约束。</span>
+          </p>
+          <div class="vm-announcement-scope">
+            <strong><span class="lang-en">Problem coverage</span><span class="lang-zh">覆盖方向</span></strong>
+            <span>
+              <span class="lang-en">Assignment, network flow, routing, production scheduling, bin packing, set cover, and graph optimization.</span>
+              <span class="lang-zh">指派、网络流、路径规划、生产调度、装箱、集合覆盖与图优化。</span>
+            </span>
+          </div>
+        </div>
+      </article>
+      <div class="vm-announcement-links">
+        <a href="https://github.com/VeryMath/AI4Math-Optimization/tree/main/skills/optskills"><span class="lang-en">OptSkills</span><span class="lang-zh">OptSkills</span></a>
+        <a href="https://arxiv.org/pdf/2605.29829"><span class="lang-en">Paper</span><span class="lang-zh">论文</span></a>
+      </div>
+    </div>
+    <div class="vm-announcement">
+      <article class="vm-announcement-main">
+        <div class="vm-announcement-date">
           <span>2026.08</span>
           <strong><span class="lang-en">Skill Support</span><span class="lang-zh">技能支持</span></strong>
         </div>
@@ -1149,17 +1179,17 @@ title: VeryMath
           <a class="vm-button" href="https://github.com/VeryMath/AI4Math-Optimization"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
         </div>
         <p>
-          <span class="lang-en">Skill packages for mathematical optimization modeling, solver setup, LP/MIP/SOCP workflows, and manifold-constrained optimization.</span>
-          <span class="lang-zh">面向数学优化建模、求解器配置、LP/MIP/SOCP 工作流和流形约束优化的技能包。</span>
+          <span class="lang-en">Skill packages for optimization problem archetype matching, mathematical modeling, solver setup, LP/MIP/SOCP workflows, and manifold-constrained optimization.</span>
+          <span class="lang-zh">面向优化问题原型匹配、数学建模、求解器配置、LP/MIP/SOCP 工作流和流形约束优化的技能包。</span>
         </p>
         <div class="vm-meta">
           <span class="vm-pill"><span class="lang-en">Optimization</span><span class="lang-zh">优化</span></span>
-          <span class="vm-pill"><span class="lang-en">6 skills</span><span class="lang-zh">6 个技能</span></span>
+          <span class="vm-pill"><span class="lang-en">8 skills</span><span class="lang-zh">8 个技能</span></span>
           <span class="vm-pill">MIT License</span>
         </div>
         <p>
-          <span class="lang-en">Best for: modeling mathematical programs, selecting solvers, adapting examples, and reporting evidence from optimization runs.</span>
-          <span class="lang-zh">适合：建立数学规划模型、选择求解器、改写示例，以及汇报优化运行证据。</span>
+          <span class="lang-en">Best for: matching problem archetypes, modeling mathematical programs, selecting solvers, adapting examples, and checking optimization results.</span>
+          <span class="lang-zh">适合：匹配问题原型、建立数学规划模型、选择求解器、改写示例，以及检查优化结果。</span>
         </p>
       </div>
 
