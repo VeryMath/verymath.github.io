@@ -4,8 +4,19 @@ import unittest
 from test_contributors import DOMParser, ROOT, descendants, find_one
 
 
-EXPECTED_AUGUST_UPDATES = [
+EXPECTED_NEWEST_UPDATES = [
     {
+        "date": "2026.09",
+        "kicker": "EMNLP 2026 Findings · OptSkills × VeryMath",
+        "category_en": "Skill Integration",
+        "category_zh": "Skill 接入",
+        "links": {
+            "https://github.com/VeryMath/AI4Math-Optimization/tree/main/skills/optskills",
+            "https://arxiv.org/pdf/2605.29829",
+        },
+    },
+    {
+        "date": "2026.08",
         "kicker": "DeepSeek Harness × VeryMath",
         "category_en": "Skill Support",
         "category_zh": "技能支持",
@@ -15,6 +26,7 @@ EXPECTED_AUGUST_UPDATES = [
         },
     },
     {
+        "date": "2026.08",
         "kicker": "Danus × OpenCode × DeepSeek Harness",
         "category_en": "Runtime Support",
         "category_zh": "运行支持",
@@ -24,6 +36,7 @@ EXPECTED_AUGUST_UPDATES = [
         },
     },
     {
+        "date": "2026.08",
         "kicker": "Rethlas & Archon × OpenCode",
         "category_en": "Platform Adaptation",
         "category_zh": "平台适配",
@@ -69,12 +82,12 @@ class HomepageUpdateTests(unittest.TestCase):
         self.assertEqual(star_count.text(), "—")
         self.assertEqual(star_count.attrs.get("aria-label"), "Star count loading")
 
-    def test_august_updates_are_separate_and_newest_first(self):
+    def test_updates_are_separate_and_newest_first(self):
         self.assertEqual(self.render_result.returncode, 0, self.render_result.stderr)
-        self.assertGreaterEqual(len(self.announcements), 5)
+        self.assertGreaterEqual(len(self.announcements), 6)
 
         for announcement, expected in zip(
-            self.announcements[:3], EXPECTED_AUGUST_UPDATES
+            self.announcements[:4], EXPECTED_NEWEST_UPDATES
         ):
             with self.subTest(kicker=expected["kicker"]):
                 date = find_one(
@@ -102,7 +115,7 @@ class HomepageUpdateTests(unittest.TestCase):
                     if node.tag == "a" and "href" in node.attrs
                 }
 
-                self.assertIn("2026.08", date.text())
+                self.assertIn(expected["date"], date.text())
                 self.assertEqual(category_en.text(), expected["category_en"])
                 self.assertEqual(category_zh.text(), expected["category_zh"])
                 self.assertEqual(kicker.text(), expected["kicker"])
@@ -115,6 +128,61 @@ class HomepageUpdateTests(unittest.TestCase):
                     1,
                 )
                 self.assertTrue(expected["links"].issubset(links))
+
+    def test_optskills_copy_names_the_paper_source_without_validation_claims(self):
+        optskills = self.announcements[0]
+        text = optskills.text()
+        kicker = find_one(
+            optskills,
+            lambda node: "vm-announcement-kicker" in node.classes,
+        )
+
+        self.assertTrue(kicker.text().startswith("EMNLP 2026 Findings"))
+        self.assertNotIn("arXiv", kicker.text())
+        self.assertIn("EMNLP 2026 Findings", text)
+        self.assertIn(
+            "OptSkills 现已加入 AI4Math-Optimization，内含 103 个优化问题原型。",
+            text,
+        )
+        self.assertNotIn("Representative checks", text)
+        self.assertNotIn("代表性验证", text)
+
+    def test_optskills_footer_has_only_skill_and_paper_links(self):
+        optskills = self.announcements[0]
+        skill_link = find_one(
+            optskills,
+            lambda node: node.tag == "a"
+            and node.attrs.get("href")
+            == "https://github.com/VeryMath/AI4Math-Optimization/tree/main/skills/optskills",
+        )
+        links = {
+            node.attrs["href"]
+            for node in descendants(optskills)
+            if node.tag == "a" and "href" in node.attrs
+        }
+
+        self.assertEqual(links, EXPECTED_NEWEST_UPDATES[0]["links"])
+        self.assertEqual(
+            find_one(skill_link, lambda node: "lang-en" in node.classes).text(),
+            "OptSkills",
+        )
+        self.assertEqual(
+            find_one(skill_link, lambda node: "lang-zh" in node.classes).text(),
+            "OptSkills",
+        )
+
+    def test_optimization_repository_count_includes_optskills(self):
+        optimization_card = find_one(
+            self.document,
+            lambda node: "vm-project" in node.classes
+            and any(
+                child.tag == "h3" and child.text() == "AI4Math-Optimization"
+                for child in descendants(node)
+            ),
+        )
+
+        self.assertIn("8 skills", optimization_card.text())
+        self.assertIn("8 个技能", optimization_card.text())
 
 
 if __name__ == "__main__":
