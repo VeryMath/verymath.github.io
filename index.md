@@ -601,6 +601,12 @@ title: VeryMath
     font-weight: 750;
   }
 
+  .vm-update-repository li a span {
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
   .vm-announcement-scope .vm-update-contributor {
     color: var(--vm-muted);
     font-size: 13px;
@@ -1004,12 +1010,12 @@ title: VeryMath
         <div>
           <p class="vm-announcement-kicker">AI-Enabled Research Practice (Mathematics) · Summer 2026</p>
           <h3 class="vm-announcement-title">
-            <span class="lang-en">Seven student-built research tools are now available in VeryMath.</span>
-            <span class="lang-zh">暑期课程设计的 7 个科研工具已纳入 VeryMath。</span>
+            <span class="lang-en">Seven student research contributions are now part of VeryMath.</span>
+            <span class="lang-zh">暑期课程的 7 项科研成果已纳入 VeryMath。</span>
           </h3>
           <p class="vm-announcement-text">
-            <span class="lang-en">Students designed reusable tools for mathematical terminology, paper reading, research communication, and open-problem workflows. Each tool is maintained in the existing repository that best matches its function.</span>
-            <span class="lang-zh">同学们围绕数学术语、论文阅读、科研表达与开放问题研究设计了可复用工具，现已按功能归入最合适的 VeryMath 现有仓库。</span>
+            <span class="lang-en">Students contributed tools and reference materials for mathematical terminology, paper reading, research communication, and open-problem workflows. Each contribution is maintained in the existing repository that best matches its function.</span>
+            <span class="lang-zh">同学们围绕数学术语、论文阅读、科研表达与开放问题研究贡献了工具和参考资料，现已按功能归入最合适的 VeryMath 现有仓库。</span>
           </p>
           <div class="vm-announcement-scope">
             <strong><span class="lang-en">Course contributions</span><span class="lang-zh">课程成果</span></strong>
@@ -1053,7 +1059,7 @@ title: VeryMath
                     <span class="vm-update-contributor">Xiaowen Zhang</span>
                   </li>
                   <li>
-                    <a href="https://github.com/VeryMath/AI4Math-Auto-Research/tree/main/skills/extremal-graph-problem-suggester">extremal-graph-problem-suggester</a>
+                    <a href="https://github.com/VeryMath/AI4Math-Auto-Research/blob/main/skills/discover-math-problems/references/extremal-graph-variants.md"><span class="lang-en">Extremal graph problem variants</span><span class="lang-zh">极值图论问题变体清单</span></a>
                     <span class="vm-update-contributor">Miao Dong</span>
                   </li>
                   <li>
@@ -1264,7 +1270,7 @@ title: VeryMath
         </p>
         <div class="vm-meta">
           <span class="vm-pill"><span class="lang-en">Auto Research</span><span class="lang-zh">自动研究</span></span>
-          <span class="vm-pill"><span class="lang-en">7 skills</span><span class="lang-zh">7 个技能</span></span>
+          <span class="vm-pill"><span class="lang-en">9 skills</span><span class="lang-zh">9 个技能</span></span>
           <span class="vm-pill">MIT License</span>
         </div>
         <p>
