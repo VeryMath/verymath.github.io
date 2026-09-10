@@ -1199,12 +1199,12 @@ title: VeryMath
           <a class="vm-button" href="https://github.com/VeryMath/AI4Math-Computational-Mathematics"><span class="lang-en">Open Repo</span><span class="lang-zh">打开仓库</span></a>
         </div>
         <p>
-          <span class="lang-en">Computational workflows for numerical evidence, symbolic structure, finite element reasoning, and mathematical invariant computation.</span>
-          <span class="lang-zh">面向数值证据、符号结构、有限元推理和数学不变量计算的计算工作流。</span>
+          <span class="lang-en">Computational workflows for numerical evidence, symbolic structure, and mathematical invariant computation.</span>
+          <span class="lang-zh">面向数值证据、符号结构和数学不变量计算的计算工作流。</span>
         </p>
         <div class="vm-meta">
           <span class="vm-pill"><span class="lang-en">Computational Math</span><span class="lang-zh">计算数学</span></span>
-          <span class="vm-pill"><span class="lang-en">4 skills</span><span class="lang-zh">4 个技能</span></span>
+          <span class="vm-pill"><span class="lang-en">3 skills</span><span class="lang-zh">3 个技能</span></span>
           <span class="vm-pill">MIT License</span>
         </div>
         <p>
