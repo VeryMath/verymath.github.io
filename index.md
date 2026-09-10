@@ -1184,7 +1184,7 @@ title: VeryMath
         </p>
         <div class="vm-meta">
           <span class="vm-pill"><span class="lang-en">Optimization</span><span class="lang-zh">优化</span></span>
-          <span class="vm-pill"><span class="lang-en">8 skills</span><span class="lang-zh">8 个技能</span></span>
+          <span class="vm-pill"><span class="lang-en">6 skills</span><span class="lang-zh">6 个技能</span></span>
           <span class="vm-pill">MIT License</span>
         </div>
         <p>

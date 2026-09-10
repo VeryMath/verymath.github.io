@@ -181,8 +181,8 @@ class HomepageUpdateTests(unittest.TestCase):
             ),
         )
 
-        self.assertIn("8 skills", optimization_card.text())
-        self.assertIn("8 个技能", optimization_card.text())
+        self.assertIn("6 skills", optimization_card.text())
+        self.assertIn("6 个技能", optimization_card.text())
 
 
 if __name__ == "__main__":
