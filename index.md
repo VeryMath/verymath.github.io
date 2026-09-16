@@ -881,6 +881,36 @@ title: VeryMath
       <article class="vm-announcement-main">
         <div class="vm-announcement-date">
           <span>2026.09</span>
+          <strong><span class="lang-en">Documentation</span><span class="lang-zh">文档</span></strong>
+        </div>
+        <div>
+          <p class="vm-announcement-kicker">VeryMath Handbook</p>
+          <h3 class="vm-announcement-title">
+            <span class="lang-en">The bilingual handbook for VeryMath tool installation and usage is now online.</span>
+            <span class="lang-zh">VeryMath 工具安装与使用方法 · 中英文手册正式上线。</span>
+          </h3>
+          <p class="vm-announcement-text">
+            <span class="lang-en">Install Skills by talking to your coding agent, learn how standalone tools such as Textbook Copilot and Co-Mathematician work, and follow links to each repository’s detailed documentation.</span>
+            <span class="lang-zh">通过 Coding Agent 安装 Skill、了解智慧教材与 Co-Mathematician 等独立程序，并跳转各仓库详细文档。</span>
+          </p>
+          <div class="vm-announcement-scope">
+            <strong><span class="lang-en">What's inside</span><span class="lang-zh">包含内容</span></strong>
+            <span>
+              <span class="lang-en">VeryMath tool installation and usage, a general Skill-install template you can send to your agent, application overviews, and AI4Math repository navigation.</span>
+              <span class="lang-zh">VeryMath 工具安装与使用方法、可发给 Agent 的 Skill 安装通用模板、应用程序简介，以及 AI4Math 系列仓库导航。</span>
+            </span>
+          </div>
+        </div>
+      </article>
+      <div class="vm-announcement-links">
+        <a href="/handbook/HANDBOOK.zh-CN.html"><span class="lang-en">Handbook (中文)</span><span class="lang-zh">使用手册（中文）</span></a>
+        <a href="/handbook/HANDBOOK.html"><span class="lang-en">Handbook (English)</span><span class="lang-zh">Handbook (English)</span></a>
+      </div>
+    </div>
+    <div class="vm-announcement">
+      <article class="vm-announcement-main">
+        <div class="vm-announcement-date">
+          <span>2026.09</span>
           <strong><span class="lang-en">Skill Integration</span><span class="lang-zh">Skill 接入</span></strong>
         </div>
         <div>
