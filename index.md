@@ -134,8 +134,9 @@ title: VeryMath
     height: 58px;
     flex: 0 0 58px;
     border-radius: 14px;
-    object-fit: cover;
-    box-shadow: 0 10px 24px rgba(176, 24, 47, 0.16);
+    object-fit: contain;
+    background: #ffffff;
+    box-shadow: 0 10px 24px rgba(47, 140, 214, 0.22);
   }
 
   .vm-hero-visual {
@@ -847,7 +848,7 @@ title: VeryMath
 
     <div class="vm-hero-copy">
       <div class="vm-brand">
-        <img class="vm-logo" src="/assets/img/VeryMathlogo.jpeg" alt="VeryMath logo">
+        <img class="vm-logo" src="/assets/img/VeryMathlogo.png" alt="VeryMath logo">
         <h1 class="vm-title">VeryMath</h1>
         <a class="vm-star-control" href="https://github.com/VeryMath/verymath.github.io" target="_blank" rel="noopener noreferrer" aria-label="Star VeryMath on GitHub">
           <span class="vm-star-segment vm-star-github" aria-hidden="true">
