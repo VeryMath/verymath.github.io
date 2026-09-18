@@ -7,6 +7,16 @@ from test_contributors import DOMParser, ROOT, descendants, find_one
 EXPECTED_NEWEST_UPDATES = [
     {
         "date": "2026.09",
+        "kicker": "VeryMath Textbook Copilot",
+        "category_en": "Desktop App",
+        "category_zh": "桌面应用",
+        "links": {
+            "https://github.com/VeryMath/VeryMath-textbook-copilot/releases",
+            "https://github.com/VeryMath/VeryMath-textbook-copilot",
+        },
+    },
+    {
+        "date": "2026.09",
         "kicker": "VeryMath Handbook",
         "category_en": "Documentation",
         "category_zh": "文档",
@@ -97,7 +107,7 @@ class HomepageUpdateTests(unittest.TestCase):
         self.assertGreaterEqual(len(self.announcements), 6)
 
         for announcement, expected in zip(
-            self.announcements[:5], EXPECTED_NEWEST_UPDATES
+            self.announcements[:6], EXPECTED_NEWEST_UPDATES
         ):
             with self.subTest(kicker=expected["kicker"]):
                 date = find_one(
@@ -140,7 +150,7 @@ class HomepageUpdateTests(unittest.TestCase):
                 self.assertTrue(expected["links"].issubset(links))
 
     def test_optskills_copy_names_the_paper_source_without_validation_claims(self):
-        optskills = self.announcements[1]
+        optskills = self.announcements[2]
         text = optskills.text()
         kicker = find_one(
             optskills,
@@ -158,7 +168,7 @@ class HomepageUpdateTests(unittest.TestCase):
         self.assertNotIn("代表性验证", text)
 
     def test_optskills_footer_has_only_skill_and_paper_links(self):
-        optskills = self.announcements[1]
+        optskills = self.announcements[2]
         skill_link = find_one(
             optskills,
             lambda node: node.tag == "a"
@@ -171,7 +181,7 @@ class HomepageUpdateTests(unittest.TestCase):
             if node.tag == "a" and "href" in node.attrs
         }
 
-        self.assertEqual(links, EXPECTED_NEWEST_UPDATES[1]["links"])
+        self.assertEqual(links, EXPECTED_NEWEST_UPDATES[2]["links"])
         self.assertEqual(
             find_one(skill_link, lambda node: "lang-en" in node.classes).text(),
             "OptSkills",

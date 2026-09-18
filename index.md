@@ -881,6 +881,36 @@ title: VeryMath
       <article class="vm-announcement-main">
         <div class="vm-announcement-date">
           <span>2026.09</span>
+          <strong><span class="lang-en">Desktop App</span><span class="lang-zh">桌面应用</span></strong>
+        </div>
+        <div>
+          <p class="vm-announcement-kicker">VeryMath Textbook Copilot</p>
+          <h3 class="vm-announcement-title">
+            <span class="lang-en">The VeryMath Textbook Copilot desktop app is now available.</span>
+            <span class="lang-zh">VeryMath 智慧教材桌面 App 已上线。</span>
+          </h3>
+          <p class="vm-announcement-text">
+            <span class="lang-en">A desktop app is now available on Windows and macOS. Download it, install it, and start using it right away.</span>
+            <span class="lang-zh">现已在 Windows 与 macOS 上推出桌面 App，下载安装，轻松使用。</span>
+          </p>
+          <div class="vm-announcement-scope">
+            <strong><span class="lang-en">What you can do</span><span class="lang-zh">能做什么</span></strong>
+            <span>
+              <span class="lang-en">Parse textbooks, explain chapters, generate quizzes, mind maps, knowledge graphs, and LaTeX slides. One API key unlocks every feature.</span>
+              <span class="lang-zh">教材解析、章节讲解、出题、思维导图、知识图谱和 LaTeX 课件。一个 API Key 即可使用全部功能。</span>
+            </span>
+          </div>
+        </div>
+      </article>
+      <div class="vm-announcement-links">
+        <a href="https://github.com/VeryMath/VeryMath-textbook-copilot/releases"><span class="lang-en">Download</span><span class="lang-zh">下载安装包</span></a>
+        <a href="https://github.com/VeryMath/VeryMath-textbook-copilot"><span class="lang-en">Repository</span><span class="lang-zh">仓库</span></a>
+      </div>
+    </div>
+    <div class="vm-announcement">
+      <article class="vm-announcement-main">
+        <div class="vm-announcement-date">
+          <span>2026.09</span>
           <strong><span class="lang-en">Documentation</span><span class="lang-zh">文档</span></strong>
         </div>
         <div>
