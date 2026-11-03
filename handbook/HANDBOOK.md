@@ -107,7 +107,7 @@ but keep the cloned repository.
 
 ### VeryMath Textbook Copilot
 
-A self-hosted course workspace. Read your textbook PDF on the left, talk to the Copilot on the right. Import your own textbook, connect a coding agent, and you can ask about any chapter, get explanations, generate exercises, mind maps, knowledge graphs, and LaTeX slides. All data stays on your own machine (`~/.course-copilot/` by default) and runs under your own agent account.
+A self-hosted course workspace. Read your textbook PDF on the left, talk to the Copilot on the right. Import your own textbook and configure an LLM API, then ask the built-in agent about chapters, request explanations, and generate exercises, mind maps, knowledge graphs, and LaTeX slides. Textbooks and course records are stored on your own machine (`~/.course-copilot/` by default). When you use a remote model service, the textbook excerpts, images, and conversation context needed for the current task are sent to the selected service using your own account.
 
 **Core features**
 
@@ -119,7 +119,7 @@ A self-hosted course workspace. Read your textbook PDF on the left, talk to the 
 - Free-form Q&A: no fixed template, organized around whatever you ask
 - Supporting materials: attach handouts, solutions, and references per textbook, with full-text search and OCR for scans
 
-**Requirements:** Node.js ≥ 22.13. Slide generation needs XeLaTeX, Beamer, ctex, and CJK fonts. OCR needs Tesseract (plus `chi_sim`/`chi_tra` for Chinese) and Poppler. On Windows, install everything inside WSL2.
+**Requirements:** Desktop installers for macOS (Apple Silicon) and Windows include the application runtime. Source deployment needs Node.js ≥ 22.13. Slide generation needs XeLaTeX, Beamer, ctex, and CJK fonts. OCR needs Tesseract (plus `chi_sim`/`chi_tra` for Chinese) and Poppler.
 
 **Installation** is again a single message to your agent:
 
@@ -127,16 +127,16 @@ A self-hosted course workspace. Read your textbook PDF on the left, talk to the 
 Pull https://github.com/VeryMath/VeryMath-textbook-copilot and follow
 skills/verymath-install/SKILL.md to deploy VeryMath Textbook Copilot on this machine:
 check and install the required dependencies, configure the built-in course Skills,
-connect my existing agent, start the workspace, and give me the URL.
+start the workspace, and give me the URL.
 ```
 
-The agent installs dependencies, configures the built-in course Skills, connects your agent, starts the service, and returns the address (production defaults to `http://127.0.0.1:4173`, bound to localhost only). In the browser, click "Import textbook" to select a PDF, then connect your agent under workspace settings.
+The coding agent installs dependencies, configures the built-in course Skills, starts the service, and returns the address (production defaults to `http://127.0.0.1:4173`, bound to localhost only). In the browser, click "Import textbook" to select a PDF, then choose a model service Provider, enter your API key, and select a model under workspace settings.
 
 The bundled course Skills are `textbook-parse`, `explain`, `quiz`, `mindmap`, `knowledge-graph`, and `textbook-to-ppt`, plus `verymath-install` which performs the deployment.
 
-Supported agents: Codex, Claude Code, OpenCode, Cursor, Gemini CLI, Copilot CLI, Qwen Code, Kimi Code, Kiro CLI. Pick one.
+The built-in agent calls the configured LLM API. Supported services include Anthropic, OpenAI, Google, DeepSeek, and custom OpenAI-compatible endpoints; the current list appears in workspace settings. For a custom endpoint, enter its Base URL and model name as well as the API key.
 
-Current releases: v0.1.0 (macOS preview), v0.1.1 (Windows preview).
+Desktop downloads for macOS (Apple Silicon) and Windows are available on the [Releases page](https://github.com/VeryMath/VeryMath-textbook-copilot/releases).
 
 Full documentation → [VeryMath-textbook-copilot](https://github.com/VeryMath/VeryMath-textbook-copilot) ｜ [User guide](https://github.com/VeryMath/VeryMath-textbook-copilot/blob/main/docs/user-guide.md) ｜ [Architecture](https://github.com/VeryMath/VeryMath-textbook-copilot/blob/main/docs/architecture.md) ｜ [Skill development](https://github.com/VeryMath/VeryMath-textbook-copilot/blob/main/docs/skill-development.md)
 

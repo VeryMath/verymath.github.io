@@ -106,7 +106,7 @@ Skill 路径：skills/math-paper-reading
 
 ### VeryMath 智慧教材
 
-个人部署的课程学习工作台。左边读教材 PDF，右边跟 Copilot 对话。导入自己的教材，连上一个 Coding Agent，就能针对任意章节提问、讲解、出题，并生成思维导图、知识图谱和 LaTeX 课件。所有数据留在你自己的电脑上（默认 `~/.course-copilot/`），用你自己的 Agent 账号。
+个人部署的课程学习工作台。左边读教材 PDF，右边跟 Copilot 对话。导入自己的教材，为内置 Agent 配置 LLM API，就能针对任意章节提问、讲解、出题，并生成思维导图、知识图谱和 LaTeX 课件。教材与课程记录保存在本机（默认 `~/.course-copilot/`）；使用远程模型服务时，本轮所需的教材片段、图片和对话上下文会通过你自己的账号发送到所选服务。
 
 **核心功能**
 
@@ -118,23 +118,23 @@ Skill 路径：skills/math-paper-reading
 - 自由问答：不带固定模板，按你的提问组织讲解和资料
 - 辅助资料：每本教材可挂讲义、习题解答、参考文献，支持全文搜索和扫描件 OCR
 
-**环境要求**：Node.js ≥ 22.13；生成课件需要本机有 XeLaTeX、Beamer、ctex 和中文字体；OCR 需要 Tesseract（中文还需 `chi_sim`/`chi_tra` 语言包）和 Poppler。Windows 建议整套装在 WSL2 里。
+**环境要求**：macOS（Apple Silicon）和 Windows 桌面安装包自带应用运行环境；源码部署需要 Node.js ≥ 22.13。生成课件需要本机有 XeLaTeX、Beamer、ctex 和中文字体；OCR 需要 Tesseract（中文还需 `chi_sim`/`chi_tra` 语言包）和 Poppler。
 
 **安装**：同样是一句话交给 agent——
 
 ```text
 拉取 https://github.com/VeryMath/VeryMath-textbook-copilot，
 按仓库里的 skills/verymath-install/SKILL.md 完成 VeryMath 智慧教材的本机部署：
-检查并安装必要依赖，配置内置课程 Skill，连接我现有的 Agent，启动工作台并给我访问地址。
+检查并安装必要依赖，配置内置课程 Skill，启动工作台并给我访问地址。
 ```
 
-Agent 会装依赖、配好内置课程 Skill、连上 Agent 并启动服务，最后返回访问地址（正式运行默认 `http://127.0.0.1:4173`，只监听本机）。打开页面后点「导入教材」选 PDF，再到「工作区设置」连接 Agent 即可。
+Coding Agent 会安装依赖、配置内置课程 Skill、启动服务，最后返回访问地址（正式运行默认 `http://127.0.0.1:4173`，只监听本机）。打开页面后点击「导入教材」选择 PDF，再到「工作区设置」选择模型服务 Provider、填写 API Key 并选择模型。
 
 内置的课程 Skill 有 `textbook-parse`、`explain`、`quiz`、`mindmap`、`knowledge-graph`、`textbook-to-ppt`，加上负责部署的 `verymath-install`。
 
-支持的 Agent：Codex、Claude Code、OpenCode、Cursor、Gemini CLI、Copilot CLI、Qwen Code、Kimi Code、Kiro CLI，选一种就行。
+内置 Agent 调用你配置的 LLM API，支持 Anthropic、OpenAI、Google、DeepSeek 以及自定义 OpenAI 兼容接口，当前列表见「工作区设置」。自定义接口除 API Key 外，还需填写 Base URL 和模型名称。
 
-当前版本：v0.1.0（macOS 预览版）、v0.1.1（Windows 预览版）。
+macOS（Apple Silicon）与 Windows 桌面安装包见 [Releases 页面](https://github.com/VeryMath/VeryMath-textbook-copilot/releases)。
 
 详细文档 → [VeryMath-textbook-copilot](https://github.com/VeryMath/VeryMath-textbook-copilot) ｜ [用户手册](https://github.com/VeryMath/VeryMath-textbook-copilot/blob/main/docs/user-guide.md) ｜ [架构参考](https://github.com/VeryMath/VeryMath-textbook-copilot/blob/main/docs/architecture.md) ｜ [Skill 开发](https://github.com/VeryMath/VeryMath-textbook-copilot/blob/main/docs/skill-development.md)
 
