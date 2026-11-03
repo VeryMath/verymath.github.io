@@ -896,8 +896,8 @@ title: VeryMath
           <div class="vm-announcement-scope">
             <strong><span class="lang-en">What you can do</span><span class="lang-zh">能做什么</span></strong>
             <span>
-              <span class="lang-en">Parse textbooks, explain chapters, generate quizzes, mind maps, knowledge graphs, and LaTeX slides. One API key unlocks every feature.</span>
-              <span class="lang-zh">教材解析、章节讲解、出题、思维导图、知识图谱和 LaTeX 课件。一个 API Key 即可使用全部功能。</span>
+              <span class="lang-en">Use the built-in agent and your LLM API to parse textbooks, explain chapters, and generate quizzes, mind maps, knowledge graphs, and LaTeX slides. Slides require XeLaTeX; OCR requires Tesseract, language data, and Poppler.</span>
+              <span class="lang-zh">通过内置 Agent 和你配置的 LLM API 完成教材解析、章节讲解、出题、思维导图、知识图谱和 LaTeX 课件。课件需要 XeLaTeX；OCR 需要 Tesseract、语言包和 Poppler。</span>
             </span>
           </div>
         </div>
