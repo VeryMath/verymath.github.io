@@ -6,6 +6,16 @@ from test_contributors import DOMParser, ROOT, descendants, find_one
 
 EXPECTED_NEWEST_UPDATES = [
     {
+        "date": "2026.11",
+        "kicker": "VeryMath × WorkBuddy",
+        "category_en": "Expert Integration",
+        "category_zh": "专家接入",
+        "links": {
+            "https://www.workbuddy.cn/",
+            "https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Expert-Center",
+        },
+    },
+    {
         "date": "2026.09",
         "kicker": "VeryMath Textbook Copilot",
         "category_en": "Desktop App",
@@ -104,10 +114,10 @@ class HomepageUpdateTests(unittest.TestCase):
 
     def test_updates_are_separate_and_newest_first(self):
         self.assertEqual(self.render_result.returncode, 0, self.render_result.stderr)
-        self.assertGreaterEqual(len(self.announcements), 6)
+        self.assertGreaterEqual(len(self.announcements), len(EXPECTED_NEWEST_UPDATES))
 
         for announcement, expected in zip(
-            self.announcements[:6], EXPECTED_NEWEST_UPDATES
+            self.announcements[:len(EXPECTED_NEWEST_UPDATES)], EXPECTED_NEWEST_UPDATES
         ):
             with self.subTest(kicker=expected["kicker"]):
                 date = find_one(
@@ -150,7 +160,7 @@ class HomepageUpdateTests(unittest.TestCase):
                 self.assertTrue(expected["links"].issubset(links))
 
     def test_optskills_copy_names_the_paper_source_without_validation_claims(self):
-        optskills = self.announcements[2]
+        optskills = self.announcements[3]
         text = optskills.text()
         kicker = find_one(
             optskills,
@@ -168,7 +178,7 @@ class HomepageUpdateTests(unittest.TestCase):
         self.assertNotIn("代表性验证", text)
 
     def test_optskills_footer_has_only_skill_and_paper_links(self):
-        optskills = self.announcements[2]
+        optskills = self.announcements[3]
         skill_link = find_one(
             optskills,
             lambda node: node.tag == "a"
@@ -181,7 +191,7 @@ class HomepageUpdateTests(unittest.TestCase):
             if node.tag == "a" and "href" in node.attrs
         }
 
-        self.assertEqual(links, EXPECTED_NEWEST_UPDATES[2]["links"])
+        self.assertEqual(links, EXPECTED_NEWEST_UPDATES[3]["links"])
         self.assertEqual(
             find_one(skill_link, lambda node: "lang-en" in node.classes).text(),
             "OptSkills",

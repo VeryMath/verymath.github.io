@@ -877,6 +877,36 @@ title: VeryMath
 
   <section class="vm-section" aria-labelledby="vm-news-title">
     <h2 id="vm-news-title"><span class="lang-en">Updates</span><span class="lang-zh">动态</span></h2>
+    <div class="vm-announcement" id="workbuddy-expert">
+      <article class="vm-announcement-main">
+        <div class="vm-announcement-date">
+          <span>2026.11</span>
+          <strong><span class="lang-en">Expert Integration</span><span class="lang-zh">专家接入</span></strong>
+        </div>
+        <div>
+          <p class="vm-announcement-kicker">VeryMath × WorkBuddy</p>
+          <h3 class="vm-announcement-title">
+            <span class="lang-en">The VeryMath mathematical research expert is now available in WorkBuddy.</span>
+            <span class="lang-zh">VeryMath 数学科研专家已上线 WorkBuddy。</span>
+          </h3>
+          <p class="vm-announcement-text">
+            <span class="lang-en">One expert combines 29 mathematical research skills and selects them as needed for paper reading, scientific computing, mathematical modeling, mathematical candidate evolution, Lean formalization, and research writing.</span>
+            <span class="lang-zh">一个专家整合 29 项数学科研技能，按任务使用论文阅读、科学计算、数学建模、数学候选演化、Lean 形式化和科研写作方法。</span>
+          </p>
+          <div class="vm-announcement-scope">
+            <strong><span class="lang-en">Get started</span><span class="lang-zh">开始使用</span></strong>
+            <span>
+              <span class="lang-en">In WorkBuddy's expert market, search for VeryMath or Mathematical Research Expert and summon the expert. Provide a paper, mathematical problem, data, or project materials to start.</span>
+              <span class="lang-zh">在 WorkBuddy 的专家市场搜索 VeryMath 或“数学科研专家”，点击“召唤专家”，提供论文、数学问题、数据或项目材料即可开始使用。</span>
+            </span>
+          </div>
+        </div>
+      </article>
+      <div class="vm-announcement-links">
+        <a href="https://www.workbuddy.cn/"><span class="lang-en">WorkBuddy</span><span class="lang-zh">WorkBuddy 官网</span></a>
+        <a href="https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Expert-Center"><span class="lang-en">Expert guide</span><span class="lang-zh">专家使用说明</span></a>
+      </div>
+    </div>
     <div class="vm-announcement">
       <article class="vm-announcement-main">
         <div class="vm-announcement-date">
